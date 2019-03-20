@@ -16,7 +16,7 @@ h2 {
 
 h3 {
     font-size: 1.0rem;
-    color: #D7D2D2;
+    color: #E0C39A;
 }
 
 .container {
@@ -39,10 +39,12 @@ h3 {
 
 .logo-block {
     height: 7%;
+    width: 100%
 }
 
 .vcard-block {
     height: 10%;
+    width: 100%;
 }
 
 
