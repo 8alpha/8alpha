@@ -5,14 +5,15 @@
 }
 
 /* TYPOGRAPHY */
-.text-gray-lightest { color: #f8fafc; }
+.text-grey-lightest { color: var(--grey-lightest); }
 
 .text-base { font-size: 1rem; }
-.text-xl { font-size: 1.25rem; }
+.text-lg { font-size: 1.25rem; }
 .text-2xl { font-size: 1.5rem; }
 .text-3xl { font-size: 1.875rem; }
 .text-4xl { font-size: 2.25rem; }
 .text-5xl { font-size: 3rem; }
+.text-6xl { font-size: 4rem; }
 
 .font-sans { font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI,
                           Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
@@ -31,43 +32,35 @@
 .flex-col { flex-direction: column; }
 .items-center { align-items: center; }
 .justify-center { justify-content: center; }
-.basis-3 { flex-basis: 3rem; }
-.basis-5 { flex-basis: 5rem; }
+.justify-between { justify-content: space-between; }
+.basis-4 { flex-basis: 1rem; }
+.basis-5 { flex-basis: 1.25rem; }
+.basis-8 { flex-basis: 2rem; }
+.basis-10 { flex-basis: 2.5rem; }
+.basis-12 { flex-basis: 3rem; }
+.basis-16 { flex-basis: 16rem; }
+.basis-20 { flex-basis: 20rem; }
+.basis-24 { flex-basis: 6rem; }
+.basis-32 { flex-basis: 8rem; }
 
 /* SPACING */
+.m-0 { margin: 0 0 0 0; }
+.p-12 { padding: 3rem; }
+.py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+.pt-4 { padding-top: 1rem; }
+.pt-5 { padding-top: 1.25rem; }
 .pt-8 { padding-top: 2rem; }
+.pt-24 { padding-top: 6rem; }
+.pt-32 { padding-top: 8rem; }
+.pb-5 { padding-bottom: 1.25rem; }
 
 /* SIZING */
 .h-full { height: 100%; }
-.w-1/2 { width: 50% }
-
-.logo {
-    font-size: 4rem;
-    flex-basis: 5rem;
-}
-
-.offices {
-    font-size: 2rem;
-    flex-basis: 3rem;
-}
-
-.container {
-    font-family: helvetica;
-    font-weight: 200;
-    color: #DDDDDD;
-    padding-top: 25%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 1.25rem;
-}
+.w-50p { width: 50%; }
