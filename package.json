@@ -1,0 +1,40 @@
+{
+  "name": "8alpha-partners",
+  "private": true,
+  "description": "8Alpha Partners Website",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "prettier-watch": "onchange '**/*.js' -- prettier --trailing-comma es5 --write {{changed}}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "dependencies": {
+    "gatsby": "^2.3.4",
+    "gatsby-plugin-postcss": "^2.0.7",
+    "gatsby-plugin-purgecss": "^3.1.1",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-helmet": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/8alpha/8alpha"
+  },
+  "bugs": {
+    "url": "https://github.com/8alpha/8alpha/issues"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "onchange": "^5.2.0",
+    "prettier": "1.16.4",
+    "tailwindcss": "^0.7.4"
+  }
+}

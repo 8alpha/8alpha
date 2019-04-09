@@ -1,0 +1,14 @@
+@tailwind preflight;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@tailwind screens;
+
+html, body {
+    font-size: 16px;
+    background: linear-gradient(#22292f, #f8fafc);
+    height: 100%;
+    margin: 0, auto;
+}
