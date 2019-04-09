@@ -1,16 +1,45 @@
 import React from "react";
 import Layout from "../components/layout";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  padding-top: 6rem;
+  color: #f8fafc;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+`;
+
+const Name = styled.div`
+  font-size: 3rem;
+`;
+
+const Locations = styled.div`
+  padding-top: 1.5rem;
+  font-size: 1.875rem;
+`;
+
+const ContactUs = styled.div`
+  width: 50%;
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
 const BusinessCard = () => (
   <Layout>
-    <div className="pt-24 font-sans text-grey-lightest flex flex-wrap flex-col items-center content-center">
-      <div className="text-5xl">8ALPHA</div>
-      <div className="text-3xl pt-7">Auckland | San Francisco | Tokyo</div>
-      <div className="w-1/2 pt-4 text-lg flex flex-wrap flex-row justify-between">
+    <Wrapper>
+      <Name>8ALPHA</Name>
+      <Locations>Auckland | San Francisco | Tokyo</Locations>
+      <ContactUs>
         <div>info @ alpha.com</div>
         <div>&copy; 2019 All Rights Reserved</div>
-      </div>
-    </div>
+      </ContactUs>
+    </Wrapper>
   </Layout>
 );
 
