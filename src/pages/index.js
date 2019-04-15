@@ -30,7 +30,7 @@ const ContactUs = styled.div`
   justify-content: space-between;
 `;
 
-const BusinessCard = () => (
+const Home = () => (
   <Layout>
     <Wrapper>
       <Name>8ALPHA</Name>
@@ -43,4 +43,4 @@ const BusinessCard = () => (
   </Layout>
 );
 
-export default BusinessCard;
+export default Home;

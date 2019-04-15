@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import { createGlobalStyle } from "styled-components";
 import favicon from "../images/favicon.png";
 
-/* import Header from "../components/header"; */
+import Header from "./header";
 
 const GlobalStyles = createGlobalStyle`
 html, body {
@@ -27,7 +27,7 @@ const Layout = ({ children }) => (
       ]}
       link={[{ rel: "shortcut icon", type: "image/png", href: `${favicon}` }]}
     />
-    {/* <Header /> */}
+    <Header />
     <div>{children}</div>
   </div>
 );
