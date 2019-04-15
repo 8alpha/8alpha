@@ -9,7 +9,7 @@ import Header from "./header";
 const GlobalStyles = createGlobalStyle`
 html, body {
     font-family: Helvetica Neue, sans-serif;
-    font-size: 16px;
+    font-size: 10px;
     background: linear-gradient(#22292f, #f8fafc);
     height: 100%;
     margin: auto;

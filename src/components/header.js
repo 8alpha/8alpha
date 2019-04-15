@@ -4,11 +4,11 @@ import styled from "styled-components";
 import Logo from "./logo";
 import Navbar from "./navbar";
 
-const Wrapper = styled.div`
+const Container = styled.div`
   padding-top: 1rem;
-  padding-left: 10rem;
-  padding-right: 10rem;
-  width: 100%;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -16,17 +16,10 @@ const Wrapper = styled.div`
 `;
 
 const Header = () => (
-  <Wrapper>
+  <Container>
     <Logo />
     <Navbar />
-  </Wrapper>
+  </Container>
 );
 
-/* const Header = () => {
- *   <Wrapper>
- *     <Logo />
- *     <Navbar />
- *   </Wrapper>;
- * };
- *  */
 export default Header;
