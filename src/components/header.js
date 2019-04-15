@@ -5,7 +5,7 @@ import Logo from "./logo";
 import Navbar from "./navbar";
 
 const Container = styled.div`
-  padding-top: 1rem;
+  padding-top: 1.2rem;
   margin-left: 10rem;
   margin-right: 10rem;
   width: 80%;
