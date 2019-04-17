@@ -1,23 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 import Logo from "./logo";
 import Navbar from "./navbar";
 
 const Container = styled.div`
   padding-top: 1.2rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 1.2rem;
 `;
 
 const Header = () => (
   <Container>
-    <Logo />
     <Navbar />
   </Container>
 );

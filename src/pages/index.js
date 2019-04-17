@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/layout";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Container = styled.div`
   padding-top: 6rem;
   color: #f8fafc;
   display: flex;
@@ -32,14 +32,14 @@ const ContactUs = styled.div`
 
 const Home = () => (
   <Layout>
-    <Wrapper>
+    <Container>
       <Name>8ALPHA</Name>
       <Locations>Auckland | San Francisco | Tokyo</Locations>
       <ContactUs>
         <div>info @ alpha.com</div>
         <div>&copy; 2019 All Rights Reserved</div>
       </ContactUs>
-    </Wrapper>
+    </Container>
   </Layout>
 );
 

@@ -5,6 +5,7 @@ import { createGlobalStyle } from "styled-components";
 import favicon from "../images/favicon.png";
 
 import Header from "./header";
+import Footer from "./footer";
 
 const GlobalStyles = createGlobalStyle`
 html, body {
@@ -12,6 +13,7 @@ html, body {
     font-size: 10px;
     background: linear-gradient(#22292f, #f8fafc);
     height: 100%;
+    width: 100%;
     margin: auto;
 }
 `;
@@ -29,6 +31,7 @@ const Layout = ({ children }) => (
     />
     <Header />
     <div>{children}</div>
+    <Footer />
   </div>
 );
 
