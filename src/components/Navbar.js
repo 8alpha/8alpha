@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 const Wrapper = styled.div`
+  width: 100%;
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -17,6 +18,10 @@ const Wrapper = styled.div`
     flex: 0 0 auto;
     font-size: 2rem;
     padding-left: 2rem;
+  }
+
+  li:nth-child(0) {
+    padding-left: 0;
   }
 
   li:nth-child(1) {
@@ -39,13 +44,28 @@ const Navbar = () => (
         <StyledLink to="/">8ALPHA</StyledLink>
       </li>
       <li>
-        <StyledLink to="/services/">Services</StyledLink>
+        <StyledLink
+          to="/services/"
+          activeStyle={{ borderBottom: `2px solid white` }}
+        >
+          Services
+        </StyledLink>
       </li>
       <li>
-        <StyledLink to="/team/">Team</StyledLink>
+        <StyledLink
+          to="/team/"
+          activeStyle={{ borderBottom: `2px solid white` }}
+        >
+          Team
+        </StyledLink>
       </li>
       <li>
-        <StyledLink to="/updates/">Updates</StyledLink>
+        <StyledLink
+          to="/updates/"
+          activeStyle={{ borderBottom: `2px solid white` }}
+        >
+          Updates
+        </StyledLink>
       </li>
     </ul>
   </Wrapper>
