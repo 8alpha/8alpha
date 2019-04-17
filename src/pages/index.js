@@ -21,24 +21,11 @@ const Locations = styled.div`
   font-size: 1.875rem;
 `;
 
-const ContactUs = styled.div`
-  width: 50%;
-  padding-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
 const Home = () => (
   <Layout>
     <Container>
       <Name>8ALPHA</Name>
       <Locations>Auckland | San Francisco | Tokyo</Locations>
-      <ContactUs>
-        <div>info @ alpha.com</div>
-        <div>&copy; 2019 All Rights Reserved</div>
-      </ContactUs>
     </Container>
   </Layout>
 );
