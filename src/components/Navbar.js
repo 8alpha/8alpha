@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 const Wrapper = styled.div`
-  width: 100%;
-
   ul {
     list-style: none;
     padding: 0;
@@ -20,7 +18,7 @@ const Wrapper = styled.div`
     padding-left: 2rem;
   }
 
-  li:nth-child(0) {
+  li:first-child {
     padding-left: 0;
   }
 
