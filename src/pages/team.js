@@ -3,7 +3,11 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import bioPhoto from "../images/bio_photo.png";
+import bioAlexKelley from "../images/bio-alex-kelley.png";
+import bioNickDivehall from "../images/bio-nick-divehall.png";
+import bioMarkLindon from "../images/bio-mark-lindon.png";
+import bioReubenTucker from "../images/bio-reuben-tucker.png";
+import bioLukePeterson from "../images/bio-luke-peterson.png";
 
 const TeamNavbar = styled.div`
   ul {
@@ -63,11 +67,31 @@ function Team({ data }) {
       "reuben-tucker",
     ];
 
+    const convert = name => {
+      switch (name) {
+        case "nick-divehall":
+          return bioNickDivehall;
+          break;
+        case "alex-kelley":
+          return bioAlexKelley;
+          break;
+        case "mark-lindon":
+          return bioMarkLindon;
+          break;
+        case "luke-peterson":
+          return bioLukePeterson;
+          break;
+        case "reuben-tucker":
+          return bioReubenTucker;
+          break;
+      }
+    };
+
     return (
       <TeamPics>
         {team.map(name => (
           <button key={name} onClick={() => setName(name)}>
-            <img alt="bio photo" src={bioPhoto} />
+            <img alt="bio photo" src={convert(name)} />
           </button>
         ))}
       </TeamPics>
