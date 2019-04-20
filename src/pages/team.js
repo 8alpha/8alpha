@@ -9,42 +9,38 @@ import bioMarkLindon from "../images/bio-mark-lindon.png";
 import bioReubenTucker from "../images/bio-reuben-tucker.png";
 import bioLukePeterson from "../images/bio-luke-peterson.png";
 
-const TeamNavbar = styled.div`
-  ul {
-    list-style: none;
-    padding-left: 0;
-    padding-bottom: 2rem;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  li {
-    flex: 0 0 auto;
-    font-size: 2.5rem;
-  }
-`;
-
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: wrap;
-  justify-content: space-between;
-`;
-
-const TeamPics = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
+  color: white;
 `;
 
-const TeamBio = styled.div`
+const TeamStyle = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-size: 2.5rem;
+`;
+
+const BioStyle = styled.div`
+  h1 {
+    font-size: 2.5rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+`;
+
+const Photos = styled.div`
+  padding-right: 5rem;
+`;
+
+const Bio = styled.div`
+  font-size: 1.5rem;
 `;
 
 function Team({ data }) {
@@ -55,7 +51,11 @@ function Team({ data }) {
       ({ node }) => node.frontmatter.title == nameObj.name
     );
 
-    return <div dangerouslySetInnerHTML={{ __html: bio.node.html }} />;
+    return (
+      <Bio>
+        <div dangerouslySetInnerHTML={{ __html: bio.node.html }} />
+      </Bio>
+    );
   }
 
   function TeamPhotos() {
@@ -88,26 +88,24 @@ function Team({ data }) {
     };
 
     return (
-      <TeamPics>
+      <Photos>
         {team.map(name => (
           <button key={name} onClick={() => setName(name)}>
             <img alt="bio photo" src={convert(name)} />
           </button>
         ))}
-      </TeamPics>
+      </Photos>
     );
   }
 
   return (
     <Layout>
-      <TeamNavbar>
-        <ul>
-          <li>Partners</li>
-        </ul>
-      </TeamNavbar>
       <Container>
-        <TeamPhotos />
-        <TeamBio>{getBio({ name })}</TeamBio>
+        <TeamStyle>
+          <div>Partners</div>
+          <TeamPhotos />
+        </TeamStyle>
+        <BioStyle>{getBio({ name })}</BioStyle>
       </Container>
     </Layout>
   );
