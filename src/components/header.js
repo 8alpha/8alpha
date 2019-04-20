@@ -5,13 +5,13 @@ import { Link } from "gatsby";
 import Navbar from "./navbar";
 
 const Container = styled.div`
-    padding: 1.2rem 5rem 1.2rem 5rem;
+  margin: 1.2rem 5rem 1.2rem 5rem;
 `;
 
 const Header = () => (
-    <Container>
-        <Navbar />
-    </Container>
+  <Container>
+    <Navbar />
+  </Container>
 );
 
 export default Header;

@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import styled from "styled-components";
 
 const Container = styled.div`
-  padding-top: 6rem;
+  margin-top: 6rem;
   color: #f8fafc;
   display: flex;
   flex-wrap: wrap;

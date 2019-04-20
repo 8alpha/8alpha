@@ -3,12 +3,8 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 const Container = styled.div`
-    width: 100%
-    padding-top: 1.2rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    padding-bottom: 1.2rem;
-    color: white;
+
+    margin: 1.2rem 5rem 1.2rem 5rem;
 
     ul {
     list-style: none;
@@ -25,7 +21,7 @@ const Container = styled.div`
     padding-left: 2rem;
     }
 
-    li:nth-child(0) {
+    li:first-child {
     padding-left: 0;
     }
 
@@ -49,7 +45,8 @@ const Footer = () => (
       <li>
         <StyledLink href="mailto:info@8alpha.com">Email</StyledLink>
       </li>
-      <li>Twitter</li>
+      <li>
+          Twitter</li>
       <li>
         <StyledLink href="https://www.linkedin.com/company/8alpha/about/">
           LinkedIn
