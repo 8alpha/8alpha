@@ -10,37 +10,53 @@ import bioReubenTucker from "../images/bio-reuben-tucker.png";
 import bioLukePeterson from "../images/bio-luke-peterson.png";
 
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-row-gap: 1rem;
+  grid-template-areas:
+    "menu bio"
+    "photos bio";
+
   color: white;
 `;
 
-const TeamStyle = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-
+const Menu = styled.div`
   font-size: 2.5rem;
+  font-weight: bold;
+  grid-area: menu;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    font-size: 2.5rem;
+    float: left;
+    padding-right: 2rem;
+  }
 `;
 
-const BioStyle = styled.div`
+const Bio = styled.div`
+  grid-area: bio;
+  font-family: Helvetica Neue, sans serif;
   h1 {
+    margin-top: 0;
     font-size: 2.5rem;
   }
+
   p {
     font-size: 1.5rem;
   }
 `;
 
 const Photos = styled.div`
-  padding-right: 5rem;
+  grid-area: photos;
 `;
 
-const Bio = styled.div`
-  font-size: 1.5rem;
+const Photo = styled.div`
+  padding-bottom: 1rem;
+  padding-right: 1rem;
 `;
 
 function Team({ data }) {
@@ -51,11 +67,7 @@ function Team({ data }) {
       ({ node }) => node.frontmatter.title == nameObj.name
     );
 
-    return (
-      <Bio>
-        <div dangerouslySetInnerHTML={{ __html: bio.node.html }} />
-      </Bio>
-    );
+    return <div dangerouslySetInnerHTML={{ __html: bio.node.html }} />;
   }
 
   function TeamPhotos() {
@@ -88,24 +100,30 @@ function Team({ data }) {
     };
 
     return (
-      <Photos>
+      <div>
         {team.map(name => (
           <button key={name} onClick={() => setName(name)}>
-            <img alt="bio photo" src={convert(name)} />
+            <Photo>
+              <img alt="bio photo" src={convert(name)} />
+            </Photo>
           </button>
         ))}
-      </Photos>
+      </div>
     );
   }
 
   return (
     <Layout>
       <Container>
-        <TeamStyle>
-          <div>Partners</div>
+        <Menu>
+          <ul>
+            <li>Partners</li>
+          </ul>
+        </Menu>
+        <Photos>
           <TeamPhotos />
-        </TeamStyle>
-        <BioStyle>{getBio({ name })}</BioStyle>
+        </Photos>
+        <Bio>{getBio({ name })}</Bio>
       </Container>
     </Layout>
   );
