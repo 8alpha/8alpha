@@ -54,6 +54,26 @@ function Team({ data }) {
     return <div dangerouslySetInnerHTML={{ __html: bio.node.html }} />;
   }
 
+  function TeamPhotos() {
+    const team = [
+      "nick-divehall",
+      "alex-kelley",
+      "mark-lindon",
+      "luke-peterson",
+      "reuben-tucker",
+    ];
+
+    return (
+      <TeamPics>
+        {team.map(name => (
+          <button key={name} onClick={() => setName(name)}>
+            <img alt="bio photo" src={bioPhoto} />
+          </button>
+        ))}
+      </TeamPics>
+    );
+  }
+
   return (
     <Layout>
       <TeamNavbar>
@@ -62,23 +82,7 @@ function Team({ data }) {
         </ul>
       </TeamNavbar>
       <Container>
-        <TeamPics>
-          <button onClick={() => setName("alex-kelley")}>
-            <img alt="bio photo" src={bioPhoto} />
-          </button>
-          <button onClick={() => setName("nick-divehall")}>
-            <img alt="bio photo" src={bioPhoto} />
-          </button>
-          <button>
-            <img alt="bio photo" src={bioPhoto} />
-          </button>
-          <button>
-            <img alt="bio photo" src={bioPhoto} />
-          </button>
-          <button>
-            <img alt="bio photo" src={bioPhoto} />
-          </button>
-        </TeamPics>
+        <TeamPhotos />
         <TeamBio>{getBio({ name })}</TeamBio>
       </Container>
     </Layout>
