@@ -1,21 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Layout from "../components/layout";
+import { graphql } from "gatsby";
 
+import Layout from "../components/layout";
 import bioPhoto from "../images/bio_photo.png";
 
-const Container = styled.div`
-  width: 100%;
-  padding-left: 5rem;
-  padding-right: 5rem;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-`;
-
 const TeamNavbar = styled.div`
-  color: white;
-  width: 15%;
-
   ul {
     list-style: none;
     padding-left: 0;
@@ -33,32 +23,81 @@ const TeamNavbar = styled.div`
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: wrap;
+  justify-content: space-between;
+`;
+
 const TeamPics = styled.div`
-  width: 40%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
 `;
 
-const Team = () => (
-  <Layout>
-    <Container>
+const TeamBio = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+`;
+
+function Team({ data }) {
+  const [name, setName] = useState("about-us");
+
+  function getBio(nameObj) {
+    const bio = data.allMarkdownRemark.edges.find(
+      ({ node }) => node.frontmatter.title == nameObj.name
+    );
+
+    return <div dangerouslySetInnerHTML={{ __html: bio.node.html }} />;
+  }
+
+  return (
+    <Layout>
       <TeamNavbar>
         <ul>
           <li>Partners</li>
-          <li>Advisors</li>
         </ul>
       </TeamNavbar>
-      <TeamPics>
-        <img alt="bio photo" src={bioPhoto} />
-        <img alt="bio photo" src={bioPhoto} />
-        <img alt="bio photo" src={bioPhoto} />
-        <img alt="bio photo" src={bioPhoto} />
-        <img alt="bio photo" src={bioPhoto} />
-      </TeamPics>
-    </Container>
-  </Layout>
-);
+      <Container>
+        <TeamPics>
+          <button onClick={() => setName("alex-kelley")}>
+            <img alt="bio photo" src={bioPhoto} />
+          </button>
+          <button onClick={() => setName("nick-divehall")}>
+            <img alt="bio photo" src={bioPhoto} />
+          </button>
+          <button>
+            <img alt="bio photo" src={bioPhoto} />
+          </button>
+          <button>
+            <img alt="bio photo" src={bioPhoto} />
+          </button>
+          <button>
+            <img alt="bio photo" src={bioPhoto} />
+          </button>
+        </TeamPics>
+        <TeamBio>{getBio({ name })}</TeamBio>
+      </Container>
+    </Layout>
+  );
+}
 
+export const bio = graphql`
+  query bio {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          html
+        }
+      }
+    }
+  }
+`;
 export default Team;

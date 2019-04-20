@@ -3,5 +3,16 @@ module.exports = {
     title: "8Alpha Partners",
     subtitle: "",
   },
-  plugins: [`gatsby-plugin-react-helmet`, `gatsby-plugin-styled-components`],
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+  ],
 };
