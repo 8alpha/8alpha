@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 const Container = styled.div`
+  color: white;
+
   margin: 1.2rem 5rem 1.2rem 5rem;
 
   ul {
@@ -44,7 +46,9 @@ const Footer = () => (
       <li>
         <StyledLink href="mailto:info@8alpha.com">Email</StyledLink>
       </li>
-      <li>Twitter</li>
+      <li>
+        <StyledLink href="https://twitter.com/8alpha">Twitter</StyledLink>
+      </li>
       <li>
         <StyledLink href="https://www.linkedin.com/company/8alpha/about/">
           LinkedIn
