@@ -3,31 +3,30 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 const Container = styled.div`
+  margin: 1.2rem 5rem 1.2rem 5rem;
 
-    margin: 1.2rem 5rem 1.2rem 5rem;
-
-    ul {
+  ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    }
+  }
 
-    li {
+  li {
     flex: 0 0 auto;
     font-size: 1.5rem;
     padding-left: 2rem;
-    }
+  }
 
-    li:first-child {
+  li:first-child {
     padding-left: 0;
-    }
+  }
 
-    li:nth-child(1) {
+  li:nth-child(1) {
     margin-right: auto;
-    }
+  }
 `;
 
 const StyledLink = styled.a`
@@ -45,8 +44,7 @@ const Footer = () => (
       <li>
         <StyledLink href="mailto:info@8alpha.com">Email</StyledLink>
       </li>
-      <li>
-          Twitter</li>
+      <li>Twitter</li>
       <li>
         <StyledLink href="https://www.linkedin.com/company/8alpha/about/">
           LinkedIn
