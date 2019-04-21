@@ -12,6 +12,7 @@ import bioLukePeterson from "../images/bio-luke-peterson.png";
 const Container = styled.div`
   display: grid;
   grid-row-gap: 1rem;
+  grid-column-gap: 1rem;
   grid-template-areas:
     "menu bio"
     "photos bio";
@@ -39,6 +40,7 @@ const Menu = styled.div`
 
 const Bio = styled.div`
   grid-area: bio;
+  padding-right: 1rem;
   font-family: Helvetica Neue, sans serif;
   h1 {
     margin-top: 0;
@@ -46,6 +48,8 @@ const Bio = styled.div`
   }
 
   p {
+    padding-left: 0;
+    margin-left: 0;
     font-size: 1.5rem;
   }
 `;
