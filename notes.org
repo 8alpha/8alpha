@@ -1,0 +1,5 @@
+#+Title: 8alpha Website Notes
+#+Options: toc:nil
+
+* TODO refactor promise in gatsby-node.js to async/await
+* TODO how to support multiple templates in gatsby-node.js

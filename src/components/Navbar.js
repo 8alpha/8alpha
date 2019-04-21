@@ -43,7 +43,7 @@ const Navbar = () => (
       </li>
       <li>
         <StyledLink
-          to="/services/"
+          to="/services/financial/"
           activeStyle={{ borderBottom: `2px solid white` }}
         >
           Services

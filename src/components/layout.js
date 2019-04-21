@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 html, body {
     font-family: Helvetica Neue, sans-serif;
     font-size: 10px;
-    background: linear-gradient(#22292f, #f8fafc);
+    background: #22292f;
     height: 100%;
     width: 100%;
     margin: auto;
