@@ -20,6 +20,9 @@ exports.createPages = ({ graphql, actions }) => {
       allMarkdownRemark {
         edges {
           node {
+            frontmatter {
+              template
+            }
             fields {
               slug
             }
@@ -28,10 +31,17 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
+    let path_ = ``;
+
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      if (node.frontmatter.template === "services") {
+        path_ = path.resolve(`./src/templates/services.js`);
+      } else {
+        path_ = path.resolve(`./src/templates/services.js`);
+      }
       createPage({
         path: node.fields.slug,
-        component: path.resolve(`./src/templates/services-section.js`),
+        component: path_,
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.

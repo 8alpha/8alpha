@@ -3,3 +3,4 @@
 
 * TODO refactor promise in gatsby-node.js to async/await
 * TODO how to support multiple templates in gatsby-node.js
+* TODO services menu not highlighted in services/marketing, services/technical

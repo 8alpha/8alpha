@@ -1,5 +1,6 @@
 ---
 title: "financial services"
+template: "services"
 date: "2019-04-21"
 ---
 
