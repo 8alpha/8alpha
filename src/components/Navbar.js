@@ -51,7 +51,7 @@ const Navbar = () => (
       </li>
       <li>
         <StyledLink
-          to="/team/"
+          to="/team/about-us"
           activeStyle={{ borderBottom: `2px solid white` }}
         >
           Team

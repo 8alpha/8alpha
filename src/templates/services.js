@@ -77,7 +77,7 @@ const Services = ({ data }) => {
   );
 };
 
-export const query = graphql`
+export const bio = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html

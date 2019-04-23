@@ -34,10 +34,14 @@ exports.createPages = ({ graphql, actions }) => {
     let path_ = ``;
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      /* TODO: refactor this if statement to use switch once you
+       * add the updates page
+       */
+
       if (node.frontmatter.template === "services") {
         path_ = path.resolve(`./src/templates/services.js`);
       } else {
-        path_ = path.resolve(`./src/templates/services.js`);
+        path_ = path.resolve(`./src/templates/team.js`);
       }
       createPage({
         path: node.fields.slug,

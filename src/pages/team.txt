@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import bioAlexKelley from "../images/bio-alex-kelley.png";
-import bioNickDivehall from "../images/bio-nick-divehall.png";
-import bioMarkLindon from "../images/bio-mark-lindon.png";
-import bioReubenTucker from "../images/bio-reuben-tucker.png";
-import bioLukePeterson from "../images/bio-luke-peterson.png";
+import AlexKelley from "../images/partners/alex-kelley.png";
+import NickDivehall from "../images/partners/nick-divehall.png";
+import MarkLindon from "../images/partners/mark-lindon.png";
+import ReubenTucker from "../images/partners/bio-reuben-tucker.png";
+import LukePeterson from "../images/partners/luke-peterson.png";
 
 const Container = styled.div`
   display: grid;
