@@ -4,6 +4,7 @@ import { Link, StaticQuery, graphql } from "gatsby";
 import { Img } from "gatsby-image";
 
 import alexKelley from "../images/partners/alex-kelley.png";
+import aboutUs from "../images/about-us.png";
 
 import Layout from "../components/layout";
 
@@ -28,6 +29,14 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const StyledPicLink = styled(Link)`
+  color: green;
+  text-decoration: none;
+  &:hover {
+    border: 2px solid white;
+  }
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -45,6 +54,7 @@ const Photos = styled.div`
 `;
 
 const Photo = styled.div`
+  flex-basis: 15%;
 `;
 
 const Bio = styled.div`
@@ -61,46 +71,40 @@ const Bio = styled.div`
 `;
 
 const Team = ({ data }) => {
-  const bio = data.bio;
+  const team = data.team;
+
+  const MenuFragment = ({ path, name }) => {
+    return (
+      <MenuItem>
+        <StyledLink to={path} activeStyle={{ borderBottom: `2px solid white` }}>
+          {name}
+        </StyledLink>
+      </MenuItem>
+    );
+  };
 
   return (
-      <Layout>
-          <Menu>
-              <MenuItem>
-                  <StyledLink
-                      to="/team/about-us"
-                      activeStyle={{ borderBottom: `2px solid white` }}
-                  >
-                      About Us
-                  </StyledLink>
-              </MenuItem>
-              <MenuItem>
-                  <StyledLink
-                      to="/team/partners/nick-divehall/"
-                      activeStyle={{ borderBottom: `2px solid white` }}
-                  >
-                      Partners
-                  </StyledLink>
-              </MenuItem>
-              <MenuItem>
-                  <StyledLink
-                      to="/team/advisors/john-doe/"
-                      activeStyle={{ borderBottom: `2px solid white` }}
-                  >
-                      Advisors
-                  </StyledLink>
-              </MenuItem>
-          </Menu>
-          <Wrapper>
-              <Photos>
-                  <Photo>
-                      {/* <Img fixed={bioQuery.data.alexKelley.childImageSharp.fixed} /> */}
-                      <img src={alexKelley} alt="Alex Kelley" />
-                  </Photo>
-              </Photos>
-              <Bio dangerouslySetInnerHTML={{ __html: bio.html }} />
-          </Wrapper>
-      </Layout>
+    <Layout>
+      <Menu>
+        <MenuFragment path="/team/about-us" name="About Us" />
+        <MenuFragment path="/team/partners/nick-divehall" name="Partners" />
+        <MenuFragment path="/team/advisors/john-doe" name="John Doe" />
+      </Menu>
+      <Wrapper>
+        <Photos>
+          <Photo>
+            {/* <Img fixed={bioQuery.data.alexKelley.childImageSharp.fixed} /> */}
+            {/* <StyledPicLink
+                          to="/team/about-us/"
+                          activeStyle={{ border: `2px dotted white` }}
+                          > */}
+            <img src={aboutUs} alt="Group photo" />
+            {/* </StyledPicLink> */}
+          </Photo>
+        </Photos>
+        <Bio dangerouslySetInnerHTML={{ __html: team.html }} />
+      </Wrapper>
+    </Layout>
   );
 };
 
@@ -146,7 +150,10 @@ const Team = ({ data }) => {
 
 export const bioQuery = graphql`
   query($slug: String!) {
-    bio: markdownRemark(fields: { slug: { eq: $slug } }) {
+    team: markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        path
+      }
       html
     }
     alexKelley: file(absolutePath: { regex: "/alex-kelley.png/" }) {

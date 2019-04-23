@@ -1,5 +1,6 @@
 ---
 title: "financial services"
+path: "/services/financial/"
 template: "services"
 date: "2019-04-21"
 ---

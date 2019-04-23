@@ -1,5 +1,6 @@
 ---
 title: "alex-kelley"
+path: "/partners/alex-kelley/"
 date: "2019-04-19"
 ---
 
