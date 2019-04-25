@@ -1,5 +1,6 @@
 ---
 title: "john-doe"
+section: "advisors"
 date: "2019-04-21"
 ---
 

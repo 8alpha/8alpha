@@ -1,6 +1,6 @@
 ---
 title: "about-us"
-path: "/about-us/"
+section: "about-us"
 date: "2019-04-19"
 ---
 # About 8Alpha

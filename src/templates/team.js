@@ -34,14 +34,6 @@ const Menu = styled.div`
   justify-content: flex-start;
 `;
 
-const StyledPicLink = styled(Link)`
-  color: green;
-  text-decoration: none;
-  &:hover {
-    border: 2px solid white;
-  }
-`;
-
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -108,6 +100,14 @@ const Photo = styled.div`
   padding-right 2rem;
 `;
 
+const StyledPhotoLink = styled(Link)`
+  color: green;
+  text-decoration: none;
+  &:hover {
+    border: 2px solid white;
+  }
+`;
+
 /* Photo Fragment will render  partners, advisors, or group */
 const PhotoFragment = ({ images }) => {
   let i = 200;
@@ -150,12 +150,15 @@ const Team = ({ data }) => {
   return (
     <Layout>
       <Menu>
-        <MenuFragment path="/team/about-us" itemName="About Us" />
-        <MenuFragment path="/team/partners/nick-divehall" itemName="Partners" />
-        <MenuFragment path="/team/advisors/john-doe" itemName="Advisors" />
+        <MenuFragment path="/team/about-us/" itemName="About Us" />
+        <MenuFragment
+          path="/team/partners/nick-divehall/"
+          itemName="Partners"
+        />
+        <MenuFragment path="/team/advisors/john-doe/" itemName="Advisors" />
       </Menu>
       <Wrapper>
-        <RenderPhotos section="partners" />
+        <RenderPhotos section={team.frontmatter.section} />
         <Bio dangerouslySetInnerHTML={{ __html: team.html }} />
       </Wrapper>
     </Layout>
@@ -169,6 +172,10 @@ Team.propTypes = {
 export const bioQuery = graphql`
   query($slug: String!) {
     team: markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        section
+        title
+      }
       html
     }
   }
