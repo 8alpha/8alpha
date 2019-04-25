@@ -9,6 +9,55 @@ import MarkLindon from "../images/partners/mark-lindon.png";
 import ReubenTucker from "../images/partners/bio-reuben-tucker.png";
 import LukePeterson from "../images/partners/luke-peterson.png";
 
+* {images.map(image => {
+ *     <div>
+ *         <img src={alexKelley} alt="test" />
+ *     </div>m;
+ * })}
+
+/* const Team = () => {
+
+*   return (
+    *     <StaticQuery
+    *       query={bioQuery}
+    *       render={data => {
+ *         return (
+ *           <Layout>
+ *             <Menu>
+ *               <MenuItem>
+ *                 <StyledLink
+ *                   to="/team/partners/nick-divehall/"
+ *                   activeStyle={{ borderBottom: `2px solid white` }}
+ *                 >
+ *                   Partners
+ *                 </StyledLink>
+ *               </MenuItem>
+ *               <MenuItem>
+ *                 <StyledLink
+ *                   to="/team/advisors/john-doe/"
+ *                   activeStyle={{ borderBottom: `2px solid white` }}
+ *                 >
+ *                   Advisors
+ *                 </StyledLink>
+ *               </MenuItem>
+ *             </Menu>
+ *             <Wrapper>
+ *               <Photos>
+ *                 <div>
+ *                   <Img fixed={data.alexKelley.childImageSharp.fixed} />
+ *                 </div>
+ *               </Photos>
+ *               <Bio dangerouslySetInnerHTML={{ __html: data.bio.html }} />
+ *             </Wrapper>
+ *           </Layout>
+ *         );
+ *       }}
+ *     />
+ *   );
+ * }; */
+
+
+
 const Container = styled.div`
   display: grid;
   grid-row-gap: 1rem;
