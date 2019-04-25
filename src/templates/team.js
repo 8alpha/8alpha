@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link, graphql } from "gatsby";
 import PropTypes from "prop-types";
 
+import SectionMenu from "../components/SectionMenu.js";
+
 import group from "../images/about-us.png";
 
 import nickDivehall from "../images/partners/nick-divehall.png";
@@ -27,13 +29,6 @@ const advisors = [{ photo: johnDoe, path: "/team/advisors/john-doe" }];
 
 const aboutUs = [{ photo: group, path: "/team/about-us" }];
 
-const Menu = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
-`;
-
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -47,10 +42,9 @@ const Bio = styled.div`
   /* border-style: solid;
     * border-color: blue; */
   color: white;
-  flex-basis: 50%;
-
-  h1 {
-    font-size: 2.5rem;
+  flex-basis: 56%;
+  h2 {
+    font-size: 2.25rem;
   }
 
   p {
@@ -58,51 +52,12 @@ const Bio = styled.div`
   }
 `;
 
-const MenuItem = styled.div`
-  flex-basis: 12%;
-  font-weight: bold;
-  font-size: 2.5rem;
-`;
-
-const StyledLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  &:hover {
-    border-bottom: 2px solid white;
-  }
-`;
-
-const sectionMenu = [
-  { path: `/team/about-us/`, name: `About Us` },
-  { path: `/team/partners/nick-divehall/`, name: `Partners` },
-  { path: `/team/advisors/john-doe/`, name: `Advisors` },
-];
-
-const SectionMenu = ({ menu }) => (
-  <Menu>
-    {menu.map(item => (
-      <MenuItem key={item.name}>
-        <StyledLink
-          to={item.path}
-          activeStyle={{ borderBottom: `2px solid white` }}
-        >
-          <>{item.name}</>
-        </StyledLink>
-      </MenuItem>
-    ))}
-  </Menu>
-);
-
-SectionMenu.propTypes = {
-  menu: PropTypes.arrayOf(PropTypes.object),
-};
-
 const Photos = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
-  flex-basis: 45%;
+  flex-basis: 44%;
   /* border-style: solid;
     * border-color: red; */
 `;
@@ -121,36 +76,30 @@ const StyledPhotoLink = styled(Link)`
 `;
 
 /* Photo Fragment will render  partners, advisors, or group */
-const PhotoFragment = ({ images }) => {
-  let i = 200;
-  return (
-    <Photos>
-      {images.map(image => {
-        i = i + 1;
-        return (
-          <StyledPhotoLink to={image.path} key={i}>
-            <Photo>
-              <img src={image.photo} />
-            </Photo>
-          </StyledPhotoLink>
-        );
-      })}
-    </Photos>
-  );
-};
+const PhotoMenu = ({ images }) => (
+  <Photos>
+    {images.map(image => (
+      <StyledPhotoLink to={image.path} key={image.path}>
+        <Photo>
+          <img src={image.photo} />
+        </Photo>
+      </StyledPhotoLink>
+    ))}
+  </Photos>
+);
 
-PhotoFragment.propTypes = {
+PhotoMenu.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object),
 };
 
 const RenderPhotos = ({ section }) => {
   switch (section) {
     case "about-us":
-      return <PhotoFragment images={aboutUs} />;
+      return <PhotoMenu images={aboutUs} />;
     case "partners":
-      return <PhotoFragment images={partners} />;
+      return <PhotoMenu images={partners} />;
     case "advisors":
-      return <PhotoFragment images={advisors} />;
+      return <PhotoMenu images={advisors} />;
   }
 };
 
@@ -158,12 +107,18 @@ RenderPhotos.propTypes = {
   section: PropTypes.string,
 };
 
+const menu = [
+  { path: `/team/about-us/`, name: `About Us` },
+  { path: `/team/partners/nick-divehall/`, name: `Partners` },
+  { path: `/team/advisors/john-doe/`, name: `Advisors` },
+];
+
 const Team = ({ data }) => {
   const team = data.team;
 
   return (
     <Layout>
-      <SectionMenu menu={sectionMenu} />
+      <SectionMenu menu={menu} />
       <Wrapper>
         <RenderPhotos section={team.frontmatter.section} />
         <Bio dangerouslySetInnerHTML={{ __html: team.html }} />

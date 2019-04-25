@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
+import SectionMenu from "../components/SectionMenu";
 
 const Section = styled.div`
   color: white;
@@ -22,49 +23,17 @@ const Section = styled.div`
   }
 `;
 
-const Menu = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
-`;
-
-const MenuItem = styled.div`
-  flex-basis: 12%;
-  font-weight: bold;
-  font-size: 2.5rem;
-`;
-
-const StyledLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  &:hover {
-    border-bottom: 2px solid white;
-  }
-`;
-
-const MenuFragment = ({ path, itemName }) => (
-  <MenuItem>
-    <StyledLink to={path} activeStyle={{ borderBottom: `2px solid white` }}>
-      <>{itemName}</>
-    </StyledLink>
-  </MenuItem>
-);
-
-MenuFragment.propTypes = {
-  path: PropTypes.string,
-  itemName: PropTypes.string,
-};
+const menu = [
+  { path: "/services/financial", name: "Financial" },
+  { path: "/services/marketing/", name: "Marketing" },
+  { path: "/services/technical/", name: "Technical" },
+];
 
 const Services = ({ data }) => {
   const section = data.markdownRemark;
   return (
     <Layout>
-      <Menu>
-        <MenuFragment path="/services/financial" itemName="Financial" />
-        <MenuFragment path="/services/marketing/" itemName="Marketing" />
-        <MenuFragment path="/services/technical/" itemName="Technical" />
-      </Menu>
+      <SectionMenu menu={menu} />
       <Section dangerouslySetInnerHTML={{ __html: section.html }} />
     </Layout>
   );
