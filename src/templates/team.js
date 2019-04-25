@@ -16,16 +16,16 @@ import johnDoe from "../images/advisors/john-doe.png";
 import Layout from "../components/layout";
 
 const partners = [
-  nickDivehall,
-  alexKelley,
-  markLindon,
-  lukePeterson,
-  reubenTucker,
+  { photo: nickDivehall, path: "./team/partners/nick-divehall/" },
+  { photo: alexKelley, path: "./team/partners/alex-kelley/" },
+  { photo: markLindon, path: "./team/partners/mark-lindon/" },
+  { photo: lukePeterson, path: "./team/partners/luke-peterson/" },
+  { photo: reubenTucker, path: "./team/partners/reuben-tucker/" },
 ];
 
-const advisors = [johnDoe];
+const advisors = [{ photo: johnDoe, path: "./team/advisors/john-doe" }];
 
-const aboutUs = [group];
+const aboutUs = [{ photo: group, path: "./team/about-us" }];
 
 const Menu = styled.div`
   display: flex;
@@ -116,9 +116,11 @@ const PhotoFragment = ({ images }) => {
       {images.map(image => {
         i = i + 1;
         return (
-          <Photo key={i}>
-            <img src={image} />
-          </Photo>
+          <StyledPhotoLink to={image.path}>
+            <Photo key={i}>
+              <img src={image.photo} />
+            </Photo>
+          </StyledPhotoLink>
         );
       })}
     </Photos>
