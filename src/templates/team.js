@@ -16,16 +16,16 @@ import johnDoe from "../images/advisors/john-doe.png";
 import Layout from "../components/layout";
 
 const partners = [
-  { photo: nickDivehall, path: "./team/partners/nick-divehall/" },
-  { photo: alexKelley, path: "./team/partners/alex-kelley/" },
-  { photo: markLindon, path: "./team/partners/mark-lindon/" },
-  { photo: lukePeterson, path: "./team/partners/luke-peterson/" },
-  { photo: reubenTucker, path: "./team/partners/reuben-tucker/" },
+  { photo: nickDivehall, path: "/team/partners/nick-divehall/" },
+  { photo: alexKelley, path: "/team/partners/alex-kelley/" },
+  { photo: markLindon, path: "/team/partners/mark-lindon/" },
+  { photo: lukePeterson, path: "/team/partners/luke-peterson/" },
+  { photo: reubenTucker, path: "/team/partners/reuben-tucker/" },
 ];
 
-const advisors = [{ photo: johnDoe, path: "./team/advisors/john-doe" }];
+const advisors = [{ photo: johnDoe, path: "/team/advisors/john-doe" }];
 
-const aboutUs = [{ photo: group, path: "./team/about-us" }];
+const aboutUs = [{ photo: group, path: "/team/about-us" }];
 
 const Menu = styled.div`
   display: flex;
@@ -101,10 +101,10 @@ const Photo = styled.div`
 `;
 
 const StyledPhotoLink = styled(Link)`
-  color: green;
+  border-bottom: 2px solid #22292f;
   text-decoration: none;
   &:hover {
-    border: 2px solid white;
+    border-bottom: 2px solid white;
   }
 `;
 
@@ -116,11 +116,11 @@ const PhotoFragment = ({ images }) => {
       {images.map(image => {
         i = i + 1;
         return (
-          <StyledPhotoLink to={image.path}>
-            <Photo key={i}>
+          <Photo key={i}>
+            <StyledPhotoLink to={image.path}>
               <img src={image.photo} />
-            </Photo>
-          </StyledPhotoLink>
+            </StyledPhotoLink>
+          </Photo>
         );
       })}
     </Photos>
@@ -128,7 +128,7 @@ const PhotoFragment = ({ images }) => {
 };
 
 PhotoFragment.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string),
+  images: PropTypes.arrayOf(PropTypes.object),
 };
 
 const RenderPhotos = ({ section }) => {
