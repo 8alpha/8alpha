@@ -72,17 +72,29 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const MenuFragment = ({ path, itemName }) => (
-  <MenuItem>
-    <StyledLink to={path} activeStyle={{ borderBottom: `2px solid white` }}>
-      <>{itemName}</>
-    </StyledLink>
-  </MenuItem>
+const sectionMenu = [
+  { path: `/team/about-us/`, name: `About Us` },
+  { path: `/team/partners/nick-divehall/`, name: `Partners` },
+  { path: `/team/advisors/john-doe/`, name: `Advisors` },
+];
+
+const SectionMenu = ({ menu }) => (
+  <Menu>
+    {menu.map(item => (
+      <MenuItem key={item.name}>
+        <StyledLink
+          to={item.path}
+          activeStyle={{ borderBottom: `2px solid white` }}
+        >
+          <>{item.name}</>
+        </StyledLink>
+      </MenuItem>
+    ))}
+  </Menu>
 );
 
-MenuFragment.propTypes = {
-  path: PropTypes.string,
-  itemName: PropTypes.string,
+SectionMenu.propTypes = {
+  menu: PropTypes.arrayOf(PropTypes.object),
 };
 
 const Photos = styled.div`
@@ -116,11 +128,11 @@ const PhotoFragment = ({ images }) => {
       {images.map(image => {
         i = i + 1;
         return (
-          <Photo key={i}>
-            <StyledPhotoLink to={image.path}>
+          <StyledPhotoLink to={image.path} key={i}>
+            <Photo>
               <img src={image.photo} />
-            </StyledPhotoLink>
-          </Photo>
+            </Photo>
+          </StyledPhotoLink>
         );
       })}
     </Photos>
@@ -151,14 +163,7 @@ const Team = ({ data }) => {
 
   return (
     <Layout>
-      <Menu>
-        <MenuFragment path="/team/about-us/" itemName="About Us" />
-        <MenuFragment
-          path="/team/partners/nick-divehall/"
-          itemName="Partners"
-        />
-        <MenuFragment path="/team/advisors/john-doe/" itemName="Advisors" />
-      </Menu>
+      <SectionMenu menu={sectionMenu} />
       <Wrapper>
         <RenderPhotos section={team.frontmatter.section} />
         <Bio dangerouslySetInnerHTML={{ __html: team.html }} />
