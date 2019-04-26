@@ -47,9 +47,6 @@ const Footer = () => (
         <StyledLink href="mailto:info@8alpha.com">Email</StyledLink>
       </li>
       <li>
-        <StyledLink href="https://twitter.com/8alpha">Twitter</StyledLink>
-      </li>
-      <li>
         <StyledLink href="https://www.linkedin.com/company/8alpha/about/">
           LinkedIn
         </StyledLink>
