@@ -63,15 +63,15 @@ const Photos = styled.div`
 `;
 
 const Photo = styled.div`
-  padding-top: 2rem;
-  padding-right 2rem;
+  margin-top: 2rem;
+  margin-right 2rem;
 `;
 
 const StyledPhotoLink = styled(Link)`
   border-bottom: 2px solid #22292f;
   text-decoration: none;
   &:hover {
-    border-bottom: 2px solid white;
+    /* border-bottom: 2px solid white; */
   }
 `;
 
@@ -107,7 +107,7 @@ RenderPhotos.propTypes = {
   section: PropTypes.string,
 };
 
-const menu = [
+const teamMenu = [
   { path: `/team/about-us/`, name: `About Us` },
   { path: `/team/partners/nick-divehall/`, name: `Partners` },
   { path: `/team/advisors/john-doe/`, name: `Advisors` },
@@ -118,7 +118,7 @@ const Team = ({ data }) => {
 
   return (
     <Layout>
-      <SectionMenu menu={menu} />
+      <SectionMenu menu={teamMenu} />
       <Wrapper>
         <RenderPhotos section={team.frontmatter.section} />
         <Bio dangerouslySetInnerHTML={{ __html: team.html }} />

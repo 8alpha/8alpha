@@ -23,7 +23,7 @@ const Section = styled.div`
   }
 `;
 
-const menu = [
+const servicesMenu = [
   { path: "/services/financial", name: "Financial" },
   { path: "/services/marketing/", name: "Marketing" },
   { path: "/services/technical/", name: "Technical" },
@@ -33,7 +33,7 @@ const Services = ({ data }) => {
   const section = data.markdownRemark;
   return (
     <Layout>
-      <SectionMenu menu={menu} />
+      <SectionMenu menu={servicesMenu} />
       <Section dangerouslySetInnerHTML={{ __html: section.html }} />
     </Layout>
   );
