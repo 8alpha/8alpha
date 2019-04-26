@@ -10,7 +10,7 @@ const Logo = styled.div`
   font-size: 4rem;
 `;
 
-const Tagline = styled.div`
+const Description = styled.div`
   color: white;
   font-size: 2rem;
 `;
@@ -18,7 +18,7 @@ const Tagline = styled.div`
 const Header = () => (
   <Container>
     <Logo>8ALPHA</Logo>
-    <Tagline>GLOBAL FINANCIAL & TECHNOLOGY ADVISORS</Tagline>
+    <Description>GLOBAL FINANCIAL & TECHNOLOGY ADVISORS</Description>
   </Container>
 );
 
