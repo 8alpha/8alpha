@@ -6,7 +6,7 @@ import styled from "styled-components";
 import favicon from "../images/favicon.png";
 
 import Header from "./header";
-import Footer from "./footer";
+import Footer from "./afooter";
 
 const GlobalStyle = createGlobalStyle`
 html, body {
