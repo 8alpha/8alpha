@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin: 1.2rem 5rem 1.2rem 5rem;
+  margin: 1.2rem 10rem 1.2rem 10rem;
 `;
 
 const Logo = styled.div`

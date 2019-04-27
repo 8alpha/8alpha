@@ -4,13 +4,15 @@ import styled from "styled-components";
 import BackgroundImage from "gatsby-background-image";
 
 const Tagline = styled.div`
-  padding-top: 0rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
   color: #dddddd;
   font-size: 5rem;
 `;
 
 const About = styled.div`
-  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  padding-left: 2rem;
   color: #dddddd;
   font-size: 3rem;
   width: 75%;
