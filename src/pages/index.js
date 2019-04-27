@@ -7,7 +7,6 @@ import TeamSection from "../components/team-section";
 
 const AboutHead = styled.div`
   color: #dc143c;
-  padding-left: 10rem;
   padding-top: 5rem;
   font-size: 5rem;
   text-align: center;
@@ -15,11 +14,11 @@ const AboutHead = styled.div`
 
 const AboutDesc = styled.div`
   padding-top: 2.5rem;
-  padding-left: 25rem;
+  padding-left: 10rem;
   color: #fffff0;
   font-size: 3rem;
-  width: 75%;
-  padding-bottom: 5rem;
+  width: 90%;
+  padding-bottom: 2rem;
 `;
 
 const Home = () => (

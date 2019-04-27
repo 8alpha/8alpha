@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Container = styled.div`
   color: #dddddd;
 
-  margin: 1.2rem 0rem 1.2rem 10rem;
+  margin: 1.2rem 10rem 1.2rem 10rem;
 
   ul {
     list-style: none;

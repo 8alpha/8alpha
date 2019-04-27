@@ -8,6 +8,8 @@ const Container = styled.div`
 
 const SectionHeader = styled.div`
   font-size: 5rem;
+  text-align: center;
+  color: #dc143c;
 `;
 
 const TeamSection = () => (
