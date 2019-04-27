@@ -4,8 +4,7 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 
 const Container = styled.div`
-  color: #dddddd;
-
+  color: #fffff0;
   margin: 2rem 10rem 2rem 10rem;
 
   ul {
