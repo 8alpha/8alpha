@@ -9,7 +9,7 @@ import Footer from "./afooter";
 
 const GlobalStyle = createGlobalStyle`
 html, body {
-    font-family: Helvetica Neue, sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 10px;
     background: #22292f;
     height: 100%;
