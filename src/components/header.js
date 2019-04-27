@@ -6,12 +6,12 @@ const Container = styled.div`
 `;
 
 const Logo = styled.div`
-  color: white;
-  font-size: 4rem;
+  color: #dddddd;
+  font-size: 6rem;
 `;
 
 const Description = styled.div`
-  color: white;
+  color: #dddddd;
   font-size: 2rem;
 `;
 

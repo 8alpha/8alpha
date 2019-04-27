@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
 
 const Container = styled.div`
-  color: white;
+  color: #dddddd;
 
   margin: 1.2rem 5rem 1.2rem 5rem;
 
@@ -32,7 +31,7 @@ const Container = styled.div`
 `;
 
 const StyledLink = styled.a`
-  color: white;
+  color: #dddddd;
   text-decoration: none;
   &:hover {
     border-bottom: 2px solid white;

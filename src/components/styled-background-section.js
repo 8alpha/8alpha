@@ -3,26 +3,25 @@ import { graphql, StaticQuery } from "gatsby";
 import styled from "styled-components";
 import BackgroundImage from "gatsby-background-image";
 
-const Container = styled.div`
-  height: 100%;
-`;
-
 const Tagline = styled.div`
-  color: white;
-  font-size: 6rem;
+  padding-top: 0rem;
+  color: #dddddd;
+  font-size: 5rem;
 `;
 
 const About = styled.div`
-  margin-top: 4rem;
-  color: white;
+  margin-top: 2.5rem;
+  color: #dddddd;
   font-size: 3rem;
+  width: 75%;
+  padding-bottom: 8rem;
 `;
 
 const BackgroundSection = ({ className }) => (
   <StaticQuery
     query={graphql`
       query {
-        desktop: file(absolutePath: { regex: "/globe-background.jpg/" }) {
+        desktop: file(absolutePath: { regex: "/globe-background.png/" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 4076) {
               ...GatsbyImageSharpFluid_withWebp
