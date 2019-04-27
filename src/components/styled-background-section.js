@@ -3,20 +3,23 @@ import { graphql, StaticQuery } from "gatsby";
 import styled from "styled-components";
 import BackgroundImage from "gatsby-background-image";
 
+import Header from "./header";
+
 const Tagline = styled.div`
-  padding-top: 2rem;
-  padding-left: 2rem;
-  color: #dddddd;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 10rem;
+  color: #ffffff;
   font-size: 5rem;
 `;
 
 const About = styled.div`
   padding-top: 2.5rem;
-  padding-left: 2rem;
-  color: #dddddd;
+  padding-left: 10rem;
+  color: #ffffff;
   font-size: 3rem;
   width: 75%;
-  padding-bottom: 8rem;
+  padding-bottom: 5rem;
 `;
 
 const BackgroundSection = ({ className }) => (
@@ -42,6 +45,7 @@ const BackgroundSection = ({ className }) => (
           fluid={imageData}
           backgroundColor={`#040e18`}
         >
+          <Header />
           <Tagline>
             <div>THE EDGE FOR</div>
             <div>AMBITIOUS INNOVATORS</div>
@@ -61,7 +65,7 @@ const BackgroundSection = ({ className }) => (
 
 const StyledBackgroundSection = styled(BackgroundSection)`
   width: 100%;
-  background-position: center bottom;
+  background-position: center;
   background-repeat: repeat-y;
   background-size: cover;
 `;

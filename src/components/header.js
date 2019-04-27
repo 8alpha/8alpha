@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin: 1.2rem 10rem 1.2rem 10rem;
+  margin: 0rem 10rem 1.2rem 10rem;
 `;
 
 const Logo = styled.div`
-  color: #dddddd;
+  padding-top: 2rem;
+  color: #ffffff;
   font-size: 6rem;
 `;
 
