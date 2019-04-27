@@ -28,7 +28,7 @@ const Photo = styled.div`
   display: flex;
   flex-direction: column;
 
-  flex: 0 0 20%;
+  flex: 0 0 16%;
   margin-right: 2rem;
   margin-top: 2rem;
   border-style: solid;
@@ -42,7 +42,6 @@ const Caption = styled.div`
   padding-bottom: 0.5rem;
   align-self: center;
   flex: 0 0 10%;
-  font-size: 2rem;
   color: #fffff0;
 
   a:link {
@@ -67,7 +66,7 @@ const Caption = styled.div`
   }
 
   li {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   /* border-style: solid; */
