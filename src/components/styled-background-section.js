@@ -9,17 +9,9 @@ const Tagline = styled.div`
   padding-top: 5rem;
   padding-bottom: 2rem;
   padding-left: 10rem;
-  color: #ffffff;
+  color: #fffff0;
   font-size: 5rem;
-`;
-
-const About = styled.div`
-  padding-top: 2.5rem;
-  padding-left: 10rem;
-  color: #ffffff;
-  font-size: 3rem;
-  width: 75%;
-  padding-bottom: 5rem;
+  font-weight: bold;
 `;
 
 const BackgroundSection = ({ className }) => (
@@ -50,13 +42,6 @@ const BackgroundSection = ({ className }) => (
             <div>THE EDGE FOR</div>
             <div>AMBITIOUS INNOVATORS</div>
           </Tagline>
-          <About>
-            8ALPHA is providing M&A, Strategic, and Financial services to the
-            most innovative technology companies around the world. The
-            versatility of our team comes through our combined experience over
-            hundreds of transactions, of a broad range of types and sizes,
-            totalling multiple billions of dollars.
-          </About>
         </BackgroundImage>
       );
     }}

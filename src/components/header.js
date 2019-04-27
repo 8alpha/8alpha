@@ -7,12 +7,13 @@ const Container = styled.div`
 
 const Logo = styled.div`
   padding-top: 2rem;
-  color: #ffffff;
+  color: #dc143c;
+  font-weight: bold;
   font-size: 6rem;
 `;
 
 const Description = styled.div`
-  color: #dddddd;
+  color: #fffff0;
   font-size: 2rem;
 `;
 
