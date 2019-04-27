@@ -8,20 +8,20 @@ import TeamSection from "../components/team-section";
 const Container = styled.div`
   margin-left: 10rem;
   margin-right: 10rem;
+  margin-bottom: 5rem;
 `;
 
 const AboutHead = styled.div`
   color: #dc143c;
   padding-top: 5rem;
+  margin-bottom: 2rem;
   font-size: 5rem;
   text-align: center;
 `;
 
 const AboutDesc = styled.div`
-  padding-top: 2.5rem;
   color: #fffff0;
-  font-size: 3rem;
-  padding-bottom: 2rem;
+  font-size: 2.7rem;
 `;
 
 const Home = () => (

@@ -4,10 +4,9 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin-top: 10rem;
-  color: #dddddd;
   margin-left: 10rem;
   margin-right: 10rem;
+  margin-bottom: 5rem;
 `;
 
 const SectionHeader = styled.div`
