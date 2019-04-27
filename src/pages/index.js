@@ -1,12 +1,13 @@
 import React from "react";
-import styled from "styled-components";
 
 import Layout from "../components/layout";
 import StyledBackgroundSection from "../components/styled-background-section";
+import TeamSection from "../components/team-section";
 
 const Home = () => (
   <Layout>
     <StyledBackgroundSection />
+    <TeamSection />
   </Layout>
 );
 
