@@ -1,10 +1,12 @@
 import React from "react";
+import { graphql, StaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import styled from "styled-components";
 
 const Container = styled.div`
   color: #dddddd;
 
-  margin: 1.2rem 10rem 1.2rem 10rem;
+  margin: 2rem 10rem 2rem 10rem;
 
   ul {
     list-style: none;
@@ -13,45 +15,63 @@ const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   li {
-    flex: 0 0 auto;
-    font-size: 1.5rem;
-    padding-left: 2rem;
+    /* border: 1px solid; */
+    flex: 0 0 5%;
   }
 
   li:first-child {
-    padding-left: 0;
-  }
-
-  li:nth-child(1) {
-    margin-right: auto;
-  }
-`;
-
-const StyledLink = styled.a`
-  color: #dddddd;
-  text-decoration: none;
-  &:hover {
-    border-bottom: 2px solid white;
+    font-size: 1.5rem;
+    flex: 0 0 85%;
   }
 `;
 
 const Footer = () => (
-  <Container>
-    <ul>
-      <li>&copy; 2019 All Rights Reserved</li>
-      <li>
-        <StyledLink href="mailto:info@8alpha.com">Email</StyledLink>
-      </li>
-      <li>
-        <StyledLink href="https://www.linkedin.com/company/8alpha/about/">
-          LinkedIn
-        </StyledLink>
-      </li>
-    </ul>
-  </Container>
+  <StaticQuery
+    query={graphql`
+      query {
+        linkedIn: file(absolutePath: { regex: "/linkedin.png/" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 88, maxHeight: 88) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        mailTo: file(absolutePath: { regex: "/mail.png/" }) {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 88, maxHeight: 88) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      const linkedIn = data.linkedIn.childImageSharp.fluid;
+      const mailTo = data.mailTo.childImageSharp.fluid;
+      return (
+        <Container>
+          <ul>
+            <li>&copy; 2019 All Rights Reserved</li>
+            <li>
+              <a href="mailto:info@8alpha.com">
+                <Img fluid={mailTo} alt="Mailto:" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/8alpha/about/">
+                <Img fluid={linkedIn} alt="LinkedIn" />
+              </a>
+            </li>
+          </ul>
+        </Container>
+      );
+    }}
+  />
 );
 
 export default Footer;

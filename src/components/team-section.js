@@ -7,6 +7,7 @@ const Container = styled.div`
   margin-top: 10rem;
   color: #dddddd;
   margin-left: 10rem;
+  margin-right: 10rem;
 `;
 
 const SectionHeader = styled.div`
@@ -15,22 +16,21 @@ const SectionHeader = styled.div`
   color: #dc143c;
 `;
 
-const Photo = styled.div`
-  flex: 0 0 25%;
-  margin-right: 2rem;
-  margin-top: 2rem;
-  /* border-style: solid;
-    * border-color: red; */
-`;
-
 const Photos = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: flex-start;
-  width: 100%;
+  justify-content: space-between;
   /* border-style: solid;
     * border-color: red; */
+`;
+
+const Photo = styled.div`
+  flex: 0 0 20%;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  border-style: solid;
+  border-color: #fffff0;
 `;
 
 const TeamSection = () => (
