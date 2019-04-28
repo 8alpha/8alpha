@@ -10,7 +10,7 @@ const Container = styled.div`
 `;
 
 const SectionHeader = styled.div`
-  font-size: 5rem;
+  font-size: 4rem;
   text-align: center;
   color: #dc143c;
 `;

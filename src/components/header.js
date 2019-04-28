@@ -20,7 +20,7 @@ const Description = styled.div`
 const Header = () => (
   <Container>
     <Logo>8ALPHA</Logo>
-    <Description>GLOBAL FINANCIAL & TECHNOLOGY ADVISORS</Description>
+    <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
   </Container>
 );
 

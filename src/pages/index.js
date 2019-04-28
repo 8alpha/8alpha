@@ -13,15 +13,15 @@ const Container = styled.div`
 
 const AboutHead = styled.div`
   color: #dc143c;
-  padding-top: 5rem;
+  padding-top: 4.5rem;
   margin-bottom: 2rem;
-  font-size: 5rem;
+  font-size: 4rem;
   text-align: center;
 `;
 
 const AboutDesc = styled.div`
   color: #fffff0;
-  font-size: 2.6rem;
+  font-size: 2rem;
 `;
 
 const Home = () => (

@@ -28,6 +28,30 @@ module.exports = {
             family: `Roboto`,
             variants: [`400`, `bold 700`],
           },
+          {
+            family: `Montserrat`,
+            variants: [`400`, `bold 700`],
+          },
+          {
+            family: `Nanum Gothic`,
+            variants: [`400`, `bold 700`],
+          },
+          {
+            family: `Libre Franklin`,
+            variants: [`400`, `bold 700`],
+          },
+          {
+            family: `Abel`,
+            variants: [`400`, `bold 700`],
+          },
+          {
+            family: `Questrial`,
+            variants: [`400`, `bold 700`],
+          },
+          {
+            family: `Cairo`,
+            variants: [`400`, `bold 700`],
+          },
         ],
       },
     },

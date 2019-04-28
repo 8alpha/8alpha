@@ -18,9 +18,7 @@ html, body {
 }
 `;
 
-const Main = styled.div`
-  margin: 0rem 0rem 10rem 0rem;
-`;
+const Main = styled.div``;
 
 const Layout = ({ children }) => (
   <div>
@@ -33,7 +31,6 @@ const Layout = ({ children }) => (
       ]}
       link={[{ rel: "shortcut icon", type: "image/png", href: `${favicon}` }]}
     />
-    {/* <Header /> */}
     <Main>
       <div>{children}</div>
     </Main>
