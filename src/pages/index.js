@@ -31,10 +31,16 @@ const Home = () => (
     <Container>
       <AboutHead>ABOUT US</AboutHead>
       <AboutDesc>
-        8ALPHA provides technology, strategic development and corporate finance
-        advisory services to the world’s most innovative companies. Our teams
-        based in San Francisco, Tokyo and Auckland harness broad industry
-        experience across billions in transaction and patent value.
+        <p>
+          8ALPHA provides technology, strategic development and corporate
+          finance advisory services to the world’s most innovative companies.
+        </p>
+        <p>
+          The highly experienced team we have assembled in San Francisco, Tokyo
+          and Auckland have catalyzed billions through brand positioning,
+          software development, patent portfolio creation, transaction
+          structuring, and capital management.
+        </p>
       </AboutDesc>
     </Container>
     <TeamSection />
