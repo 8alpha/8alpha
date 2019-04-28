@@ -38,10 +38,9 @@ const Photo = styled.div`
 const Caption = styled.div`
   width: 97%;
   background-color: black;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
   align-self: center;
-  flex: 0 0 10%;
   color: #fffff0;
 
   a:link {
@@ -66,7 +65,7 @@ const Caption = styled.div`
   }
 
   li {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
 
   /* border-style: solid; */
@@ -127,7 +126,7 @@ const TeamSection = () => (
       const linkedIn = data.linkedIn.childImageSharp.fixed;
       return (
         <Container>
-          <SectionHeader>Meet Our Team</SectionHeader>
+          <SectionHeader>MEET OUR TEAM</SectionHeader>
           <Photos>
             <Photo>
               <Img fluid={nickDivehall} alt="Nick Divehall" />
@@ -138,7 +137,11 @@ const TeamSection = () => (
                       <Img fixed={linkedIn} />
                     </a>
                   </li>
-                  <li>Nick Divehall</li>
+                  <li>
+                    Nick
+                    <br />
+                    Divehall
+                  </li>
                 </ul>
               </Caption>
             </Photo>
@@ -151,7 +154,11 @@ const TeamSection = () => (
                       <Img fixed={linkedIn} />
                     </a>
                   </li>
-                  <li>Alex Kelley</li>
+                  <li>
+                    Alex
+                    <br />
+                    Kelley
+                  </li>
                 </ul>
               </Caption>
             </Photo>
@@ -164,7 +171,11 @@ const TeamSection = () => (
                       <Img fixed={linkedIn} />
                     </a>
                   </li>
-                  <li>Mark Lindon</li>
+                  <li>
+                    Mark
+                    <br />
+                    Lindon
+                  </li>
                 </ul>
               </Caption>
             </Photo>
@@ -177,7 +188,11 @@ const TeamSection = () => (
                       <Img fixed={linkedIn} />
                     </a>
                   </li>
-                  <li>Luke Peterson</li>
+                  <li>
+                    Luke
+                    <br />
+                    Peterson
+                  </li>
                 </ul>
               </Caption>
             </Photo>
@@ -190,7 +205,11 @@ const TeamSection = () => (
                       <Img fixed={linkedIn} />
                     </a>
                   </li>
-                  <li>Reuben Tucker</li>
+                  <li>
+                    Reuben
+                    <br />
+                    Tucker
+                  </li>
                 </ul>
               </Caption>
             </Photo>

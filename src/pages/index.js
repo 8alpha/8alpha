@@ -21,7 +21,7 @@ const AboutHead = styled.div`
 
 const AboutDesc = styled.div`
   color: #fffff0;
-  font-size: 2.7rem;
+  font-size: 2.6rem;
 `;
 
 const Home = () => (
@@ -29,13 +29,12 @@ const Home = () => (
     <StyledBackgroundSection />
     <hr />
     <Container>
-      <AboutHead>About Us</AboutHead>
+      <AboutHead>ABOUT US</AboutHead>
       <AboutDesc>
-        8ALPHA provides M&A, Strategic, Technology and Financial services to the
-        most innovative companies around the world. The versatility of our team
-        comes through our combined experience over hundreds of various
-        transactions and patents totaling billions of dollars. Our partners have
-        offices in San Francisco, Tokyo, and Auckland.
+        8ALPHA provides technology, strategic development and corporate finance
+        advisory services to the world’s most innovative companies. Our teams
+        based in San Francisco, Tokyo and Auckland harness broad industry
+        experience across billions in transaction and patent value.
       </AboutDesc>
     </Container>
     <TeamSection />
