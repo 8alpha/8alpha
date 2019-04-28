@@ -28,7 +28,7 @@ const Photo = styled.div`
   display: flex;
   flex-direction: column;
 
-  flex: 0 0 16%;
+  flex: 0 0 17.5%;
   margin-right: 2rem;
   margin-top: 2rem;
   border-style: solid;
