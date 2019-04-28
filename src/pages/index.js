@@ -6,8 +6,8 @@ import StyledBackgroundSection from "../components/styled-background-section";
 import TeamSection from "../components/team-section";
 
 const Container = styled.div`
-  margin-left: 10rem;
-  margin-right: 10rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
   margin-bottom: 5rem;
 `;
 

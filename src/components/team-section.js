@@ -4,8 +4,8 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin-left: 10rem;
-  margin-right: 10rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
   margin-bottom: 5rem;
 `;
 
@@ -42,16 +42,6 @@ const Caption = styled.div`
   padding-bottom: 0.7rem;
   align-self: center;
   color: #fffff0;
-
-  a:link {
-    text-decoration: none;
-    color: #fffff0;
-  }
-
-  a:visited {
-    text-decoration: none;
-    color: #fffff0;
-  }
 
   ul {
     list-style: none;
@@ -126,7 +116,7 @@ const TeamSection = () => (
       const linkedIn = data.linkedIn.childImageSharp.fixed;
       return (
         <Container>
-          <SectionHeader>MEET OUR TEAM</SectionHeader>
+          <SectionHeader>TEAM</SectionHeader>
           <Photos>
             <Photo>
               <Img fluid={nickDivehall} alt="Nick Divehall" />

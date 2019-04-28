@@ -8,7 +8,7 @@ import Header from "./header";
 const Tagline = styled.div`
   padding-top: 5rem;
   padding-bottom: 2rem;
-  padding-left: 10rem;
+  padding-left: 5rem;
   color: #fffff0;
   font-size: 5rem;
   font-weight: bold;
