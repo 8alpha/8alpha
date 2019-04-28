@@ -11,7 +11,8 @@ const GlobalStyle = createGlobalStyle`
 html, body {
     font-family: Questrial, sans-serif;
     font-size: 10px;
-    background: #22292f;
+    /* background: #22292f; */
+    background: linear-gradient(#171717, #2f2f2f);
     height: 100%;
     width: 100%;
 }
