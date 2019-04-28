@@ -9,12 +9,11 @@ import Footer from "./afooter";
 
 const GlobalStyle = createGlobalStyle`
 html, body {
-    font-family: Roboto, sans-serif;
+    font-family: Questrial, sans-serif;
     font-size: 10px;
     background: #22292f;
     height: 100%;
     width: 100%;
-    margin: auto;
 }
 `;
 
