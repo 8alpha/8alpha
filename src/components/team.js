@@ -8,8 +8,7 @@ import { Container, SectionHeading } from "./styled";
 const StyledPhotos = styled.div`
   margin-top: 1.5rem;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-between;
 `;
 
@@ -82,8 +81,8 @@ const Team = () => (
         }
         linkedIn: file(absolutePath: { regex: "/linkedin.png/" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 22) {
-              ...GatsbyImageSharpFluid
+            fluid(quality: 100, maxWidth: 440, maxHeight: 440) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

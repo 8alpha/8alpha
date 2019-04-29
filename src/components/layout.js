@@ -18,7 +18,7 @@ html, body {
     --h2-font-size: 2.4rem;
     --p-font-size: 1.6rem;
     @media only screen and (max-width: 600px) {
-      font-size: 8px;
+      font-size: 6px;
     }
 }
 `;
