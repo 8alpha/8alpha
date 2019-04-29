@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { Container, SectionHeading } from "./styled";
 
-const Photos = styled.div`
+const StyledPhotos = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -14,7 +14,7 @@ const Photos = styled.div`
     * border-color: red; */
 `;
 
-const Photo = styled.div`
+const StyledPhoto = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -98,102 +98,67 @@ const Team = () => (
       }
     `}
     render={data => {
-      const alexKelley = data.alexKelley.childImageSharp.fluid;
-      const nickDivehall = data.nickDivehall.childImageSharp.fluid;
-      const markLindon = data.markLindon.childImageSharp.fluid;
-      const lukePeterson = data.lukePeterson.childImageSharp.fluid;
-      const reubenTucker = data.reubenTucker.childImageSharp.fluid;
       const linkedIn = data.linkedIn.childImageSharp.fixed;
+
+      const cards = [
+        {
+          photo: data.nickDivehall.childImageSharp.fluid,
+          alt: "Nick Divehall",
+          slug: "nickdivehall",
+        },
+        {
+          photo: data.alexKelley.childImageSharp.fluid,
+          alt: "Alex Kelley",
+          slug: "alexdkelley",
+        },
+        {
+          photo: data.markLindon.childImageSharp.fluid,
+          alt: "Mark Lindon",
+          slug: "mark-lindon-0656a1104",
+        },
+        {
+          photo: data.lukePeterson.childImageSharp.fluid,
+          alt: "Luke Peterson",
+          slug: "lupeterson",
+        },
+        {
+          photo: data.reubenTucker.childImageSharp.fluid,
+          alt: "Reuben Tucker",
+          slug: "reuben-tucker-5212b269",
+        },
+      ];
+
+      const Photos = () =>
+        cards.map(card => {
+          const fullName = card.alt.split(" ");
+
+          return (
+            <StyledPhoto key={card.slug}>
+              <Img fluid={card.photo} alt={card.alt} />
+              <Caption>
+                <ul>
+                  <li>
+                    <a href={`https://www.linkedin.com/in/${card.slug}/`}>
+                      <Img fixed={linkedIn} />
+                    </a>
+                  </li>
+                  <li>
+                    {fullName[0]}
+                    <br />
+                    {fullName[1]}
+                  </li>
+                </ul>
+              </Caption>
+            </StyledPhoto>
+          );
+        });
+
       return (
         <Container>
           <SectionHeading>TEAM</SectionHeading>
-          <Photos>
-            <Photo>
-              <Img fluid={nickDivehall} alt="Nick Divehall" />
-              <Caption>
-                <ul>
-                  <li>
-                    <a href="https://www.linkedin.com/in/nickdivehall/">
-                      <Img fixed={linkedIn} />
-                    </a>
-                  </li>
-                  <li>
-                    Nick
-                    <br />
-                    Divehall
-                  </li>
-                </ul>
-              </Caption>
-            </Photo>
-            <Photo>
-              <Img fluid={alexKelley} alt="Alex Kelley" />
-              <Caption>
-                <ul>
-                  <li>
-                    <a href="https://www.linkedin.com/in/alexdkelley">
-                      <Img fixed={linkedIn} />
-                    </a>
-                  </li>
-                  <li>
-                    Alex
-                    <br />
-                    Kelley
-                  </li>
-                </ul>
-              </Caption>
-            </Photo>
-            <Photo>
-              <Img fluid={markLindon} alt="Mark Lindon" />
-              <Caption>
-                <ul>
-                  <li>
-                    <a href="https://www.linkedin.com/in/mark-lindon-0656a1104/">
-                      <Img fixed={linkedIn} />
-                    </a>
-                  </li>
-                  <li>
-                    Mark
-                    <br />
-                    Lindon
-                  </li>
-                </ul>
-              </Caption>
-            </Photo>
-            <Photo>
-              <Img fluid={lukePeterson} alt="Luke Peterson" />
-              <Caption>
-                <ul>
-                  <li>
-                    <a href="https://www.linkedin.com/in/lupeterson/">
-                      <Img fixed={linkedIn} />
-                    </a>
-                  </li>
-                  <li>
-                    Luke
-                    <br />
-                    Peterson
-                  </li>
-                </ul>
-              </Caption>
-            </Photo>
-            <Photo>
-              <Img fluid={reubenTucker} alt="Reuben Tucker" />
-              <Caption>
-                <ul>
-                  <li>
-                    <a href="https://www.linkedin.com/in/reuben-tucker-5212b269/">
-                      <Img fixed={linkedIn} />
-                    </a>
-                  </li>
-                  <li>
-                    Reuben
-                    <br />
-                    Tucker
-                  </li>
-                </ul>
-              </Caption>
-            </Photo>
-          </Photos>
+          <StyledPhotos>
+            <Photos />
+          </StyledPhotos>
         </Container>
       );
     }}
