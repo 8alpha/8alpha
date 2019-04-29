@@ -16,7 +16,7 @@ const Logo = styled.div`
 const Description = styled.div`
   color: var(--secondary-color);
   font-size: var(--p-font-size);
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.3rem;
 `;
 
 const Tagline = styled.div`
@@ -24,7 +24,7 @@ const Tagline = styled.div`
   color: var(--secondary-color);
   font-size: var(--h2-font-size);
   font-weight: bold;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.3rem;
 `;
 
 const HeaderSection = ({ className }) => (

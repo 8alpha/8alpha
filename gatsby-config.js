@@ -26,7 +26,6 @@ module.exports = {
         fonts: [
           {
             family: `Questrial`,
-            variants: [`400`, `bold 700`],
           },
         ],
       },

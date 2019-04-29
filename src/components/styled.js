@@ -9,7 +9,7 @@ export const SectionHeading = styled.div`
   font-size: var(--h2-font-size);
   color: var(--primary-color);
   text-align: center;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.3rem;
 `;
 
 export const SectionParagraph = styled.div`
@@ -18,6 +18,6 @@ export const SectionParagraph = styled.div`
   margin-top: 1rem;
   padding-left: 11rem;
   padding-right: 11rem;
-  letter-spacing: 0.2rem;
-  font-weight: 200;
+  letter-spacing: 0.3rem;
+  font-weight: 100;
 `;
