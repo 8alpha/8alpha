@@ -2,23 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { createGlobalStyle } from "styled-components";
-import styled from "styled-components";
 import favicon from "../images/favicon.png";
 
-import Footer from "./afooter";
+import Footer from "./footer";
+import Header from "./header";
 
 const GlobalStyle = createGlobalStyle`
 html, body {
     font-family: Questrial, sans-serif;
     font-size: 10px;
-    /* background: #22292f; */
     background: linear-gradient(#171717, #2f2f2f);
-    height: 100%;
     width: 100%;
+    --primary-color: #dc143c;
+    --secondary-color: #fffff0;
+    --h2-font-size: 4rem;
+    --p-font-size: 2rem;
 }
 `;
-
-const Main = styled.div``;
 
 const Layout = ({ children }) => (
   <div>
@@ -31,9 +31,8 @@ const Layout = ({ children }) => (
       ]}
       link={[{ rel: "shortcut icon", type: "image/png", href: `${favicon}` }]}
     />
-    <Main>
-      <div>{children}</div>
-    </Main>
+    <Header />
+    {children}
     <Footer />
   </div>
 );

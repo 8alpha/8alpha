@@ -3,17 +3,7 @@ import { graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
-const Container = styled.div`
-  margin-left: 5rem;
-  margin-right: 5rem;
-  margin-bottom: 5rem;
-`;
-
-const SectionHeader = styled.div`
-  font-size: 4rem;
-  text-align: center;
-  color: #dc143c;
-`;
+import { Container, SectionHeading } from "./styled";
 
 const Photos = styled.div`
   display: flex;
@@ -62,7 +52,7 @@ const Caption = styled.div`
   /* border-color: red; */
 `;
 
-const TeamSection = () => (
+const Team = () => (
   <StaticQuery
     query={graphql`
       fragment fluidImage on File {
@@ -116,7 +106,7 @@ const TeamSection = () => (
       const linkedIn = data.linkedIn.childImageSharp.fixed;
       return (
         <Container>
-          <SectionHeader>TEAM</SectionHeader>
+          <SectionHeading>TEAM</SectionHeading>
           <Photos>
             <Photo>
               <Img fluid={nickDivehall} alt="Nick Divehall" />
@@ -210,4 +200,4 @@ const TeamSection = () => (
   />
 );
 
-export default TeamSection;
+export default Team;
