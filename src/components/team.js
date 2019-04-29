@@ -6,50 +6,41 @@ import styled from "styled-components";
 import { Container, SectionHeading } from "./styled";
 
 const StyledPhotos = styled.div`
+  margin-top: 1.5rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  /* border-style: solid;
-    * border-color: red; */
 `;
 
 const StyledPhoto = styled.div`
+  flex: 0 2 17%;
+  border-style: solid;
+  border-color: var(--secondary-color);
+
   display: flex;
   flex-direction: column;
-
-  flex: 0 0 17.5%;
-  margin-right: 2rem;
-  margin-top: 2rem;
-  border-style: solid;
-  border-color: #fffff0;
+  justify-content: space-between;
+  height: 100%;
 `;
 
 const Caption = styled.div`
-  width: 97%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
   background-color: black;
-  padding-top: 0.7rem;
-  padding-bottom: 0.7rem;
   align-self: center;
-  color: #fffff0;
+  color: var(--secondary-color);
+`;
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  li {
-    font-size: 2rem;
-  }
-
-  /* border-style: solid; */
-  /* border-color: red; */
+const CaptionItem = styled.div`
+  font-size: 2rem;
 `;
 
 const Team = () => (
@@ -57,7 +48,7 @@ const Team = () => (
     query={graphql`
       fragment fluidImage on File {
         childImageSharp {
-          fluid(maxWidth: 480, maxHeight: 720) {
+          fluid(maxWidth: 480) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -136,18 +127,16 @@ const Team = () => (
             <StyledPhoto key={card.slug}>
               <Img fluid={card.photo} alt={card.alt} />
               <Caption>
-                <ul>
-                  <li>
-                    <a href={`https://www.linkedin.com/in/${card.slug}/`}>
-                      <Img fixed={linkedIn} />
-                    </a>
-                  </li>
-                  <li>
-                    {fullName[0]}
-                    <br />
-                    {fullName[1]}
-                  </li>
-                </ul>
+                <CaptionItem>
+                  <a href={`https://www.linkedin.com/in/${card.slug}/`}>
+                    <Img fixed={linkedIn} />
+                  </a>
+                </CaptionItem>
+                <CaptionItem>
+                  {fullName[0]}
+                  <br />
+                  {fullName[1]}
+                </CaptionItem>
               </Caption>
             </StyledPhoto>
           );

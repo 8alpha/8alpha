@@ -9,10 +9,15 @@ export const SectionHeading = styled.div`
   font-size: var(--h2-font-size);
   color: var(--primary-color);
   text-align: center;
+  letter-spacing: 0.2rem;
 `;
 
 export const SectionParagraph = styled.div`
   font-size: var(--p-font-size);
   color: var(--secondary-color);
   margin-top: 1rem;
+  padding-left: 11rem;
+  padding-right: 11rem;
+  letter-spacing: 0.2rem;
+  font-weight: 200;
 `;

@@ -9,12 +9,14 @@ import { Container } from "./styled";
 const Logo = styled.div`
   color: var(--primary-color);
   font-weight: bold;
-  font-size: 6rem;
+  font-size: 4.5rem;
+  letter-spacing: 0.2rem;
 `;
 
 const Description = styled.div`
   color: var(--secondary-color);
   font-size: var(--p-font-size);
+  letter-spacing: 0.2rem;
 `;
 
 const Tagline = styled.div`
@@ -22,6 +24,7 @@ const Tagline = styled.div`
   color: var(--secondary-color);
   font-size: var(--h2-font-size);
   font-weight: bold;
+  letter-spacing: 0.2rem;
 `;
 
 const HeaderSection = ({ className }) => (
