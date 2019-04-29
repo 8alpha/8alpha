@@ -40,7 +40,8 @@ const Caption = styled.div`
 `;
 
 const CaptionItem = styled.div`
-  font-size: 2rem;
+  font-size: var(--p-font-size);
+  flex: 0 1 20%;
 `;
 
 const Team = () => (
@@ -81,15 +82,15 @@ const Team = () => (
         }
         linkedIn: file(absolutePath: { regex: "/linkedin.png/" }) {
           childImageSharp {
-            fixed(width: 44, height: 44) {
-              ...GatsbyImageSharpFixed
+            fluid(quality: 100, maxWidth: 22) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
     `}
     render={data => {
-      const linkedIn = data.linkedIn.childImageSharp.fixed;
+      const linkedIn = data.linkedIn.childImageSharp.fluid;
 
       const cards = [
         {
@@ -129,7 +130,7 @@ const Team = () => (
               <Caption>
                 <CaptionItem>
                   <a href={`https://www.linkedin.com/in/${card.slug}/`}>
-                    <Img fixed={linkedIn} />
+                    <Img fluid={linkedIn} />
                   </a>
                 </CaptionItem>
                 <CaptionItem>
