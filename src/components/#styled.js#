@@ -20,7 +20,4 @@ export const SectionParagraph = styled.div`
   padding-right: 5rem;
   letter-spacing: 0.3rem;
   font-weight: 100;
-  @media only screen and (max-width: 600px) {
-    font-size: 5px;
-  }
 `;

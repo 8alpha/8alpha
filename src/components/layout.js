@@ -10,7 +10,7 @@ import Header from "./header";
 const GlobalStyle = createGlobalStyle`
 html, body {
     font-family: Questrial, sans-serif;
-    font-size: 10px;
+    font-size: 1vmin;
     background: linear-gradient(#171717, #2f2f2f);
     width: 100%;
     --primary-color: #dc143c;
