@@ -10,13 +10,16 @@ import Header from "./header";
 const GlobalStyle = createGlobalStyle`
 html, body {
     font-family: Questrial, sans-serif;
-    font-size: 1vmin;
+    font-size: 10px;
     background: linear-gradient(#171717, #2f2f2f);
     width: 100%;
     --primary-color: #dc143c;
     --secondary-color: #fffff0;
     --h2-font-size: 2.4rem;
     --p-font-size: 1.6rem;
+    @media only screen and (max-width: 600px) {
+      font-size: 8px;
+    }
 }
 `;
 

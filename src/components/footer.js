@@ -24,7 +24,7 @@ const Container = styled.div`
   }
 
   li:first-child {
-    font-size: 1.5rem;
+    font-size: var(--p-font-size);
     flex: 0 0 85%;
   }
 `;
