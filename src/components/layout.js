@@ -13,6 +13,7 @@ html, body {
     font-size: 10px;
     background: linear-gradient(#171717, #2f2f2f);
     width: 100%;
+    height: 100%;
     --primary-color: #dc143c;
     --secondary-color: #fffff0;
     --h2-font-size: 2.4rem;

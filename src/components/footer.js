@@ -19,12 +19,11 @@ const Container = styled.div`
   }
 
   li {
-    /* border: 1px solid; */
     flex: 0 0 5%;
   }
 
   li:first-child {
-    font-size: var(--p-font-size);
+    font-size: 1.2rem;
     flex: 0 0 85%;
   }
 `;
