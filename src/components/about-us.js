@@ -3,7 +3,7 @@ import React from "react";
 import {
   Container,
   SectionHeading,
-  SectionParagraph,
+  SectionParagraph
 } from "../components/styled";
 
 const AboutUs = () => (

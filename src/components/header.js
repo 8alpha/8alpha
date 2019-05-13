@@ -43,28 +43,31 @@ const HeaderSection = ({ className }) => (
     render={data => {
       const imageData = data.desktop.childImageSharp.fluid;
       return (
-        <BackgroundImage
-          Tag="section"
-          className={className}
-          fluid={imageData}
-          backgroundColor={`#040e18`}
-        >
-          <Container>
-            <Logo>8ALPHA</Logo>
-            <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
-            <Tagline>
-              <div>THE EDGE FOR</div>
-              <div>AMBITIOUS INNOVATORS</div>
-            </Tagline>
-          </Container>
-        </BackgroundImage>
+        <div>
+          <BackgroundImage
+            Tag="section"
+            className={className}
+            fluid={imageData}
+            backgroundColor={`#040e18`}
+          >
+            <Container>
+              <Logo>8ALPHA</Logo>
+              <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
+              <Tagline>
+                <div>THE EDGE FOR</div>
+                <div>AMBITIOUS INNOVATORS</div>
+              </Tagline>
+            </Container>
+          </BackgroundImage>
+          <hr />
+        </div>
       );
     }}
   />
 );
 
 HeaderSection.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 const Header = styled(HeaderSection)`
