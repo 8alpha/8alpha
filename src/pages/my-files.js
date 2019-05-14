@@ -3,37 +3,45 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
+import { Container, SectionHeading } from "../components/styled";
 
-const Container = styled.div`
-  padding: 10rem 5rem 10rem 5rem;
-  color: white;
+const TableStyle = styled.div`
+  color: var(--secondary-color);
+  font-size: var(--p-font-size);
+  margin-top: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  letter-spacing: 0.3rem;
+  font-weight: 100;
 `;
 
 const MyFiles = ({ data }) => {
   return (
     <Layout>
       <Container>
-        <h1>My Site's Files</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>relativePath</th>
-              <th>prettySize</th>
-              <th>extension</th>
-              <th>birthTime</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.allFile.edges.map(({ node }, index) => (
-              <tr key={index}>
-                <td>{node.relativePath}</td>
-                <td>{node.prettySize}</td>
-                <td>{node.extension}</td>
-                <td>{node.birthTime}</td>
+        <SectionHeading>{"My Site\u2019s Files"}</SectionHeading>
+        <TableStyle>
+          <table>
+            <thead>
+              <tr>
+                <th>relativePath</th>
+                <th>prettySize</th>
+                <th>extension</th>
+                <th>birthTime</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {data.allFile.edges.map(({ node }, index) => (
+                <tr key={index}>
+                  <td>{node.relativePath}</td>
+                  <td>{node.prettySize}</td>
+                  <td>{node.extension}</td>
+                  <td>{node.birthTime}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </TableStyle>
       </Container>
     </Layout>
   );
