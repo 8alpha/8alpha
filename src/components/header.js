@@ -67,7 +67,7 @@ const HeaderSection = ({ className }) => (
 );
 
 HeaderSection.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 const Header = styled(HeaderSection)`
