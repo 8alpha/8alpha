@@ -1,13 +1,13 @@
 import React from "react";
 
 import {
-  Container,
+  SectionContainer,
   SectionHeading,
   SectionParagraph,
 } from "../components/styled";
 
 const AboutUs = () => (
-  <Container>
+  <SectionContainer>
     <SectionHeading>ABOUT US</SectionHeading>
     <SectionParagraph>
       8ALPHA provides technology, strategic development and corporate finance
@@ -19,7 +19,7 @@ const AboutUs = () => (
       development, patent portfolio creation, transaction structuring, and
       capital management.
     </SectionParagraph>
-  </Container>
+  </SectionContainer>
 );
 
 export default AboutUs;

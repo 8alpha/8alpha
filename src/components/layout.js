@@ -11,11 +11,11 @@ const GlobalStyle = createGlobalStyle`
 html, body {
     font-family: Questrial, sans-serif;
     font-size: 10px;
-    background: linear-gradient(#171717, #2f2f2f);
+    background: #001722;
     width: 100%;
     height: 100%;
-    --primary-color: #dc143c;
-    --secondary-color: #fffff0;
+    --primary-color: #8a8a8d;
+    --secondary-color: #dbd9d6;
     --h2-font-size: 2.4rem;
     --p-font-size: 1.6rem;
     @media only screen and (max-width: 600px) {
