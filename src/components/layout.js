@@ -11,16 +11,19 @@ const GlobalStyle = createGlobalStyle`
 html, body {
     font-family: Questrial, sans-serif;
     font-size: 10px;
-    background: #001722;
+    background-color: #001722;
     width: 100%;
     height: 100%;
     --primary-color: #8a8a8d;
     --secondary-color: #dbd9d6;
     --h2-font-size: 2.4rem;
     --p-font-size: 1.6rem;
-    @media only screen and (max-width: 600px) {
-      font-size: 6px;
-    }
+    @media only screen and (max-width: 640px) {
+      font-size: 5px;
+    };
+    @media only screen and (max-width: 768px) {
+      font-size: 7px;
+    };
 }
 `;
 
@@ -31,7 +34,7 @@ const Layout = ({ children }) => (
       title="8Alpha Partners"
       meta={[
         { name: "description", content: "8Alpha Partners" },
-        { name: "keywords", content: "startup" },
+        { name: "keywords", content: "startup" }
       ]}
       link={[{ rel: "shortcut icon", type: "image/png", href: `${favicon}` }]}
     />
@@ -42,7 +45,7 @@ const Layout = ({ children }) => (
 );
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default Layout;
