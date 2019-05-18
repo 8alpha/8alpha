@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
     "prettier-watch": "onchange '**/*.js' -- prettier --trailing-comma es5 --write {{changed}}",
     "start": "npm run develop",
     "serve": "gatsby serve",

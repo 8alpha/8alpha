@@ -10,16 +10,27 @@ import Header from "./header";
 const GlobalStyle = createGlobalStyle`
 html, body {
     font-family: Questrial, sans-serif;
-    font-size: 10px;
-    background: #001722;
+    background-color: #001722;
     width: 100%;
     height: 100%;
     --primary-color: #8a8a8d;
     --secondary-color: #dbd9d6;
     --h2-font-size: 2.4rem;
     --p-font-size: 1.6rem;
-    @media only screen and (max-width: 600px) {
-      font-size: 6px;
+    @media only screen and (max-width: 599px) {
+      font-size: 5px;
+    }
+    @media only screen and (min-width: 600px) {
+      font-size: 7px;
+    }
+    @media only screen and (min-width: 900px) {
+      font-size: 8px;
+    }
+    @media only screen and (min-width: 1280px) {
+      font-size: 10px;
+    }
+    @media only screen and (min-width: 1800px) {
+      font-size: 14px;
     }
 }
 `;
