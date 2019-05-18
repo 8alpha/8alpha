@@ -4,13 +4,17 @@ import styled from "styled-components";
 import { graphql, StaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 
-import { Container } from "./styled";
+import logo from "../images/logo.svg";
 
-const Logo = styled.div`
-  color: var(--primary-color);
-  font-weight: bold;
-  font-size: 4.5rem;
-  letter-spacing: 0.2rem;
+const HeaderContainer = styled.div`
+  margin: 2rem 5rem 21rem 5rem;
+`;
+
+const LogoStyle = styled.div`
+  object {
+    width: 25rem;
+    height: 11rem;
+  }
 `;
 
 const Description = styled.div`
@@ -43,24 +47,23 @@ const HeaderSection = ({ className }) => (
     render={data => {
       const imageData = data.desktop.childImageSharp.fluid;
       return (
-        <div>
-          <BackgroundImage
-            Tag="section"
-            className={className}
-            fluid={imageData}
-            backgroundColor={`#040e18`}
-          >
-            <Container>
-              <Logo>8ALPHA</Logo>
-              <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
-              <Tagline>
-                <div>THE EDGE FOR</div>
-                <div>AMBITIOUS INNOVATORS</div>
-              </Tagline>
-            </Container>
-          </BackgroundImage>
-          <hr />
-        </div>
+        <BackgroundImage
+          Tag="section"
+          className={className}
+          fluid={imageData}
+          backgroundColor={`#040e18`}
+        >
+          <HeaderContainer>
+            <LogoStyle>
+              <object data={logo} type="image/svg+xml" />
+            </LogoStyle>
+            <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
+            <Tagline>
+              <div>THE EDGE FOR</div>
+              <div>AMBITIOUS INNOVATORS</div>
+            </Tagline>
+          </HeaderContainer>
+        </BackgroundImage>
       );
     }}
   />
@@ -72,8 +75,8 @@ HeaderSection.propTypes = {
 
 const Header = styled(HeaderSection)`
   width: 100%;
-  background-position: center;
-  background-repeat: repeat-y;
+  background-position: left top;
+  background-repeat: no-repeat;
   background-size: cover;
 `;
 

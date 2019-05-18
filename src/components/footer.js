@@ -3,9 +3,9 @@ import { graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
-const Container = styled.div`
-  color: #fffff0;
-  margin: 2rem 5rem 2rem 5rem;
+const FooterContainer = styled.div`
+  color: var(--secondary-color);
+  margin: 5rem 5rem 5rem 5rem;
 
   ul {
     list-style: none;
@@ -52,7 +52,7 @@ const Footer = () => (
       const linkedIn = data.linkedIn.childImageSharp.fluid;
       const mailTo = data.mailTo.childImageSharp.fluid;
       return (
-        <Container>
+        <FooterContainer>
           <ul>
             <li>&copy; 2019 All Rights Reserved</li>
             <li>
@@ -66,7 +66,7 @@ const Footer = () => (
               </a>
             </li>
           </ul>
-        </Container>
+        </FooterContainer>
       );
     }}
   />
