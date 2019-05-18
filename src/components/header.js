@@ -10,6 +10,13 @@ const HeaderContainer = styled.div`
   margin: 2rem 5rem 21rem 5rem;
 `;
 
+const LogoStyle = styled.div`
+  object {
+    width: 25rem;
+    height: 11rem;
+  }
+`;
+
 const Description = styled.div`
   color: var(--secondary-color);
   font-size: var(--p-font-size);
@@ -47,7 +54,9 @@ const HeaderSection = ({ className }) => (
           backgroundColor={`#040e18`}
         >
           <HeaderContainer>
-            <object data={logo} width="250" height="110" />
+            <LogoStyle>
+              <object data={logo} type="image/svg+xml" />
+            </LogoStyle>
             <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
             <Tagline>
               <div>THE EDGE FOR</div>
@@ -61,7 +70,7 @@ const HeaderSection = ({ className }) => (
 );
 
 HeaderSection.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 const Header = styled(HeaderSection)`
