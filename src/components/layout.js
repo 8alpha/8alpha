@@ -10,7 +10,6 @@ import Header from "./header";
 const GlobalStyle = createGlobalStyle`
 html, body {
     font-family: Questrial, sans-serif;
-    font-size: 10px;
     background-color: #001722;
     width: 100%;
     height: 100%;
@@ -18,12 +17,21 @@ html, body {
     --secondary-color: #dbd9d6;
     --h2-font-size: 2.4rem;
     --p-font-size: 1.6rem;
-    @media only screen and (max-width: 640px) {
+    @media only screen and (max-width: 599px) {
       font-size: 5px;
-    };
-    @media only screen and (max-width: 768px) {
+    }
+    @media only screen and (min-width: 600px) {
       font-size: 7px;
-    };
+    }
+    @media only screen and (min-width: 900px) {
+      font-size: 8px;
+    }
+    @media only screen and (min-width: 1280px) {
+      font-size: 10px;
+    }
+    @media only screen and (min-width: 1800px) {
+      font-size: 14px;
+    }
 }
 `;
 
@@ -34,7 +42,7 @@ const Layout = ({ children }) => (
       title="8Alpha Partners"
       meta={[
         { name: "description", content: "8Alpha Partners" },
-        { name: "keywords", content: "startup" }
+        { name: "keywords", content: "startup" },
       ]}
       link={[{ rel: "shortcut icon", type: "image/png", href: `${favicon}` }]}
     />
@@ -45,7 +53,7 @@ const Layout = ({ children }) => (
 );
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
