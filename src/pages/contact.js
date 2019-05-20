@@ -1,11 +1,21 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 import Layout from "../components/layout";
-import {
-  Container,
-  SectionHeading,
-  SectionParagraph,
-} from "../components/styled";
+import { SectionContainer, SectionHeading } from "../components/styled";
+
+const FormFieldStyle = styled.div`
+  margin: 2rem 5rem 2rem 5rem;
+`;
+
+const labelStyle = {
+  color: "var(--secondary-color)",
+  fontSize: "var(--h2-font-size)",
+};
+
+const abbrStyle = {
+  color: "var(--ternary-color)",
+};
 
 function Form() {
   const [name, setName] = useState("");
@@ -18,7 +28,7 @@ function Form() {
 
   return (
     <Layout>
-      <Container>
+      <SectionContainer>
         <SectionHeading>
           {"We\u2019d love to hear from you and see what you are building"}
         </SectionHeading>
@@ -29,19 +39,23 @@ function Form() {
           data-netlify-honeypot="botField"
         >
           <p hidden>
-            <label>
-              Do not fill this out:{" "}
-              <input
-                name="botField"
-                onChange={e => setBotField(e.target.value)}
-                type="hidden"
-                value={botField}
-              />
-            </label>
+            <label>Do not fill this out:</label>
+            <input
+              name="botField"
+              onChange={e => setBotField(e.target.value)}
+              type="hidden"
+              value={botField}
+            />
           </p>
-          <SectionParagraph>
-            <label>
+          <FormFieldStyle>
+            <label htmlFor="name" style={labelStyle}>
               What is your name?
+              <abbr title="required" style={abbrStyle}>
+                {"\u0020*"}
+              </abbr>
+            </label>
+
+            <div>
               <input
                 value={name}
                 onChange={e => setName(e.target.value)}
@@ -50,11 +64,16 @@ function Form() {
                 name="name"
                 required
               />
+            </div>
+          </FormFieldStyle>
+          <FormFieldStyle>
+            <label htmlFor="name" style={labelStyle}>
+              What is your email address?
+              <abbr title="required" style={abbrStyle}>
+                {"\u0020*"}
+              </abbr>
             </label>
-          </SectionParagraph>
-          <SectionParagraph>
-            <label>
-              What is email address?
+            <div>
               <input
                 value={email}
                 onChange={e => setEmail(e.target.value)}
@@ -63,12 +82,16 @@ function Form() {
                 name="email"
                 required
               />
-            </label>
-          </SectionParagraph>
-          <SectionParagraph>
-            {" "}
-            <label>
+            </div>
+          </FormFieldStyle>
+          <FormFieldStyle>
+            <label htmlFor="name" style={labelStyle}>
               What is the name of your company?
+              <abbr title="required" style={abbrStyle}>
+                {"\u0020*"}
+              </abbr>
+            </label>
+            <div>
               <input
                 value={companyName}
                 onChange={e => setCompanyName(e.target.value)}
@@ -77,11 +100,16 @@ function Form() {
                 name="companyName"
                 required
               />
-            </label>
-          </SectionParagraph>
-          <SectionParagraph>
-            <label>
+            </div>
+          </FormFieldStyle>
+          <FormFieldStyle>
+            <label htmlFor="name" style={labelStyle}>
               What stage is your company?
+              <abbr title="required" style={abbrStyle}>
+                {"\u0020*"}
+              </abbr>
+            </label>
+            <div>
               <input
                 value={stage}
                 onChange={e => setStage(e.target.value)}
@@ -90,11 +118,16 @@ function Form() {
                 name="stage"
                 required
               />
-            </label>
-          </SectionParagraph>
-          <SectionParagraph>
-            <label>
+            </div>
+          </FormFieldStyle>
+          <FormFieldStyle>
+            <label htmlFor="name" style={labelStyle}>
               Please describe your company in one sentence
+              <abbr title="required" style={abbrStyle}>
+                {"\u0020*"}
+              </abbr>
+            </label>
+            <div>
               <input
                 value={sentence}
                 onChange={e => setSentence(e.target.value)}
@@ -103,11 +136,13 @@ function Form() {
                 name="sentence"
                 required
               />
-            </label>
-          </SectionParagraph>
-          <button type="submit">Submit</button>
+            </div>
+          </FormFieldStyle>
+          <FormFieldStyle>
+            <button type="submit">Submit</button>
+          </FormFieldStyle>
         </form>
-      </Container>
+      </SectionContainer>
     </Layout>
   );
 }

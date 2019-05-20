@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
-import { Container, SectionHeading } from "../components/styled";
+import { SectionContainer, SectionHeading } from "../components/styled";
 
 const TableStyle = styled.div`
   color: var(--secondary-color);
@@ -18,7 +19,7 @@ const TableStyle = styled.div`
 const MyFiles = ({ data }) => {
   return (
     <Layout>
-      <Container>
+      <SectionContainer>
         <SectionHeading>{"My Site\u2019s Files"}</SectionHeading>
         <TableStyle>
           <table>
@@ -42,9 +43,13 @@ const MyFiles = ({ data }) => {
             </tbody>
           </table>
         </TableStyle>
-      </Container>
+      </SectionContainer>
     </Layout>
   );
+};
+
+MyFiles.propTypes = {
+  data: PropTypes.object,
 };
 
 export const page = graphql`

@@ -15,6 +15,7 @@ html, body {
     height: 100%;
     --primary-color: #8a8a8d;
     --secondary-color: #dbd9d6;
+    --ternary-color: #dc143c;
     --h2-font-size: 2.4rem;
     --p-font-size: 1.6rem;
     @media only screen and (max-width: 599px) {
