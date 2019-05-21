@@ -39,6 +39,7 @@ function Form() {
           data-netlify="true"
           data-netlify-honeypot="botField"
         >
+          <input name="form-name" type="hidden" value="contact" />
           <p hidden>
             <label>Do not fill this out:</label>
             <input
