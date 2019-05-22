@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { SectionContainer, SectionHeading } from "./styled";
 
 const StyledPhotos = styled.div`
-  margin-top: 1.5rem;
+  margin-top: 1vh;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -39,7 +39,7 @@ const Caption = styled.div`
 `;
 
 const CaptionItem = styled.div`
-  font-size: var(--p-font-size);
+  font-size: calc(var(--p-font-size) - 5px);
   flex: 0 1 20%;
 `;
 

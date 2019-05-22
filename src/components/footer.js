@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const FooterContainer = styled.div`
   color: var(--secondary-color);
-  margin: 5rem 5rem 5rem 5rem;
+  margin: 5vh 5vw 5vh 5vw;
 
   ul {
     list-style: none;

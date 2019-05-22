@@ -7,7 +7,7 @@ import BackgroundImage from "gatsby-background-image";
 import logo from "../images/logo.svg";
 
 const HeaderContainer = styled.div`
-  margin: 2rem 5rem 21rem 5rem;
+  margin: 2vh 5vw 30vh 5vw;
 `;
 
 const LogoStyle = styled.div`
@@ -18,17 +18,17 @@ const LogoStyle = styled.div`
 `;
 
 const Description = styled.div`
+  padding-top: 1vh;
   color: var(--secondary-color);
   font-size: var(--p-font-size);
-  letter-spacing: 0.3rem;
+  letter-spacing: var(--p-letter-spacing);
 `;
 
 const Tagline = styled.div`
-  padding-top: 2rem;
+  padding-top: 2vh;
   color: var(--secondary-color);
   font-size: var(--h2-font-size);
-  font-weight: bold;
-  letter-spacing: 0.3rem;
+  letter-spacing: var(--h2-letter-spacing);
 `;
 
 const HeaderSection = ({ className }) => (
