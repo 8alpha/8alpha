@@ -6,6 +6,7 @@ import styled from "styled-components";
 const FooterContainer = styled.div`
   color: var(--secondary-color);
   margin: 5vh 5vw 5vh 5vw;
+  padding-bottom: 5vh;
 
   ul {
     list-style: none;
@@ -24,7 +25,7 @@ const FooterContainer = styled.div`
 
   li:first-child {
     font-size: 1.2rem;
-    flex: 0 0 85%;
+    flex-basis: 85%;
   }
 `;
 

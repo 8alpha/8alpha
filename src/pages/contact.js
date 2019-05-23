@@ -28,10 +28,6 @@ const FormFieldStyle = styled.div`
     &:hover {
       border-color: var(--primary-color);
     }
-
-    &:focus {
-      outline-color: var(--ternary-color);
-    }
   }
 
   .abbr {
