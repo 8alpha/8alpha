@@ -19,13 +19,18 @@ const FormFieldStyle = styled.div`
     padding: 1.5rem 1.6rem;
     background: var(--secondary-color);
     line-height: 1.4;
+    letter-spacing: var(--p-letter-spacing);
     font-size: var(--p-font-size);
     font-color: var(--primary-color);
     transition: border-color 0.1s ease-out;
-    width: 45vw;
+    width: 70vw;
 
     &:hover {
       border-color: var(--primary-color);
+    }
+
+    &:focus {
+      outline-color: var(--ternary-color);
     }
   }
 
@@ -36,38 +41,56 @@ const FormFieldStyle = styled.div`
   .label {
     color: var(--secondary-color);
     font-size: var(--h2-font-size);
+    letter-spacing: var(--p-letter-spacing);
   }
 
   .button {
-    font-size: var(--p-font-size);
-    color: var(--secondary-color);
-    letter-spacing: var(--p-letter-spacing);
-    padding: 1.5rem 1.6rem;
+    padding: 1rem 0rem;
     border-radius: 0.8rem 0;
     text-transform: uppercase;
-    border: 1px solid;
-    transform: translate3d(0, 0, 0);
-    transition: all 0.2s ease-out;
-    z-index: 1;
-    background: hsla(36, 6%, 85%, 0%);
+    border: 1px solid var(--primary-color);
+    background: linear-gradient(
+      to right,
+      var(--primary-color) 50%,
+      var(--bg-color) 50%
+    );
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-out;
     user-select: none;
 
     &:hover {
       border-color: var(--primary-color);
-      color: var(--ternary-color);
-      background: hsla(36, 6%, 85%, 100%);
+      background-position: left bottom;
+    }
+
+    .text {
+      font-size: var(--p-font-size);
+      color: var(--primary-color);
+      letter-spacing: var(--p-letter-spacing);
+      transition: all 0.6s ease-out;
+
+      &:hover {
+        color: var(--secondary-color);
+      }
     }
   }
 `;
 
 function Form() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [stage, setStage] = useState("");
-  const [sentence, setSentence] = useState("");
-  const [botField, setBotField] = useState("");
-  // TODO: Limit character input for sentence to 20 words
+  const handleInputChange = e => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
+
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    companyName: "",
+    stage: "",
+    sentence: "",
+    botField: "",
+  });
 
   return (
     <Layout>
@@ -88,9 +111,9 @@ function Form() {
               <label>Do not fill this out:</label>
               <input
                 name="botField"
-                onChange={e => setBotField(e.target.value)}
+                onChange={handleInputChange}
                 type="hidden"
-                value={botField}
+                value={values.botField}
               />
             </p>
             <FormFieldStyle>
@@ -101,8 +124,8 @@ function Form() {
                 </span>
               </label>
               <input
-                value={name}
-                onChange={e => setName(e.target.value)}
+                value={values.name}
+                onChange={handleInputChange}
                 placeholder="Jane Smith"
                 type="text"
                 name="name"
@@ -118,8 +141,8 @@ function Form() {
                 </span>
               </label>
               <input
-                value={email}
-                onChange={e => setEmail(e.target.value)}
+                value={values.email}
+                onChange={handleInputChange}
                 placeholder="name@domain.com"
                 type="email"
                 name="email"
@@ -135,8 +158,8 @@ function Form() {
                 </span>
               </label>
               <input
-                value={companyName}
-                onChange={e => setCompanyName(e.target.value)}
+                value={values.companyName}
+                onChange={handleInputChange}
                 placeholder="Company Name"
                 type="text"
                 name="companyName"
@@ -152,8 +175,8 @@ function Form() {
                 </span>
               </label>
               <input
-                value={stage}
-                onChange={e => setStage(e.target.value)}
+                value={values.stage}
+                onChange={handleInputChange}
                 placeholder="Seed, Early, or Growth"
                 type="text"
                 name="stage"
@@ -163,16 +186,15 @@ function Form() {
             </FormFieldStyle>
             <FormFieldStyle>
               <label htmlFor="name" className="label">
-                Please describe your company in one sentence.
+                What does your company do?
                 <span title="Required field" className="abbr">
                   <span aria-hidden="true"> {"\u0020*"}</span>
                 </span>
               </label>
-              w{" "}
               <input
-                value={sentence}
-                onChange={e => setSentence(e.target.value)}
-                placeholder="We are building . . ."
+                value={values.sentence}
+                onChange={handleInputChange}
+                placeholder="20 words max"
                 type="text"
                 name="sentence"
                 className="textBox"
@@ -181,7 +203,7 @@ function Form() {
             </FormFieldStyle>
             <FormFieldStyle>
               <button type="submit" className="button">
-                submit
+                <span className="text">{"\u00A0\u00A0Submit\u00A0\u00A0"}</span>
               </button>
             </FormFieldStyle>
           </form>

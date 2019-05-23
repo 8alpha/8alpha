@@ -7,7 +7,7 @@ import BackgroundImage from "gatsby-background-image";
 import logo from "../images/logo.svg";
 
 const HeaderContainer = styled.div`
-  margin: 2vh 5vw 30vh 5vw;
+  margin: 2vh 5vw 15vh 5vw;
 `;
 
 const LogoStyle = styled.div`

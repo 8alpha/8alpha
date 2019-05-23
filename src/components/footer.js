@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, StaticQuery } from "gatsby";
+import { graphql, StaticQuery, Link } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
@@ -39,7 +39,7 @@ const Footer = () => (
             }
           }
         }
-        mailTo: file(absolutePath: { regex: "/mail.png/" }) {
+        contact: file(absolutePath: { regex: "/mail.png/" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 88, maxHeight: 88) {
               ...GatsbyImageSharpFluid
@@ -50,15 +50,15 @@ const Footer = () => (
     `}
     render={data => {
       const linkedIn = data.linkedIn.childImageSharp.fluid;
-      const mailTo = data.mailTo.childImageSharp.fluid;
+      const contact = data.contact.childImageSharp.fluid;
       return (
         <FooterContainer>
           <ul>
             <li>&copy; 2019 All Rights Reserved</li>
             <li>
-              <a href="mailto:info@8alpha.com">
-                <Img fluid={mailTo} alt="Mailto:" />
-              </a>
+              <Link to="/contact/">
+                <Img fluid={contact} alt="contact us" />
+              </Link>
             </li>
             <li>
               <a href="https://www.linkedin.com/company/8alpha/about/">

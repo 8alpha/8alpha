@@ -9,8 +9,8 @@ import Header from "./header";
 
 const GlobalStyle = createGlobalStyle`
 html, body {
-    font-family: Questrial, sans-serif;
     background-color: hsl(199, 100%, 7%);
+    --bg-color: hsl(199, 100%, 7%);
     --primary-color: hsl(240, 1%, 55%);
     --secondary-color: hsl(36, 6%, 85%);
     --ternary-color: hsl(348, 63%, 47%);
@@ -19,6 +19,7 @@ html, body {
     width: 100vw;
     height: 100vh;
 
+    font-family: Questrial, sans-serif;
     font-size: calc(8px + (16 - 8) * ((100vw - 500px) / (3840 - 500)));
 
     --h2-font-size: 3.0rem;
