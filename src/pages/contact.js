@@ -5,11 +5,11 @@ import Layout from "../components/layout";
 import { SectionStyle } from "../components/styled";
 
 const FormContainer = styled.div`
-  margin: 4vh 0 4vh 0;
+  margin: 2vh 0 2vh 0;
 `;
 
 const FormFieldStyle = styled.div`
-  margin: 0vh 0vw 3vh 0vw;
+  margin-bottom: 3vh;
 
   .textField {
     display: block;
