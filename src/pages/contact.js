@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
+import Modal from "../components/modal";
+
 import { SectionContainer, SectionHeading } from "../components/styled";
 
 const FormContainer = styled.div`
@@ -88,6 +90,13 @@ function Form() {
     botField: "",
   });
 
+  const handleSubmit = e => {
+    /* confirm(
+     *   `Thank you, ${values.name.split(" ")[0]}. We will be in touch shortly`
+     * ); */
+    <Modal />;
+  };
+
   return (
     <Layout>
       <SectionContainer>
@@ -98,9 +107,10 @@ function Form() {
           <form
             name="contact"
             method="post"
-            action="/success/"
             data-netlify="true"
             data-netlify-honeypot="botField"
+            onSubmit={handleSubmit}
+            action="/"
           >
             <input name="form-name" type="hidden" value="contact" />
             <p hidden>
@@ -126,6 +136,7 @@ function Form() {
                 type="text"
                 name="name"
                 className="textBox"
+                maxLength="50"
                 required
               />
             </FormFieldStyle>
@@ -160,6 +171,7 @@ function Form() {
                 type="text"
                 name="companyName"
                 className="textBox"
+                maxLength="50"
                 required
               />
             </FormFieldStyle>
@@ -173,10 +185,11 @@ function Form() {
               <input
                 value={values.stage}
                 onChange={handleInputChange}
-                placeholder="Seed, Early, or Growth"
+                placeholder="Seed, Early, Growth or Mature"
                 type="text"
                 name="stage"
                 className="textBox"
+                maxLength="10"
                 required
               />
             </FormFieldStyle>
@@ -190,10 +203,11 @@ function Form() {
               <input
                 value={values.sentence}
                 onChange={handleInputChange}
-                placeholder="20 words max"
+                placeholder="280 characters max"
                 type="text"
                 name="sentence"
                 className="textBox"
+                maxLength="280"
                 required
               />
             </FormFieldStyle>
