@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
-import { SectionContainer, SectionHeading } from "../components/styled";
+import { SectionStyle } from "../components/styled";
 
 const FormContainer = styled.div`
   margin: 4vh 0 4vh 0;
 `;
 
 const FormFieldStyle = styled.div`
-  margin: 2vh 5vw 2vh 5vw;
+  margin: 0vh 0vw 3vh 0vw;
 
-  .textBox {
+  .textField {
     display: block;
     margin-top: 1vh;
     border: 2px solid transparent;
@@ -50,7 +50,7 @@ const FormFieldStyle = styled.div`
 
   .label {
     color: var(--secondary-color);
-    font-size: var(--h2-font-size);
+    font-size: var(--p-font-size);
     letter-spacing: var(--p-letter-spacing);
   }
 
@@ -135,10 +135,13 @@ function Form() {
 
   return (
     <Layout>
-      <SectionContainer>
-        <SectionHeading>
-          {"We\u2019d love to hear from you and see what you are building."}
-        </SectionHeading>
+      <SectionStyle>
+        <h2>Contact</h2>
+        <p>
+          {
+            "We\u2019d love to hear from you and see what you are building. Fill out the form below to get in touch us directly."
+          }
+        </p>
         <FormContainer>
           <form
             name="contact"
@@ -171,7 +174,7 @@ function Form() {
                 placeholder="Jane Smith"
                 type="text"
                 name="name"
-                className="textBox"
+                className="textField"
                 maxLength="50"
               />
               {validations["name"] && showValidationField}
@@ -189,7 +192,7 @@ function Form() {
                 placeholder="name@domain.com"
                 type="email"
                 name="email"
-                className="textBox"
+                className="textField"
               />
               {validations["email"] && showValidationField}
             </FormFieldStyle>
@@ -206,7 +209,7 @@ function Form() {
                 placeholder="Company Name"
                 type="text"
                 name="companyName"
-                className="textBox"
+                className="textField"
                 maxLength="50"
               />
               {validations["companyName"] && showValidationField}
@@ -224,7 +227,7 @@ function Form() {
                 placeholder="Seed, Early, Growth or Mature"
                 type="text"
                 name="stage"
-                className="textBox"
+                className="textField"
                 maxLength="10"
               />
               {validations["stage"] && showValidationField}
@@ -241,7 +244,7 @@ function Form() {
                 onChange={handleInputChange}
                 placeholder="280 characters max"
                 name="sentence"
-                className="textBox"
+                className="textField"
                 maxLength="280"
                 rows="3"
               />
@@ -254,7 +257,7 @@ function Form() {
             </FormFieldStyle>
           </form>
         </FormContainer>
-      </SectionContainer>
+      </SectionStyle>
     </Layout>
   );
 }

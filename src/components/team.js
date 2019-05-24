@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
-import { SectionContainer, SectionHeading } from "./styled";
+import { SectionStyle } from "./styled";
 
 const StyledPhotos = styled.div`
   margin-top: 1vh;
@@ -143,12 +143,12 @@ const Team = () => (
         });
 
       return (
-        <SectionContainer>
-          <SectionHeading>TEAM</SectionHeading>
+        <SectionStyle>
+          <h2>team</h2>
           <StyledPhotos>
             <Photos />
           </StyledPhotos>
-        </SectionContainer>
+        </SectionStyle>
       );
     }}
   />
