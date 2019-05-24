@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import Home from "./index";
 import Layout from "../components/layout";
-import Modal from "../components/modal";
-
 import { SectionContainer, SectionHeading } from "../components/styled";
 
 const FormContainer = styled.div`
@@ -91,10 +90,10 @@ function Form() {
   });
 
   const handleSubmit = e => {
-    /* confirm(
-     *   `Thank you, ${values.name.split(" ")[0]}. We will be in touch shortly`
-     * ); */
-    <Modal />;
+    /* Check that they've field out everything correctly */
+    alert(
+      `Thank you, ${values.name.split(" ")[0]}. We will be in touch shortly`
+    );
   };
 
   return (
@@ -200,14 +199,14 @@ function Form() {
                   <span aria-hidden="true"> {"\u0020*"}</span>
                 </span>
               </label>
-              <input
+              <textarea
                 value={values.sentence}
                 onChange={handleInputChange}
                 placeholder="280 characters max"
-                type="text"
                 name="sentence"
                 className="textBox"
                 maxLength="280"
+                rows="3"
                 required
               />
             </FormFieldStyle>
