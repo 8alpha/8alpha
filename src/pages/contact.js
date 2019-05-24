@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import Home from "./index";
 import Layout from "../components/layout";
 import { SectionContainer, SectionHeading } from "../components/styled";
 
@@ -22,13 +21,27 @@ const FormFieldStyle = styled.div`
     line-height: 1.4;
     letter-spacing: var(--p-letter-spacing);
     font-size: var(--p-font-size);
-    font-color: var(--primary-color);
+    color: var(--primary-color);
     transition: border-color 0.1s ease-out;
     width: 70vw;
 
     &:hover {
       border-color: var(--primary-color);
     }
+  }
+
+  .validationMsg {
+    margin-top: 0.3rem;
+    margin-left: 1rem;
+    border: 2px solid transparent;
+    border-radius: 0 0 0.8rem 0.8rem;
+    padding: 1rem 1.1rem;
+    background: var(--secondary-color);
+    line-height: 1.4;
+    letter-spacing: var(--p-letter-spacing);
+    font-size: var(--p-font-size);
+    color: var(--ternary-color);
+    width: 69vw;
   }
 
   .abbr {
@@ -86,15 +99,39 @@ function Form() {
     companyName: "",
     stage: "",
     sentence: "",
-    botField: "",
   });
 
-  const handleSubmit = e => {
-    /* Check that they've field out everything correctly */
-    alert(
-      `Thank you, ${values.name.split(" ")[0]}. We will be in touch shortly`
-    );
+  const [botValue, setBotValue] = useState("");
+
+  const [validations, setValidation] = useState({
+    name: false,
+    email: false,
+    companyName: false,
+    stage: false,
+    sentence: false,
+    botField: false,
+  });
+
+  const handleSubmit = event => {
+    let showValidationMsg = false;
+    const prevValidations = validations;
+
+    Object.entries(values).map(([key, value]) => {
+      if (value === "") {
+        validations[key] = true;
+        showValidationMsg = true;
+      }
+    });
+
+    if (showValidationMsg) {
+      setValidation({ ...prevValidations, ...validations });
+      event.preventDefault();
+    }
   };
+
+  const showValidationField = (
+    <div className="validationMsg">Enter a valid response</div>
+  );
 
   return (
     <Layout>
@@ -116,9 +153,9 @@ function Form() {
               <label>Do not fill this out:</label>
               <input
                 name="botField"
-                onChange={handleInputChange}
+                onChange={e => setBotValue(e.value)}
                 type="hidden"
-                value={values.botField}
+                value={botValue}
               />
             </p>
             <FormFieldStyle>
@@ -136,8 +173,8 @@ function Form() {
                 name="name"
                 className="textBox"
                 maxLength="50"
-                required
               />
+              {validations["name"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
               <label htmlFor="name" className="label">
@@ -153,8 +190,8 @@ function Form() {
                 type="email"
                 name="email"
                 className="textBox"
-                required
               />
+              {validations["email"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
               <label htmlFor="name" className="label">
@@ -171,8 +208,8 @@ function Form() {
                 name="companyName"
                 className="textBox"
                 maxLength="50"
-                required
               />
+              {validations["companyName"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
               <label htmlFor="name" className="label">
@@ -189,8 +226,8 @@ function Form() {
                 name="stage"
                 className="textBox"
                 maxLength="10"
-                required
               />
+              {validations["stage"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
               <label htmlFor="name" className="label">
@@ -207,8 +244,8 @@ function Form() {
                 className="textBox"
                 maxLength="280"
                 rows="3"
-                required
               />
+              {validations["sentence"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
               <button type="submit" className="button">
