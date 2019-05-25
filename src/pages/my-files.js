@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
-import { SectionContainer, SectionHeading } from "../components/styled";
+import { SectionStyle } from "../components/styled";
 
 const TableStyle = styled.div`
   color: var(--secondary-color);
@@ -16,37 +16,35 @@ const TableStyle = styled.div`
   font-weight: 100;
 `;
 
-const MyFiles = ({ data }) => {
-  return (
-    <Layout>
-      <SectionContainer>
-        <SectionHeading>{"My Site\u2019s Files"}</SectionHeading>
-        <TableStyle>
-          <table>
-            <thead>
-              <tr>
-                <th>relativePath</th>
-                <th>prettySize</th>
-                <th>extension</th>
-                <th>birthTime</th>
+const MyFiles = ({ data }) => (
+  <Layout>
+    <SectionStyle>
+      <h2>{"My Site\u2019s Files"}</h2>
+      <TableStyle>
+        <table>
+          <thead>
+            <tr>
+              <th>relativePath</th>
+              <th>prettySize</th>
+              <th>extension</th>
+              <th>birthTime</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.allFile.edges.map(({ node }, index) => (
+              <tr key={index}>
+                <td>{node.relativePath}</td>
+                <td>{node.prettySize}</td>
+                <td>{node.extension}</td>
+                <td>{node.birthTime}</td>
               </tr>
-            </thead>
-            <tbody>
-              {data.allFile.edges.map(({ node }, index) => (
-                <tr key={index}>
-                  <td>{node.relativePath}</td>
-                  <td>{node.prettySize}</td>
-                  <td>{node.extension}</td>
-                  <td>{node.birthTime}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </TableStyle>
-      </SectionContainer>
-    </Layout>
-  );
-};
+            ))}
+          </tbody>
+        </table>
+      </TableStyle>
+    </SectionStyle>
+  </Layout>
+);
 
 MyFiles.propTypes = {
   data: PropTypes.object,

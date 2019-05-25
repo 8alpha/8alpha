@@ -130,7 +130,7 @@ function Form() {
   };
 
   const showValidationField = (
-    <div className="validationMsg">Enter a valid response</div>
+    <div className="validationMsg">Enter a valid response to continue</div>
   );
 
   return (
@@ -138,9 +138,7 @@ function Form() {
       <SectionStyle>
         <h2>Contact</h2>
         <p>
-          {
-            "We\u2019d love to hear from you and see what you are building. Fill out the form below to get in touch us directly."
-          }
+          {"We\u2019d love to hear from you and see what you are building."}
         </p>
         <FormContainer>
           <form
