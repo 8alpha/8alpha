@@ -166,7 +166,7 @@ const Team = () => (
 
       return (
         <SectionStyle>
-          <h2>team</h2>
+          <h2>partners</h2>
           <PhotosContainer>
             <Photos />
           </PhotosContainer>
