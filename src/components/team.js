@@ -4,43 +4,82 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 
 import { SectionStyle } from "./styled";
+import { linkedIn } from "../resources/icons";
 
 const StyledPhotos = styled.div`
-  margin-top: 1vh;
   display: flex;
   flex-flow: row wrap;
+  align-items: flex-center;
   justify-content: space-between;
 `;
 
-const StyledPhoto = styled.div`
-  flex: 0 2 17%;
+const PhotoContainer = styled.div`
+  flex: 0 0 15vw;
   border-style: solid;
   border-color: var(--secondary-color);
 
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: auto;
 `;
 
 const Caption = styled.div`
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+  align-content: center;
 
-  width: 100%;
+  width: auto;
+  height: auto;
   background-color: black;
   align-self: center;
   color: var(--secondary-color);
-`;
 
-const CaptionItem = styled.div`
-  font-size: calc(var(--p-font-size) - 5px);
-  flex: 0 1 20%;
+  @media screen and (max-width: 599px) {
+    .icon {
+      transform: scale(0.4);
+    }
+    .captionItem {
+      font-size: calc(var(--p-font-size) * 0.3);
+      letter-spacing: calc(var(--p-letter-spacing) * 0.5);
+      flex: auto;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .icon {
+      transform: scale(0.6);
+    }
+    .captionItem {
+      font-size: calc(var(--p-font-size) * 0.65);
+      letter-spacing: calc(var(--p-letter-spacing) * 0.65);
+      flex: auto;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .icon {
+      transform: scale(0.7);
+    }
+    .captionItem {
+      font-size: calc(var(--p-font-size) * 0.7);
+      letter-spacing: calc(var(--p-letter-spacing) * 0.7);
+      flex: auto;
+    }
+  }
+
+  @media screen and (min-width: 1800px) {
+    .icon {
+      transform: scale(1);
+    }
+    .captionItem {
+      font-size: calc(var(--p-font-size) * 1);
+      letter-spacing: calc(var(--p-letter-spacing) * 1);
+      flex: auto;
+    }
+  }
 `;
 
 const Team = () => (
@@ -79,18 +118,9 @@ const Team = () => (
         ) {
           ...fluidImage
         }
-        linkedIn: file(absolutePath: { regex: "/linkedin.png/" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 440, maxHeight: 440) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
       }
     `}
     render={data => {
-      const linkedIn = data.linkedIn.childImageSharp.fluid;
-
       const cards = [
         {
           photo: data.nickDivehall.childImageSharp.fluid,
@@ -121,24 +151,21 @@ const Team = () => (
 
       const Photos = () =>
         cards.map(card => {
-          const fullName = card.alt.split(" ");
+          const fullName = card.alt;
 
           return (
-            <StyledPhoto key={card.slug}>
+            <PhotoContainer key={card.slug}>
               <Img fluid={card.photo} alt={card.alt} />
               <Caption>
-                <CaptionItem>
-                  <a href={`https://www.linkedin.com/in/${card.slug}/`}>
-                    <Img fluid={linkedIn} />
-                  </a>
-                </CaptionItem>
-                <CaptionItem>
-                  {fullName[0]}
-                  <br />
-                  {fullName[1]}
-                </CaptionItem>
+                <div className="captionItem">{fullName}</div>
+                <a
+                  className="captionItem"
+                  href={`https://www.linkedin.com/in/${card.slug}/`}
+                >
+                  {linkedIn}
+                </a>
               </Caption>
-            </StyledPhoto>
+            </PhotoContainer>
           );
         });
 

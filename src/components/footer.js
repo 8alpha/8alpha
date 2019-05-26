@@ -5,50 +5,57 @@ import styled from "styled-components";
 import { contact, linkedIn } from "../resources/icons";
 
 const FooterContainer = styled.div`
-    color: var(--secondary-color);
-    margin: 5vh 5vw 5vh 5vw;
-    padding-bottom: 5vh;
+  color: var(--secondary-color);
+  margin: 5vh 5vw 5vh 5vw;
+  padding-bottom: 5vh;
 
-    ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    }
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
 
+  .copyright {
+    flex-basis: 95%;
+  }
 
-    flex: 0 0 5%;
-    }
+  .social {
+    flex: 1 1 5%;
+  }
 
-    li:first-child {
-    font-size: 1.2rem;
-    flex-basis: 70%;
-    }
-
+  @media screen and (max-width: 599px) {
     .icon {
-    display: inline-block;
-    transform: scale(1.0, 1.0);
+      transform: scale(0.5);
     }
+  }
 
+  @media screen and (min-width: 600px) {
+    .icon {
+      transform: scale(0.7);
     }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .icon {
+      transform: scale(1);
+    }
+  }
+
+  @media screen and (min-width: 1800px) {
+    .icon {
+      transform: scale(1.25);
+    }
+  }
 `;
 
 const Footer = () => (
   <FooterContainer>
-    <ul>
-      <li>&copy; 2019 All Rights Reserved</li>
-      <li>
-        <Link to="/contact/">{contact}</Link>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/company/8alpha/about/" />
-        {linkedIn}
-      </li>
-    </ul>
+    <div className="copyright">&copy; 2019 All Rights Reserved</div>
+    <Link className="social" to="/contact/">
+      {contact}
+    </Link>
+    <a className="social" href="https://www.linkedin.com/company/8alpha/about/">
+      {linkedIn}
+    </a>
   </FooterContainer>
 );
 
