@@ -116,10 +116,19 @@ function Form() {
     let showValidationMsg = false;
     const prevValidations = validations;
 
+    const regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
     Object.entries(values).map(([key, value]) => {
-      if (value === "") {
-        validations[key] = true;
-        showValidationMsg = true;
+      if (key === "email") {
+        if (!value.match(regex)) {
+          validations[key] = true;
+          showValidationMsg = true;
+        }
+      } else {
+        if (value === "") {
+          validations[key] = true;
+          showValidationMsg = true;
+        }
       }
     });
 
@@ -173,7 +182,7 @@ function Form() {
                 type="text"
                 name="name"
                 className="textField"
-                maxLength="50"
+                maxLength="100"
               />
               {validations["name"] && showValidationField}
             </FormFieldStyle>
@@ -188,9 +197,10 @@ function Form() {
                 value={values.email}
                 onChange={handleInputChange}
                 placeholder="name@domain.com"
-                type="email"
+                type="text"
                 name="email"
                 className="textField"
+                maxLength="100"
               />
               {validations["email"] && showValidationField}
             </FormFieldStyle>
@@ -208,7 +218,7 @@ function Form() {
                 type="text"
                 name="companyName"
                 className="textField"
-                maxLength="50"
+                maxLength="100"
               />
               {validations["companyName"] && showValidationField}
             </FormFieldStyle>
@@ -226,13 +236,13 @@ function Form() {
                 type="text"
                 name="stage"
                 className="textField"
-                maxLength="10"
+                maxLength="7"
               />
               {validations["stage"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
               <label htmlFor="name" className="label">
-                What does your company do?
+                Describe your company in one sentence
                 <span title="Required field" className="abbr">
                   <span aria-hidden="true"> {"\u0020*"}</span>
                 </span>
