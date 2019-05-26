@@ -30,7 +30,8 @@ const Caption = styled.div`
   grid-template-columns: 3fr 1fr;
   align-items: center;
   justify-items: center;
-  padding-left: 1vw;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
 
   background-color: black;
   color: var(--secondary-color);
