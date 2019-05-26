@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SectionStyle = styled.div`
-  margin: 2vh 5vw 2vh 5vw;
+  margin: 1vh 5vw 1vh 5vw;
 
   h2 {
     padding-top: 2vh;

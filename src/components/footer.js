@@ -24,7 +24,7 @@ const FooterContainer = styled.div`
 
   @media screen and (max-width: 599px) {
     .icon {
-      transform: scale(0.5);
+      transform: scale(0.6);
     }
   }
 

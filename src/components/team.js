@@ -6,45 +6,42 @@ import styled from "styled-components";
 import { SectionStyle } from "./styled";
 import { linkedIn } from "../resources/icons";
 
-const StyledPhotos = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  align-items: flex-center;
-  justify-content: space-between;
+const PhotosContainer = styled.div`
+  display: grid;
+  grid-gap: 2vw;
+  grid-template-columns: repeat(5, 1fr);
+
+  @media screen and (max-width: 599px) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const PhotoContainer = styled.div`
-  flex: 0 0 15vw;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+
   border-style: solid;
   border-color: var(--secondary-color);
-
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  height: auto;
 `;
 
 const Caption = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
   align-items: center;
-  align-content: center;
+  justify-items: center;
+  padding-left: 1vw;
 
-  width: auto;
-  height: auto;
   background-color: black;
-  align-self: center;
   color: var(--secondary-color);
 
   @media screen and (max-width: 599px) {
     .icon {
-      transform: scale(0.4);
+      transform: scale(0.5);
     }
     .captionItem {
-      font-size: calc(var(--p-font-size) * 0.3);
-      letter-spacing: calc(var(--p-letter-spacing) * 0.5);
-      flex: auto;
+      font-size: calc(var(--p-font-size) * 0.65);
+      letter-spacing: calc(var(--p-letter-spacing) * 0.65);
     }
   }
 
@@ -53,9 +50,8 @@ const Caption = styled.div`
       transform: scale(0.6);
     }
     .captionItem {
-      font-size: calc(var(--p-font-size) * 0.65);
-      letter-spacing: calc(var(--p-letter-spacing) * 0.65);
-      flex: auto;
+      font-size: calc(var(--p-font-size) * 0.7);
+      letter-spacing: calc(var(--p-letter-spacing) * 0.7);
     }
   }
 
@@ -64,9 +60,8 @@ const Caption = styled.div`
       transform: scale(0.7);
     }
     .captionItem {
-      font-size: calc(var(--p-font-size) * 0.7);
-      letter-spacing: calc(var(--p-letter-spacing) * 0.7);
-      flex: auto;
+      font-size: calc(var(--p-font-size) * 0.8);
+      letter-spacing: calc(var(--p-letter-spacing) * 0.8);
     }
   }
 
@@ -75,9 +70,8 @@ const Caption = styled.div`
       transform: scale(1);
     }
     .captionItem {
-      font-size: calc(var(--p-font-size) * 1);
-      letter-spacing: calc(var(--p-letter-spacing) * 1);
-      flex: auto;
+      font-size: var(--p-font-size);
+      letter-spacing: var(--p-letter-spacing);
     }
   }
 `;
@@ -159,7 +153,7 @@ const Team = () => (
               <Caption>
                 <div className="captionItem">{fullName}</div>
                 <a
-                  className="captionItem"
+                  className="captionitem"
                   href={`https://www.linkedin.com/in/${card.slug}/`}
                 >
                   {linkedIn}
@@ -172,9 +166,9 @@ const Team = () => (
       return (
         <SectionStyle>
           <h2>team</h2>
-          <StyledPhotos>
+          <PhotosContainer>
             <Photos />
-          </StyledPhotos>
+          </PhotosContainer>
         </SectionStyle>
       );
     }}
