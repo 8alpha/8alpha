@@ -1,31 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { graphql, StaticQuery } from "gatsby";
+import { graphql, StaticQuery, Link } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 
-import logo from "../images/logo.svg";
+import { logo } from "../resources/vector-graphics";
 
 const HeaderContainer = styled.div`
-  margin: 2vh 5vw 15vh 5vw;
-`;
-
-const LogoStyle = styled.div`
-  object {
-    width: 25rem;
-    height: 11rem;
-  }
+  margin: 2vh 5vw 10vh 5vw;
 `;
 
 const Description = styled.div`
-  padding-top: 1vh;
+  padding-top: 0.5vh;
   color: var(--secondary-color);
-  font-size: var(--p-font-size);
-  letter-spacing: var(--p-letter-spacing);
+  font-size: calc(var(--p-font-size) * 0.75);
+  letter-spacing: calc(var(--p-letter-spacing) * 0.75);
 `;
 
 const Tagline = styled.div`
-  padding-top: 2vh;
+  padding-top: 4vh;
   color: var(--secondary-color);
   font-size: var(--h2-font-size);
   letter-spacing: var(--h2-letter-spacing);
@@ -54,9 +47,7 @@ const HeaderSection = ({ className }) => (
           backgroundColor={`#040e18`}
         >
           <HeaderContainer>
-            <LogoStyle>
-              <object data={logo} type="image/svg+xml" />
-            </LogoStyle>
+            <Link to="/">{logo}</Link>
             <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
             <Tagline>
               <div>THE EDGE FOR</div>
@@ -75,6 +66,7 @@ HeaderSection.propTypes = {
 
 const Header = styled(HeaderSection)`
   width: 100%;
+  height: 100%;
   background-position: left top;
   background-repeat: no-repeat;
   background-size: cover;

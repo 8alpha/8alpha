@@ -1,12 +1,7 @@
 import React from "react";
 
 export const contact = (
-  <svg
-    className="icon"
-    width="44"
-    height="44"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="44" height="44" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fillRule="evenodd">
       <path d="M0 0h44v44H0z" />
       <circle stroke="#828382" strokeWidth="2" cx="22" cy="22" r="21" />
@@ -19,12 +14,7 @@ export const contact = (
 );
 
 export const linkedIn = (
-  <svg
-    className="icon"
-    width="44"
-    height="44"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="44" height="44" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fillRule="evenodd">
       <path d="M0 0h44v44H0z" />
       <circle stroke="#0077B5" strokeWidth="2" cx="22" cy="22" r="21" />

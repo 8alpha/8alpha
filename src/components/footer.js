@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { contact, linkedIn } from "../resources/icons";
+import { contact, linkedIn } from "../resources/vector-graphics";
 
 const FooterContainer = styled.div`
   color: var(--secondary-color);
@@ -24,25 +24,45 @@ const FooterContainer = styled.div`
 
   @media screen and (max-width: 599px) {
     .icon {
-      transform: scale(0.6);
+      transform: scale(0.7);
+      transition: all ease 0.2s;
+
+      &:hover {
+        transform: scale(0.75);
+      }
     }
   }
 
   @media screen and (min-width: 600px) {
     .icon {
-      transform: scale(0.7);
+      transform: scale(0.8);
+      transition: all ease 0.2s;
+
+      &:hover {
+        transform: scale(0.85);
+      }
     }
   }
 
   @media screen and (min-width: 1200px) {
     .icon {
       transform: scale(1);
+      transition: all ease 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 
   @media screen and (min-width: 1800px) {
     .icon {
       transform: scale(1.25);
+      transition: all ease 0.2s;
+
+      &:hover {
+        transform: scale(1.3);
+      }
     }
   }
 `;
@@ -50,10 +70,13 @@ const FooterContainer = styled.div`
 const Footer = () => (
   <FooterContainer>
     <div className="copyright">&copy; 2019 All Rights Reserved</div>
-    <Link className="social" to="/contact/">
+    <Link className="social icon" to="/contact/">
       {contact}
     </Link>
-    <a className="social" href="https://www.linkedin.com/company/8alpha/about/">
+    <a
+      className="social icon"
+      href="https://www.linkedin.com/company/8alpha/about/"
+    >
       {linkedIn}
     </a>
   </FooterContainer>

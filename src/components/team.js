@@ -36,9 +36,16 @@ const Caption = styled.div`
   background-color: black;
   color: var(--secondary-color);
 
+  .icon {
+  }
+
   @media screen and (max-width: 599px) {
     .icon {
-      transform: scale(0.5);
+      transform: scale(0.75);
+      transition: all ease 0.2s;
+      &:hover {
+        transform: scale(0.8);
+      }
     }
     .captionItem {
       font-size: calc(var(--p-font-size) * 0.65);
@@ -48,7 +55,11 @@ const Caption = styled.div`
 
   @media screen and (min-width: 600px) {
     .icon {
-      transform: scale(0.6);
+      transform: scale(0.8);
+      transition: all ease 0.2s;
+      &:hover {
+        transform: scale(0.85);
+      }
     }
     .captionItem {
       font-size: calc(var(--p-font-size) * 0.7);
@@ -58,7 +69,11 @@ const Caption = styled.div`
 
   @media screen and (min-width: 1200px) {
     .icon {
-      transform: scale(0.7);
+      transform: scale(0.9);
+      transition: all ease 0.2s;
+      &:hover {
+        transform: scale(0.95);
+      }
     }
     .captionItem {
       font-size: calc(var(--p-font-size) * 0.8);
@@ -69,6 +84,10 @@ const Caption = styled.div`
   @media screen and (min-width: 1800px) {
     .icon {
       transform: scale(1);
+      transition: all ease 0.2s;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
     .captionItem {
       font-size: var(--p-font-size);
@@ -154,7 +173,7 @@ const Team = () => (
               <Caption>
                 <div className="captionItem">{fullName}</div>
                 <a
-                  className="captionitem"
+                  className="captionitem icon"
                   href={`https://www.linkedin.com/in/${card.slug}/`}
                 >
                   {linkedIn}
