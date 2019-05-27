@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
 import Layout from "../components/layout";
-import { SectionStyle } from "../components/styled";
+import { SectionStyle, ButtonStyle } from "../components/styled";
 
 const FormContainer = styled.div`
   margin: 2vh 6vw 2vh 6vw;
@@ -56,65 +55,56 @@ const FormFieldStyle = styled.div`
     letter-spacing: (--p-letter-spacing * 1);
   }
 
-  .button {
-    padding: 1rem 0rem;
-    border-radius: 0.8rem 0;
-    text-transform: uppercase;
-    border: 1px solid var(--primary-color);
-    background: linear-gradient(
-      to right,
-      var(--primary-color) 50%,
-      var(--bg-color) 50%
-    );
-    background-size: 200% 100%;
-    background-position: right bottom;
-    transition: all 0.5s ease-out;
-    user-select: none;
-
-    &:hover {
-      border-color: var(--primary-color);
-      background-position: left bottom;
-    }
-
-    .text {
-      font-size: var(--p-font-size);
-      color: var(--primary-color);
-      letter-spacing: var(--p-letter-spacing);
-      transition: all 0.6s ease-out;
-
-      &:hover {
-        color: var(--secondary-color);
-      }
-    }
+  .twoButtons {
+    width: 25%;
+    display: flex;
+    flex-flow: row nowwrap;
+    justify-content: space-between;
   }
 `;
 
-function Form() {
+function ContactForm() {
   const handleInputChange = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
 
-  const [values, setValues] = useState({
+  const defaultValues = {
     name: "",
     email: "",
     companyName: "",
     stage: "",
     sentence: "",
-  });
+  };
+
+  const [values, setValues] = useState(defaultValues);
+
+  const placeholder = {
+    name: "Jane Smith",
+    email: "name@domain.com",
+    companyName: "Company Name",
+    stage: "Seed, Early, Growth or Mature",
+    sentence: "280 characters max",
+  };
 
   const [botValue, setBotValue] = useState("");
 
-  const [validations, setValidation] = useState({
+  const defaultValidations = {
     name: false,
     email: false,
     companyName: false,
     stage: false,
     sentence: false,
     botField: false,
-  });
+  };
 
-  const [showModal, setShowModal] = useState(false);
+  const [validations, setValidation] = useState(defaultValidations);
+
+  const handleReset = event => {
+    event.preventDefault();
+    setValues({ ...values, ...defaultValues });
+    setValidation({ ...validations, ...defaultValidations });
+  };
 
   const handleSubmit = event => {
     let showValidationMsg = false;
@@ -123,25 +113,15 @@ function Form() {
     const regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
     Object.entries(values).map(([key, value]) => {
-      if (key === "email") {
-        if (!value.match(regex)) {
-          validations[key] = true;
-          showValidationMsg = true;
-        }
-      } else {
-        if (value === "") {
-          validations[key] = true;
-          showValidationMsg = true;
-        }
+      if (value === "" || (key === "email" && !value.match(regex))) {
+        validations[key] = true;
+        showValidationMsg = true;
       }
     });
 
     if (showValidationMsg) {
+      event.preventDefault();
       setValidation({ ...prevValidations, ...validations });
-      event.preventDefault();
-    } else {
-      event.preventDefault();
-      setShowModal(true);
     }
   };
 
@@ -149,20 +129,8 @@ function Form() {
     <div className="validationMsg">Enter a valid response to continue</div>
   );
 
-  Modal.setAppElement("#___gatsby");
-
-  const thankYou = (
-    <Modal isOpen={showModal} contentLabel="Minimal Modal Example">
-      <p>Thank you, we will be in touch shortly</p>
-      <Link to="/">
-        <button onClick={() => setShowModal(false)} />
-      </Link>
-    </Modal>
-  );
-
   return (
     <Layout>
-      {thankYou}
       <SectionStyle>
         <h2>Contact</h2>
         <FormContainer>
@@ -175,7 +143,8 @@ function Form() {
             data-netlify="true"
             data-netlify-honeypot="botField"
             onSubmit={handleSubmit}
-            action="/"
+            onReset={handleReset}
+            action="/submitted/"
           >
             <input name="form-name" type="hidden" value="contact" />
             <p hidden>
@@ -197,7 +166,7 @@ function Form() {
               <input
                 value={values.name}
                 onChange={handleInputChange}
-                placeholder="Jane Smith"
+                placeholder={placeholder.name}
                 type="text"
                 name="name"
                 className="textField"
@@ -215,7 +184,7 @@ function Form() {
               <input
                 value={values.email}
                 onChange={handleInputChange}
-                placeholder="name@domain.com"
+                placeholder={placeholder.email}
                 type="text"
                 name="email"
                 className="textField"
@@ -233,7 +202,7 @@ function Form() {
               <input
                 value={values.companyName}
                 onChange={handleInputChange}
-                placeholder="Company Name"
+                placeholder={placeholder.companyName}
                 type="text"
                 name="companyName"
                 className="textField"
@@ -251,7 +220,7 @@ function Form() {
               <input
                 value={values.stage}
                 onChange={handleInputChange}
-                placeholder="Seed, Early, Growth or Mature"
+                placeholder={placeholder.stage}
                 type="text"
                 name="stage"
                 className="textField"
@@ -269,7 +238,7 @@ function Form() {
               <textarea
                 value={values.sentence}
                 onChange={handleInputChange}
-                placeholder="280 characters max"
+                placeholder={placeholder.sentence}
                 name="sentence"
                 className="textField"
                 maxLength="280"
@@ -278,9 +247,22 @@ function Form() {
               {validations["sentence"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
-              <button type="submit" className="button">
-                <span className="text">{"\u00A0\u00A0Submit\u00A0\u00A0"}</span>
-              </button>
+              <div className="twoButtons">
+                <ButtonStyle>
+                  <button type="submit" className="button">
+                    <span className="btnText">
+                      {"\u00A0\u00A0Submit\u00A0\u00A0"}
+                    </span>
+                  </button>
+                </ButtonStyle>
+                <ButtonStyle>
+                  <button type="reset" className="button">
+                    <span className="btnText">
+                      {"\u00A0\u00A0Reset\u00A0\u00A0"}
+                    </span>
+                  </button>
+                </ButtonStyle>
+              </div>
             </FormFieldStyle>
           </form>
         </FormContainer>
@@ -289,4 +271,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default ContactForm;
