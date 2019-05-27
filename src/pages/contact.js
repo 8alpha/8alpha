@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import Modal from "react-modal";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 import Layout from "../components/layout";
 import { SectionStyle } from "../components/styled";
@@ -112,6 +114,8 @@ function Form() {
     botField: false,
   });
 
+  const [showModal, setShowModal] = useState(false);
+
   const handleSubmit = event => {
     let showValidationMsg = false;
     const prevValidations = validations;
@@ -135,6 +139,9 @@ function Form() {
     if (showValidationMsg) {
       setValidation({ ...prevValidations, ...validations });
       event.preventDefault();
+    } else {
+      event.preventDefault();
+      setShowModal(true);
     }
   };
 
@@ -142,8 +149,20 @@ function Form() {
     <div className="validationMsg">Enter a valid response to continue</div>
   );
 
+  Modal.setAppElement("#___gatsby");
+
+  const thankYou = (
+    <Modal isOpen={showModal} contentLabel="Minimal Modal Example">
+      <p>Thank you, we will be in touch shortly</p>
+      <Link to="/">
+        <button onClick={() => setShowModal(false)} />
+      </Link>
+    </Modal>
+  );
+
   return (
     <Layout>
+      {thankYou}
       <SectionStyle>
         <h2>Contact</h2>
         <FormContainer>
