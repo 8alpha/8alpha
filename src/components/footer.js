@@ -28,7 +28,7 @@ const FooterContainer = styled.div`
       transition: all ease 0.2s;
 
       &:hover {
-        transform: scale(0.75);
+        transform: scale(0.8);
       }
     }
   }
@@ -39,7 +39,7 @@ const FooterContainer = styled.div`
       transition: all ease 0.2s;
 
       &:hover {
-        transform: scale(0.85);
+        transform: scale(0.9);
       }
     }
   }
@@ -50,7 +50,7 @@ const FooterContainer = styled.div`
       transition: all ease 0.2s;
 
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.1);
       }
     }
   }
@@ -61,7 +61,7 @@ const FooterContainer = styled.div`
       transition: all ease 0.2s;
 
       &:hover {
-        transform: scale(1.3);
+        transform: scale(1.35);
       }
     }
   }

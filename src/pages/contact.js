@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
 
 import Layout from "../components/layout";
 import { SectionStyle, ButtonStyle } from "../components/styled";
@@ -56,9 +55,9 @@ const FormFieldStyle = styled.div`
   }
 
   .twoButtons {
-    width: 25%;
+    width: 25vw;
     display: flex;
-    flex-flow: row nowwrap;
+    flex-flow: row wwrap;
     justify-content: space-between;
   }
 `;
@@ -108,7 +107,6 @@ function ContactForm() {
 
   const handleSubmit = event => {
     let showValidationMsg = false;
-    const prevValidations = validations;
 
     const regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
@@ -121,7 +119,7 @@ function ContactForm() {
 
     if (showValidationMsg) {
       event.preventDefault();
-      setValidation({ ...prevValidations, ...validations });
+      setValidation({ ...defaultValidations, ...validations });
     }
   };
 

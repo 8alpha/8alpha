@@ -44,7 +44,7 @@ const Caption = styled.div`
       transform: scale(0.75);
       transition: all ease 0.2s;
       &:hover {
-        transform: scale(0.8);
+        transform: scale(0.85);
       }
     }
     .captionItem {
@@ -58,7 +58,7 @@ const Caption = styled.div`
       transform: scale(0.8);
       transition: all ease 0.2s;
       &:hover {
-        transform: scale(0.85);
+        transform: scale(0.9);
       }
     }
     .captionItem {
@@ -72,7 +72,7 @@ const Caption = styled.div`
       transform: scale(0.9);
       transition: all ease 0.2s;
       &:hover {
-        transform: scale(0.95);
+        transform: scale(1);
       }
     }
     .captionItem {
@@ -86,7 +86,7 @@ const Caption = styled.div`
       transform: scale(1);
       transition: all ease 0.2s;
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.1);
       }
     }
     .captionItem {

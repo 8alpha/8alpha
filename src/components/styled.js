@@ -34,8 +34,12 @@ export const ButtonStyle = styled.div`
     );
     background-size: 200% 100%;
     background-position: right bottom;
-    transition: all 0.5s ease-out;
+    transition: all 0.3s ease-out;
     user-select: none;
+
+    &:focus {
+      outline: 0;
+    }
 
     &:hover {
       border-color: var(--primary-color);
@@ -46,7 +50,7 @@ export const ButtonStyle = styled.div`
       font-size: var(--p-font-size);
       color: var(--primary-color);
       letter-spacing: var(--p-letter-spacing);
-      transition: all 0.6s ease-out;
+      transition: all 0.3s ease-out;
 
       &:hover {
         color: var(--secondary-color);
