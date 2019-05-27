@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import { SectionStyle } from "../components/styled";
 
 const FormContainer = styled.div`
-  margin: 2vh 0 2vh 0;
+  margin: 2vh 6vw 2vh 6vw;
 `;
 
 const FormFieldStyle = styled.div`
@@ -51,7 +51,7 @@ const FormFieldStyle = styled.div`
   .label {
     color: var(--secondary-color);
     font-size: var(--p-font-size);
-    letter-spacing: var(--p-letter-spacing);
+    letter-spacing: (--p-letter-spacing * 1);
   }
 
   .button {
@@ -146,10 +146,10 @@ function Form() {
     <Layout>
       <SectionStyle>
         <h2>Contact</h2>
-        <p>
-          {"We\u2019d love to hear from you and see what you are building."}
-        </p>
         <FormContainer>
+          <p>
+            {"We\u2019d love to hear from you and see what you are building."}
+          </p>
           <form
             name="contact"
             method="post"
