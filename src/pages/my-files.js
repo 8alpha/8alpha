@@ -17,7 +17,7 @@ const TableStyle = styled.div`
 `;
 
 const MyFiles = ({ data }) => (
-  <Layout>
+  <Layout location="/my-files/">
     <SectionStyle>
       <h2>{"My Site\u2019s Files"}</h2>
       <TableStyle>
