@@ -5,7 +5,7 @@ import Team from "../components/team";
 import AboutUs from "../components/about-us";
 
 const Home = () => (
-  <Layout>
+  <Layout location="/">
     <AboutUs />
     <Team />
   </Layout>

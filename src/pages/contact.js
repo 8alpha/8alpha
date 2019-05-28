@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import { SectionStyle, ButtonStyle } from "../components/styled";
 
 const FormContainer = styled.div`
-  margin: 2vh 6vw 2vh 6vw;
+  margin: 2vh 2vw 2vh 2vw;
 `;
 
 const FormFieldStyle = styled.div`
@@ -21,12 +21,26 @@ const FormFieldStyle = styled.div`
     line-height: 1.4;
     letter-spacing: var(--p-letter-spacing);
     font-size: var(--p-font-size);
-    color: var(--primary-color);
+    color: var(--bg-color);
     transition: border-color 0.1s ease-out;
-    width: 70vw;
+    width: 80vw;
 
-    &:hover {
-      border-color: var(--primary-color);
+    &:hover,
+    &:focus {
+      border: 2px solid var(--primary-color);
+    }
+
+    &:-webkit-autofill {
+      border: 2px solid transparent;
+      -webkit-box-shadow: 0 0 0px 1000px var(--secondary-color) inset;
+      -webkit-text-fill-color: var(--bg-color);
+    }
+
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border: 2px solid var(--primary-color);
+      -webkit-box-shadow: 0 0 0px 1000px var(--secondary-color) inset;
+      -webkit-text-fill-color: var(--bg-color);
     }
   }
 
@@ -51,13 +65,13 @@ const FormFieldStyle = styled.div`
   .label {
     color: var(--secondary-color);
     font-size: var(--p-font-size);
-    letter-spacing: (--p-letter-spacing * 1);
+    letter-spacing: (--p-letter-spacing);
   }
 
   .twoButtons {
-    width: 25vw;
+    width: 28rem;
     display: flex;
-    flex-flow: row wwrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
   }
 `;
@@ -128,12 +142,14 @@ function ContactForm() {
   );
 
   return (
-    <Layout>
+    <Layout location="/contact/">
       <SectionStyle>
         <h2>Contact</h2>
         <FormContainer>
           <p>
-            {"We\u2019d love to hear from you and see what you are building."}
+            {
+              "8Alpha has a track record of success in helping early to mid-market technology companies with Investment, M&A, and C-Suite advisory services. We'd love to hear from you and see what you are building.  You can rest assured that we will not sell or rent the information that you provide to anyone."
+            }
           </p>
           <form
             name="contact"
@@ -167,8 +183,8 @@ function ContactForm() {
                 placeholder={placeholder.name}
                 type="text"
                 name="name"
-                className="textField"
                 maxLength="100"
+                className="textField"
               />
               {validations["name"] && showValidationField}
             </FormFieldStyle>

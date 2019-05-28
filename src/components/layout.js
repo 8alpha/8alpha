@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { createGlobalStyle } from "styled-components";
-import favicon from "../images/favicon.png";
+import favicon from "../resources/favicon.png";
 
 import Footer from "./footer";
 import Header from "./header";
@@ -31,7 +31,7 @@ html, body {
 }
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ location, children }) => (
   <div>
     <GlobalStyle />
     <Helmet
@@ -43,7 +43,7 @@ const Layout = ({ children }) => (
       ]}
       link={[{ rel: "shortcut icon", type: "image/png", href: `${favicon}` }]}
     />
-    <Header />
+    <Header location={location} />
     {children}
     <Footer />
   </div>
@@ -51,6 +51,7 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  location: PropTypes.string.isRequired,
 };
 
 export default Layout;

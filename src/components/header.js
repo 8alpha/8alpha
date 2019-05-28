@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { graphql, StaticQuery, Link } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 
-import { logo } from "../resources/vector-graphics";
+import { logo, logoHighlight } from "../resources/vector-graphics";
 
 const HeaderContainer = styled.div`
   margin: 2vh 5vw 10vh 5vw;
@@ -24,44 +24,64 @@ const Tagline = styled.div`
   letter-spacing: var(--h2-letter-spacing);
 `;
 
-const HeaderSection = ({ className }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        desktop: file(absolutePath: { regex: "/globe-background.png/" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 4076) {
-              ...GatsbyImageSharpFluid_withWebp
+const Logo = styled.div`
+  /* restrict hover to size of logo */
+  width: 182px;
+`;
+
+const HeaderSection = ({ location, className }) => {
+  const [hover, setHover] = useState(false);
+  const notIndexRoute = location !== "/";
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          desktop: file(absolutePath: { regex: "/globe-background.png/" }) {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 4076) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
             }
           }
         }
-      }
-    `}
-    render={data => {
-      const imageData = data.desktop.childImageSharp.fluid;
-      return (
-        <BackgroundImage
-          Tag="section"
-          className={className}
-          fluid={imageData}
-          backgroundColor={`#040e18`}
-        >
-          <HeaderContainer>
-            <Link to="/">{logo}</Link>
-            <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
-            <Tagline>
-              <div>THE EDGE FOR</div>
-              <div>AMBITIOUS INNOVATORS</div>
-            </Tagline>
-          </HeaderContainer>
-        </BackgroundImage>
-      );
-    }}
-  />
-);
+      `}
+      render={data => {
+        const imageData = data.desktop.childImageSharp.fluid;
+        return (
+          <BackgroundImage
+            Tag="section"
+            className={className}
+            fluid={imageData}
+            backgroundColor={`#040e18`}
+          >
+            <HeaderContainer>
+              <Logo
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+              >
+                {notIndexRoute ? (
+                  <Link to="/">{hover ? logoHighlight : logo}</Link>
+                ) : (
+                  logo
+                )}
+              </Logo>
+              <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
+              <Tagline>
+                <div>THE EDGE FOR</div>
+                <div>AMBITIOUS INNOVATORS</div>
+              </Tagline>
+            </HeaderContainer>
+          </BackgroundImage>
+        );
+      }}
+    />
+  );
+};
 
 HeaderSection.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 };
 
 const Header = styled(HeaderSection)`
