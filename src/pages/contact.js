@@ -87,7 +87,7 @@ function ContactForm() {
     email: "",
     companyName: "",
     stage: "",
-    sentence: "",
+    sentence: ""
   };
 
   const [values, setValues] = useState(defaultValues);
@@ -97,7 +97,7 @@ function ContactForm() {
     email: "name@domain.com",
     companyName: "Company Name",
     stage: "Seed, Early, Growth or Mature",
-    sentence: "280 characters max",
+    sentence: "280 characters max"
   };
 
   const [botValue, setBotValue] = useState("");
@@ -108,7 +108,7 @@ function ContactForm() {
     companyName: false,
     stage: false,
     sentence: false,
-    botField: false,
+    botField: false
   };
 
   const [validations, setValidation] = useState(defaultValidations);
@@ -162,7 +162,7 @@ function ContactForm() {
           >
             <input name="form-name" type="hidden" value="contact" />
             <p hidden>
-              <label>Do not fill this out:</label>
+              <label htmlFor="botField">Do not fill this out:</label>
               <input
                 name="botField"
                 onChange={e => setBotValue(e.value)}
@@ -185,11 +185,12 @@ function ContactForm() {
                 name="name"
                 maxLength="100"
                 className="textField"
+                autoComplete="name"
               />
               {validations["name"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
-              <label htmlFor="name" className="label">
+              <label htmlFor="email" className="label">
                 What is your email address?
                 <span title="Required field" className="abbr">
                   <span aria-hidden="true"> {"\u0020*"}</span>
@@ -203,11 +204,12 @@ function ContactForm() {
                 name="email"
                 className="textField"
                 maxLength="100"
+                autoComplete="email"
               />
               {validations["email"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
-              <label htmlFor="name" className="label">
+              <label htmlFor="companyName" className="label">
                 What is the name of your company?
                 <span title="Required field" className="abbr">
                   <span aria-hidden="true"> {"\u0020*"}</span>
@@ -221,11 +223,12 @@ function ContactForm() {
                 name="companyName"
                 className="textField"
                 maxLength="100"
+                autoComplete="organization"
               />
               {validations["companyName"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
-              <label htmlFor="name" className="label">
+              <label htmlFor="stage" className="label">
                 What stage is your company?
                 <span title="Required field" className="abbr">
                   <span aria-hidden="true"> {"\u0020*"}</span>
@@ -239,11 +242,12 @@ function ContactForm() {
                 name="stage"
                 className="textField"
                 maxLength="7"
+                autoComplete="nope"
               />
               {validations["stage"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
-              <label htmlFor="name" className="label">
+              <label htmlFor="sentence" className="label">
                 Describe your company in one sentence
                 <span title="Required field" className="abbr">
                   <span aria-hidden="true"> {"\u0020*"}</span>
@@ -257,6 +261,7 @@ function ContactForm() {
                 className="textField"
                 maxLength="280"
                 rows="3"
+                autoComplete="nope"
               />
               {validations["sentence"] && showValidationField}
             </FormFieldStyle>
