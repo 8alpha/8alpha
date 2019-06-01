@@ -85,16 +85,12 @@ export const LinkStyle = styled.div`
     color: var(--primary-color);
     text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
-    }
-
     &:active {
       color: var(--secondary-color);
     }
 
-    &:visited {
-      color: var(--ternary-color);
+    &:hover {
+      text-decoration: underline;
     }
   }
 `;
