@@ -268,17 +268,13 @@ function ContactForm() {
             <FormFieldStyle>
               <div className="twoButtons">
                 <ButtonStyle>
-                  <button type="submit" className="button">
-                    <span className="btnText">
-                      {"\u00A0\u00A0Submit\u00A0\u00A0"}
-                    </span>
+                  <button type="submit">
+                    <span>{"\u00A0\u00A0Submit\u00A0\u00A0"}</span>
                   </button>
                 </ButtonStyle>
                 <ButtonStyle>
-                  <button type="reset" className="button">
-                    <span className="btnText">
-                      {"\u00A0\u00A0Reset\u00A0\u00A0"}
-                    </span>
+                  <button type="reset">
+                    <span>{"\u00A0\u00A0Reset\u00A0\u00A0"}</span>
                   </button>
                 </ButtonStyle>
               </div>

@@ -22,7 +22,7 @@ export const SectionStyle = styled.div`
 `;
 
 export const ButtonStyle = styled.div`
-  .button {
+  button {
     padding: 1rem 0rem;
     border-radius: 0.8rem 0;
     text-transform: uppercase;
@@ -46,15 +46,13 @@ export const ButtonStyle = styled.div`
       background-position: left bottom;
     }
 
-    .btnText {
-      font-size: var(--p-font-size);
-      color: var(--primary-color);
-      letter-spacing: var(--p-letter-spacing);
-      transition: all 0.3s ease-out;
+    font-size: var(--p-font-size);
+    color: var(--primary-color);
+    letter-spacing: var(--p-letter-spacing);
+    transition: all 0.3s ease-out;
 
-      &:hover {
-        color: var(--secondary-color);
-      }
+    &:hover {
+      color: var(--secondary-color);
     }
   }
 `;
@@ -80,4 +78,23 @@ export const BoxSectionStyle = styled.div`
   }
 
   border: 1px solid var(--secondary-color);
+`;
+
+export const LinkStyle = styled.div`
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: var(--secondary-color);
+    }
+
+    &:visited {
+      color: var(--ternary-color);
+    }
+  }
 `;
