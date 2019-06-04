@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { graphql, StaticQuery, Link } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import MenuItemStyle from "./styled";
+import { MenuItemStyle } from "./styled";
 import { injectIntl } from "gatsby-plugin-intl";
 
 import { logo, logoHighlight } from "../resources/vector-graphics";
+import Language from "./language";
 
 const HeaderContainer = styled.div`
   margin: 2vh 5vw 10vh 5vw;
@@ -79,7 +80,7 @@ const HeaderSection = ({ location, className, intl }) => {
                     logo
                   )}
                 </div>
-                <MenuItemStyle>{`English`}</MenuItemStyle>
+                <Language />
               </MenuContainer>
               <Description>
                 {intl.formatMessage({ id: "headerDescription" })}
@@ -99,7 +100,7 @@ const HeaderSection = ({ location, className, intl }) => {
 HeaderSection.propTypes = {
   className: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  intl: PropTypes.func.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 const Header = styled(HeaderSection)`

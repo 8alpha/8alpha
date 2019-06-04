@@ -94,3 +94,27 @@ export const LinkStyle = styled.div`
     }
   }
 `;
+
+export const MenuItemStyle = styled.div`
+  button {
+    border: none;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    font-size: var(--p-font-size);
+    color: var(--primary-color);
+    letter-spacing: var(--p-letter-spacing);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+  }
+`;
