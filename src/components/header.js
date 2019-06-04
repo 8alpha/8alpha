@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { graphql, StaticQuery, Link } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
+import { injectIntl } from "gatsby-plugin-intl";
 
 import { logo, logoHighlight } from "../resources/vector-graphics";
 
@@ -29,7 +30,7 @@ const Logo = styled.div`
   width: 182px;
 `;
 
-const HeaderSection = ({ location, className }) => {
+const HeaderSection = ({ location, className, intl }) => {
   const [hover, setHover] = useState(false);
   const notIndexRoute = location !== "/";
 
@@ -66,7 +67,9 @@ const HeaderSection = ({ location, className }) => {
                   logo
                 )}
               </Logo>
-              <Description>GLOBAL TECHNOLOGY & FINANCIAL ADVISORS</Description>
+              <Description>
+                {intl.formatMessage({ id: "headerDescription" })}
+              </Description>
               <Tagline>
                 <div>THE EDGE FOR</div>
                 <div>AMBITIOUS INNOVATORS</div>
@@ -82,6 +85,7 @@ const HeaderSection = ({ location, className }) => {
 HeaderSection.propTypes = {
   className: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
+  intl: PropTypes.func.isRequired
 };
 
 const Header = styled(HeaderSection)`
@@ -92,4 +96,4 @@ const Header = styled(HeaderSection)`
   background-size: cover;
 `;
 
-export default Header;
+export default injectIntl(Header);

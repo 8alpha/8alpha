@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { createGlobalStyle } from "styled-components";
+import { injectIntl } from "gatsby-plugin-intl";
 import favicon from "../resources/favicon.png";
 
 import Footer from "./footer";
@@ -31,11 +32,11 @@ html, body {
 }
 `;
 
-const Layout = ({ location, children }) => (
+const Layout = ({ location, children, intl }) => (
   <div>
     <GlobalStyle />
     <Helmet
-      title="8Alpha Partners"
+      title={intl.formatMessage({ id: "title" })}
       meta={[
         { name: "description", content: "8Alpha Partners" },
         { name: "keywords", content: "startup" },
@@ -54,4 +55,4 @@ Layout.propTypes = {
   location: PropTypes.string.isRequired
 };
 
-export default Layout;
+export default injectIntl(Layout);
