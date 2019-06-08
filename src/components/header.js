@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { graphql, StaticQuery, Link } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { MenuItemStyle } from "./styled";
 import { injectIntl } from "gatsby-plugin-intl";
 
-import { logo, logoHighlight } from "../resources/vector-graphics";
+import { logo, logoActive } from "../resources/vector-graphics";
 import Language from "./language";
 
 const HeaderContainer = styled.div`
@@ -75,7 +74,7 @@ const HeaderSection = ({ location, className, intl }) => {
                   onMouseLeave={() => setHover(false)}
                 >
                   {notIndexRoute ? (
-                    <Link to="/">{hover ? logoHighlight : logo}</Link>
+                    <Link to="/">{hover ? logoActive : logo}</Link>
                   ) : (
                     logo
                   )}

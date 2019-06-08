@@ -1,5 +1,5 @@
-import React from "react";
-import { IntlContextConsumer, changeLocale } from "gatsby-plugin-intl";
+import React, { useState } from "react";
+import { changeLocale } from "gatsby-plugin-intl";
 
 import { MenuItemStyle } from "./styled";
 
@@ -9,19 +9,10 @@ const languageName = {
 };
 
 const Language = () => {
-
-    const [language, setLanguage] = useState('en');
-
-    const toggleLanguage =
-    return (
-        <div>
-            <IntlContextConsumer>
-                <MenuItemStyle>
-                    <button onClick={() =>  } />
-                </MenuItemStyle>
-            </IntlContextConsumer>
-        </div>
-    );
+  return (
+    <MenuItemStyle>
+      <button>{languageName[`ja`]}</button>
+    </MenuItemStyle>
+  );
 };
-
 export default Language;

@@ -41,7 +41,7 @@ export const logo = (
   </svg>
 );
 
-export const logoHighlight = (
+export const logoActive = (
   <svg width="182" height="67" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fillRule="evenodd">
       <path

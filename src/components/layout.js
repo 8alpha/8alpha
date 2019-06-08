@@ -20,7 +20,7 @@ html, body {
     width: 100vw;
     height: 100vh;
 
-    font-family: Questrial, sans-serif;
+    font-family: Questrial, Noto Sans JP, sans-serif;
     font-size: calc(8px + (16 - 8) * ((100vw - 500px) / (3840 - 500)));
 
     --h2-font-size: 3.0rem;
@@ -40,7 +40,7 @@ const Layout = ({ location, children, intl }) => (
       meta={[
         { name: "description", content: "8Alpha Partners" },
         { name: "keywords", content: "startup" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" }
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
       ]}
       link={[{ rel: "shortcut icon", type: "image/png", href: `${favicon}` }]}
     />
@@ -52,7 +52,7 @@ const Layout = ({ location, children, intl }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  location: PropTypes.string.isRequired
+  location: PropTypes.string.isRequired,
 };
 
 export default injectIntl(Layout);
