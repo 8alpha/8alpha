@@ -20,7 +20,7 @@ html, body {
     width: 100vw;
     height: 100vh;
 
-    font-family: Questrial, "Noto Sans {JP}", sans-serif;
+    font-family: Questrial, 'Noto Sans JP', sans-serif;
     font-size: calc(8px + (16 - 8) * ((100vw - 500px) / (3840 - 500)));
 
     --h2-font-size: 3.0rem;

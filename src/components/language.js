@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { changeLocale } from "gatsby-plugin-intl";
 
-import { MenuItemStyle } from "./styled";
+import { MenuItemStyle, NotoSansJPStyle } from "./styled";
 
 const nextLocale = {
   ja: "English",
