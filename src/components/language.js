@@ -8,8 +8,15 @@ const nextLocale = {
   en: "日本語",
 };
 
+const initialLanguage = () => {
+  if (typeof window !== `undefined`) {
+    return window.___gatsbyIntl["language"];
+  }
+  return "en";
+};
+
 const Language = () => {
-  const [currentLocale, setLocale] = useState(window.___gatsbyIntl["language"]);
+  const [currentLocale, setLocale] = useState(initialLanguage());
 
   const switchLocale = () => {
     const newLocale = currentLocale === "en" ? "ja" : "en";
