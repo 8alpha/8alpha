@@ -7,6 +7,7 @@ import { injectIntl } from "gatsby-plugin-intl";
 
 import { logo, logoActive } from "../resources/vector-graphics";
 import Language from "./language";
+import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const HeaderContainer = styled.div`
   margin: 2vh 5vw 10vh 5vw;
@@ -25,11 +26,19 @@ const MenuContainer = styled.div`
 `;
 
 const Description = styled.div`
-  padding-top: 0.5vh;
-  color: var(--secondary-color);
-  font-size: calc(var(--p-font-size) * 0.75);
-  letter-spacing: calc(var(--p-letter-spacing) * 0.75);
-  text-transform: uppercase;
+  span {
+    padding-top: 0.5vh;
+    color: var(--secondary-color);
+    font-size: calc(var(--p-font-size) * 0.75);
+    letter-spacing: calc(var(--p-letter-spacing) * 0.75);
+    text-transform: uppercase;
+
+    &:lang(ja) {
+      font-family: "Noto Sans JP", sans-serif;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+  }
 `;
 
 const Tagline = styled.div`
@@ -41,6 +50,7 @@ const Tagline = styled.div`
 `;
 
 const HeaderSection = ({ location, className, intl }) => {
+  const language = gatsbyIntlLanguage();
   const [hover, setHover] = useState(false);
   const notIndexRoute = location !== "/";
 
@@ -82,7 +92,9 @@ const HeaderSection = ({ location, className, intl }) => {
                 <Language />
               </MenuContainer>
               <Description>
-                {intl.formatMessage({ id: "headerDescription" })}
+                <span lang={language}>
+                  {intl.formatMessage({ id: "headerDescription" })}
+                </span>
               </Description>
               <Tagline>
                 <div>THE EDGE FOR</div>

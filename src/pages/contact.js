@@ -1,84 +1,19 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 import { injectIntl } from "gatsby-plugin-intl";
 
 import Layout from "../components/layout";
-import { SectionStyle, ButtonStyle } from "../components/styled";
-
-const FormContainer = styled.div`
-  margin: 2vh 2vw 2vh 2vw;
-`;
-
-const FormFieldStyle = styled.div`
-  margin-bottom: 3vh;
-
-  .textField {
-    display: block;
-    margin-top: 1vh;
-    border: 2px solid transparent;
-    border-radius: 0.8rem 0;
-    padding: 1.5rem 1.6rem;
-    background: var(--secondary-color);
-    line-height: 1.4;
-    letter-spacing: var(--p-letter-spacing);
-    font-size: var(--p-font-size);
-    color: var(--bg-color);
-    transition: border-color 0.1s ease-out;
-    width: 80vw;
-
-    &:hover,
-    &:focus {
-      border: 2px solid var(--primary-color);
-    }
-
-    &:-webkit-autofill {
-      border: 2px solid transparent;
-      -webkit-box-shadow: 0 0 0px 1000px var(--secondary-color) inset;
-      -webkit-text-fill-color: var(--bg-color);
-    }
-
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus {
-      border: 2px solid var(--primary-color);
-      -webkit-box-shadow: 0 0 0px 1000px var(--secondary-color) inset;
-      -webkit-text-fill-color: var(--bg-color);
-    }
-  }
-
-  .validationMsg {
-    margin-top: 0.3rem;
-    margin-left: 1rem;
-    border: 2px solid transparent;
-    border-radius: 0 0 0.8rem 0.8rem;
-    padding: 1rem 1.1rem;
-    background: var(--secondary-color);
-    line-height: 1.4;
-    letter-spacing: var(--p-letter-spacing);
-    font-size: var(--p-font-size);
-    color: var(--ternary-color);
-    width: 69vw;
-  }
-
-  .abbr {
-    color: var(--ternary-color);
-  }
-
-  .label {
-    color: var(--secondary-color);
-    font-size: var(--p-font-size);
-    letter-spacing: (--p-letter-spacing);
-  }
-
-  .twoButtons {
-    width: 28rem;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-  }
-`;
+import {
+  SectionStyle,
+  ButtonStyle,
+  FormContainer,
+  FormFieldStyle,
+} from "../components/styled";
+import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 function Contact({ intl }) {
+  const language = gatsbyIntlLanguage();
+
   const handleInputChange = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
@@ -140,7 +75,7 @@ function Contact({ intl }) {
   };
 
   const showValidationField = (
-    <div className="validationMsg">
+    <div lang={language} className="validationMsg">
       {intl.formatMessage({ id: "contactValidationMsg" })}
     </div>
   );
@@ -148,9 +83,9 @@ function Contact({ intl }) {
   return (
     <Layout location="/contact/">
       <SectionStyle>
-        <h2>{intl.formatMessage({ id: "contactHeading" })}</h2>
+        <h2 lang={language}>{intl.formatMessage({ id: "contactHeading" })}</h2>
         <FormContainer>
-          <p>{intl.formatMessage({ id: "contactP1" })}</p>
+          <p lang={language}>{intl.formatMessage({ id: "contactP1" })}</p>
           <form
             name="contact"
             method="post"
@@ -186,6 +121,7 @@ function Contact({ intl }) {
                 maxLength="100"
                 className="textField"
                 autoComplete="name"
+                lang={language}
               />
               {validations["name"] && showValidationField}
             </FormFieldStyle>
@@ -262,23 +198,24 @@ function Contact({ intl }) {
                 maxLength="280"
                 rows="3"
                 autoComplete="nope"
+                lang={language}
               />
               {validations["sentence"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
               <div className="twoButtons">
                 <ButtonStyle>
-                  <button type="submit">
-                    <span>{`\u00A0\u00A0${intl.formatMessage({
+                  <button lang={language} type="submit">
+                    {`\u00A0\u00A0${intl.formatMessage({
                       id: "buttonSubmit",
-                    })}\u00A0\u00A0`}</span>
+                    })}\u00A0\u00A0`}
                   </button>
                 </ButtonStyle>
                 <ButtonStyle>
-                  <button type="reset">
-                    <span>{`\u00A0\u00A0${intl.formatMessage({
+                  <button lang={language} type="reset">
+                    {`\u00A0\u00A0${intl.formatMessage({
                       id: "buttonReset",
-                    })}\u00A0\u00A0`}</span>
+                    })}\u00A0\u00A0`}
                   </button>
                 </ButtonStyle>
               </div>

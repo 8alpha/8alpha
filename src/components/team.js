@@ -7,6 +7,7 @@ import { injectIntl } from "gatsby-plugin-intl";
 
 import { SectionStyle } from "./styled";
 import { linkedIn } from "../resources/icons";
+import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const PhotosContainer = styled.div`
   display: grid;
@@ -137,6 +138,8 @@ const Team = ({ intl }) => (
       }
     `}
     render={data => {
+      const language = gatsbyIntlLanguage();
+
       const cards = [
         {
           photo: data.nickDivehall.childImageSharp.fluid,
@@ -187,7 +190,7 @@ const Team = ({ intl }) => (
 
       return (
         <SectionStyle>
-          <h2>{intl.formatMessage({ id: "teamHeading" })}</h2>
+          <h2 lang={language}>{intl.formatMessage({ id: "teamHeading" })}</h2>
           <PhotosContainer>
             <Photos />
           </PhotosContainer>
