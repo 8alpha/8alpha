@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
+import { injectIntl } from "gatsby-plugin-intl";
 
 import Layout from "../components/layout";
 import { SectionStyle, ButtonStyle } from "../components/styled";
@@ -76,7 +78,7 @@ const FormFieldStyle = styled.div`
   }
 `;
 
-function ContactForm() {
+function Contact({ intl }) {
   const handleInputChange = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
@@ -87,7 +89,7 @@ function ContactForm() {
     email: "",
     companyName: "",
     stage: "",
-    sentence: ""
+    sentence: "",
   };
 
   const [values, setValues] = useState(defaultValues);
@@ -97,7 +99,7 @@ function ContactForm() {
     email: "name@domain.com",
     companyName: "Company Name",
     stage: "Seed, Early, Growth or Mature",
-    sentence: "280 characters max"
+    sentence: "280 characters max",
   };
 
   const [botValue, setBotValue] = useState("");
@@ -108,7 +110,7 @@ function ContactForm() {
     companyName: false,
     stage: false,
     sentence: false,
-    botField: false
+    botField: false,
   };
 
   const [validations, setValidation] = useState(defaultValidations);
@@ -138,19 +140,17 @@ function ContactForm() {
   };
 
   const showValidationField = (
-    <div className="validationMsg">Enter a valid response to continue</div>
+    <div className="validationMsg">
+      {intl.formatMessage({ id: "contactValidationMsg" })}
+    </div>
   );
 
   return (
     <Layout location="/contact/">
       <SectionStyle>
-        <h2>Contact</h2>
+        <h2>{intl.formatMessage({ id: "contactHeading" })}</h2>
         <FormContainer>
-          <p>
-            {
-              "8Alpha has a track record of success in helping early to mid-market technology companies with Investment, M&A, and C-Suite advisory services. We'd love to hear from you and see what you are building.  You can rest assured that we will not sell or rent the information that you provide to anyone."
-            }
-          </p>
+          <p>{intl.formatMessage({ id: "contactP1" })}</p>
           <form
             name="contact"
             method="post"
@@ -269,12 +269,16 @@ function ContactForm() {
               <div className="twoButtons">
                 <ButtonStyle>
                   <button type="submit">
-                    <span>{"\u00A0\u00A0Submit\u00A0\u00A0"}</span>
+                    <span>{`\u00A0\u00A0${intl.formatMessage({
+                      id: "buttonSubmit",
+                    })}\u00A0\u00A0`}</span>
                   </button>
                 </ButtonStyle>
                 <ButtonStyle>
                   <button type="reset">
-                    <span>{"\u00A0\u00A0Reset\u00A0\u00A0"}</span>
+                    <span>{`\u00A0\u00A0${intl.formatMessage({
+                      id: "buttonReset",
+                    })}\u00A0\u00A0`}</span>
                   </button>
                 </ButtonStyle>
               </div>
@@ -286,4 +290,8 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+Contact.propTypes = {
+  intl: PropTypes.object.isRequired,
+};
+
+export default injectIntl(Contact);

@@ -2,11 +2,11 @@ import React from "react";
 
 import Layout from "../components/layout";
 import Team from "../components/team";
-import AboutUs from "../components/about-us";
+import About from "../components/about";
 
 const Home = () => (
   <Layout location="/">
-    <AboutUs />
+    <About />
     <Team />
   </Layout>
 );

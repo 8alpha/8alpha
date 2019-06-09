@@ -29,6 +29,7 @@ module.exports = {
           },
           { family: `Noto Sans JP` },
         ],
+        formats: ["woff", "woff2"],
       },
     },
     {

@@ -1,31 +1,35 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import { injectIntl } from "gatsby-plugin-intl";
 
 import Layout from "../components/layout";
 import Team from "../components/team";
-import AboutUs from "../components/about-us";
+import About from "../components/about";
 import { ButtonStyle, BoxSectionStyle } from "../components/styled";
 
-const Submitted = () => (
-  <Layout>
+const Submitted = ({ intl }) => (
+  <Layout location="/submitted/">
     <BoxSectionStyle>
-      <h2>Thank you!</h2>
-      <p>
-        We will be in touch with you shortly. If you do not receive an email
-        confirmation within 2-3 business days then please email us directly at
-        info @ 8alpha.com.
-      </p>
+      <h2>{intl.formatMessage({ id: "submittedHeading" })}</h2>
+      <p>{intl.formatMessage({ id: "submittedP1" })}</p>
       <Link to="/">
         <ButtonStyle>
           <button className="button">
-            <span className="btnText">{"\u00A0\u00A0Hide\u00A0\u00A0"}</span>
+            <span className="btnText">{`\u00A0\u00A0${intl.formatMessage({
+              id: "buttonHide",
+            })}\u00A0\u00A0`}</span>
           </button>
         </ButtonStyle>
       </Link>
     </BoxSectionStyle>
-    <AboutUs />
+    <About />
     <Team />
   </Layout>
 );
 
-export default Submitted;
+Submitted.propTypes = {
+  intl: PropTypes.object.isRequired,
+};
+
+export default injectIntl(Submitted);

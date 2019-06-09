@@ -1,4 +1,16 @@
 {
   "title": "8Alpha Partners",
-  "headerDescription": "Global Technology & Financial Advisors"
+  "headerDescription": "global technology & financial advisors",
+  "aboutHeading": "about us",
+  "aboutP1": "8ALPHA provides technology, strategic development and corporate finance advisory services to the world’s most innovative companies.",
+  "aboutP2": "The highly experienced team we have assembled in San Francisco, Tokyo and Auckland have catalyzed billions through brand positioning, software development, patent portfolio creation, transaction structuring, and capital management.",
+  "teamHeading": "partners",
+    "contactHeading": "contact us",
+  "contactP1": "8Alpha has a track record of success in helping early to mid-market technology companies with Investment, M&A, and C-Suite advisory services. We'd love to hear from you and see what you are building. You can rest assured that we will not sell or rent the information that you provide to anyone.",
+  "contactValidationMsg": "Enter a valid response to continue",
+  "buttonSubmit": "submit",
+  "buttonReset": "reset",
+  "buttonHide": "hide",
+  "submittedHeading": "thank you",
+  "submittedP1": "We will be in touch with you shortly. If you do not receive an email confirmation within 2-3 business days then please email us directly at info @ 8alpha.com."
 }

@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
+import { injectIntl } from "gatsby-plugin-intl";
 
 import { SectionStyle } from "./styled";
 import { linkedIn } from "../resources/icons";
@@ -96,7 +98,7 @@ const Caption = styled.div`
   }
 `;
 
-const Team = () => (
+const Team = ({ intl }) => (
   <StaticQuery
     query={graphql`
       fragment fluidImage on File {
@@ -185,7 +187,7 @@ const Team = () => (
 
       return (
         <SectionStyle>
-          <h2>partners</h2>
+          <h2>{intl.formatMessage({ id: "teamHeading" })}</h2>
           <PhotosContainer>
             <Photos />
           </PhotosContainer>
@@ -195,4 +197,8 @@ const Team = () => (
   />
 );
 
-export default Team;
+Team.propTypes = {
+  intl: PropTypes.object.isRequired,
+};
+
+export default injectIntl(Team);
