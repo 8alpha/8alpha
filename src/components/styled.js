@@ -110,7 +110,9 @@ export const BoxSectionStyle = styled.div`
 
 export const LinkStyle = styled.div`
   a {
+    font-size: var(--p-font-size);
     color: var(--primary-color);
+    letter-spacing: var(--p-letter-spacing);
     text-decoration: none;
 
     &:active {
@@ -119,6 +121,11 @@ export const LinkStyle = styled.div`
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &:lang(ja) {
+      font-family: "Noto Sans JP", sans-serif;
+      letter-spacing: normal;
     }
   }
 `;
