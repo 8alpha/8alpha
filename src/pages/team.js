@@ -5,9 +5,10 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 import { injectIntl } from "gatsby-plugin-intl";
 
-import { SectionStyle } from "./styled";
+import { SectionStyle } from "../components/styled";
 import { linkedIn } from "../resources/icons";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
+import Layout from "../components/layout";
 
 const PhotosContainer = styled.div`
   display: grid;
@@ -144,28 +145,28 @@ const Team = ({ intl }) => (
         {
           photo: data.nickDivehall.childImageSharp.fluid,
           alt: "Nick Divehall",
-          slug: "nickdivehall",
+          slug: "nickdivehall"
         },
         {
           photo: data.alexKelley.childImageSharp.fluid,
           alt: "Alex Kelley",
-          slug: "alexdkelley",
+          slug: "alexdkelley"
         },
         {
           photo: data.markLindon.childImageSharp.fluid,
           alt: "Mark Lindon",
-          slug: "mark-lindon-0656a1104",
+          slug: "mark-lindon-0656a1104"
         },
         {
           photo: data.lukePeterson.childImageSharp.fluid,
           alt: "Luke Peterson",
-          slug: "lupeterson",
+          slug: "lupeterson"
         },
         {
           photo: data.reubenTucker.childImageSharp.fluid,
           alt: "Reuben Tucker",
-          slug: "reuben-tucker-5212b269",
-        },
+          slug: "reuben-tucker-5212b269"
+        }
       ];
 
       const Photos = () =>
@@ -189,19 +190,21 @@ const Team = ({ intl }) => (
         });
 
       return (
-        <SectionStyle>
-          <h2 lang={language}>{intl.formatMessage({ id: "teamHeading" })}</h2>
-          <PhotosContainer>
-            <Photos />
-          </PhotosContainer>
-        </SectionStyle>
+        <Layout location="/team/">
+          <SectionStyle>
+            <h2 lang={language}>{intl.formatMessage({ id: "teamHeading" })}</h2>
+            <PhotosContainer>
+              <Photos />
+            </PhotosContainer>
+          </SectionStyle>
+        </Layout>
       );
     }}
   />
 );
 
 Team.propTypes = {
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 export default injectIntl(Team);
