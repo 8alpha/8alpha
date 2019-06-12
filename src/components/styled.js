@@ -241,9 +241,13 @@ export const FormFieldStyle = styled.div`
   }
 
   .twoButtons {
-    width: 28rem;
+    width: 22rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+
+    &:lang(ja) {
+      width: 20rem;
+    }
   }
 `;
