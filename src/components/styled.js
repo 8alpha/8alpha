@@ -130,7 +130,39 @@ export const LinkStyle = styled.div`
   }
 `;
 
-export const MenuItemStyle = styled.div`
+export const NavBarContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    /* Limit hover to size of Logo */
+    flex-basis: 182px;
+  }
+`;
+
+export const NavBarItemStyle = styled.div`
+  a {
+    font-size: var(--p-font-size);
+    color: var(--primary-color);
+    letter-spacing: var(--p-letter-spacing);
+    text-decoration: none;
+
+    &:active {
+      color: var(--secondary-color);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:lang(ja) {
+      font-family: "Noto Sans JP", sans-serif;
+      letter-spacing: normal;
+    }
+  }
+
   button {
     border: none;
     padding: 0;

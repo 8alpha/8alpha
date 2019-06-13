@@ -13,7 +13,7 @@ import Layout from "../components/layout";
 const PhotosContainer = styled.div`
   display: grid;
   grid-gap: 2vw;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   @media screen and (max-width: 599px) {
     grid-template-rows: repeat(2, 1fr);
@@ -21,82 +21,17 @@ const PhotosContainer = styled.div`
   }
 `;
 
-const PhotoContainer = styled.div`
-  display: grid;
-  grid-template-rows: 3fr 1fr;
+const Image = styled(Img)`
+  border: solid 2px;
+  border-color: var(--primary-color);
+  border-bottom-left-radius 1.5rem;
+  border-top-right-radius 1.5rem;
+  transition: all 0.3s ease-out;
+  filter: grayscale(100%);
 
-  border-style: solid;
-  border-color: var(--secondary-color);
-`;
 
-const Caption = styled.div`
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  align-items: center;
-  justify-items: center;
-  padding-left: 0.5vw;
-  padding-right: 0.5vw;
-
-  background-color: black;
-  color: var(--secondary-color);
-
-  .icon {
-  }
-
-  @media screen and (max-width: 599px) {
-    .icon {
-      transform: scale(0.75);
-      transition: all ease 0.2s;
-      &:hover {
-        transform: scale(0.85);
-      }
-    }
-    .captionItem {
-      font-size: calc(var(--p-font-size) * 0.65);
-      letter-spacing: calc(var(--p-letter-spacing) * 0.65);
-    }
-  }
-
-  @media screen and (min-width: 600px) {
-    .icon {
-      transform: scale(0.8);
-      transition: all ease 0.2s;
-      &:hover {
-        transform: scale(0.9);
-      }
-    }
-    .captionItem {
-      font-size: calc(var(--p-font-size) * 0.7);
-      letter-spacing: calc(var(--p-letter-spacing) * 0.7);
-    }
-  }
-
-  @media screen and (min-width: 1200px) {
-    .icon {
-      transform: scale(0.9);
-      transition: all ease 0.2s;
-      &:hover {
-        transform: scale(1);
-      }
-    }
-    .captionItem {
-      font-size: calc(var(--p-font-size) * 0.8);
-      letter-spacing: calc(var(--p-letter-spacing) * 0.8);
-    }
-  }
-
-  @media screen and (min-width: 1800px) {
-    .icon {
-      transform: scale(1);
-      transition: all ease 0.2s;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-    .captionItem {
-      font-size: var(--p-font-size);
-      letter-spacing: var(--p-letter-spacing);
-    }
+  &:hover {
+    filter: none;
   }
 `;
 
@@ -170,24 +105,9 @@ const Team = ({ intl }) => (
       ];
 
       const Photos = () =>
-        cards.map(card => {
-          const fullName = card.alt;
-
-          return (
-            <PhotoContainer key={card.slug}>
-              <Img fluid={card.photo} alt={card.alt} />
-              <Caption>
-                <div className="captionItem">{fullName}</div>
-                <a
-                  className="captionitem icon"
-                  href={`https://www.linkedin.com/in/${card.slug}/`}
-                >
-                  {linkedIn}
-                </a>
-              </Caption>
-            </PhotoContainer>
-          );
-        });
+        cards.map(card => (
+          <Image key={card.alt} fluid={card.photo} alt={card.alt} />
+        ));
 
       return (
         <Layout location="/team/">

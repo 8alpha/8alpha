@@ -1,28 +1,17 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { graphql, StaticQuery, Link } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { injectIntl } from "gatsby-plugin-intl";
+import { injectIntl, Link } from "gatsby-plugin-intl";
 
 import { logo, logoActive } from "../resources/vector-graphics";
 import Language from "./language";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
+import { NavBarContainer, NavBarItemStyle } from "../components/styled.js";
 
 const HeaderContainer = styled.div`
   margin: 2vh 5vw 10vh 5vw;
-`;
-
-const MenuContainer = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-
-  .logo {
-    /* Limit hover to size of Logo */
-    flex-basis: 182px;
-  }
 `;
 
 const Description = styled.div`
@@ -77,7 +66,7 @@ const HeaderSection = ({ location, className, intl }) => {
             backgroundColor={`#040e18`}
           >
             <HeaderContainer>
-              <MenuContainer>
+              <NavBarContainer>
                 <div
                   className="logo"
                   onMouseEnter={() => setHover(true)}
@@ -89,8 +78,11 @@ const HeaderSection = ({ location, className, intl }) => {
                     logo
                   )}
                 </div>
+                <NavBarItemStyle>
+                  <Link to="/team/">Team</Link>
+                </NavBarItemStyle>
                 <Language />
-              </MenuContainer>
+              </NavBarContainer>
               <Description>
                 <span lang={language}>
                   {intl.formatMessage({ id: "headerDescription" })}
