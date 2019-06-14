@@ -8,98 +8,11 @@ import { injectIntl, Link } from "gatsby-plugin-intl";
 import { logo, logoActive } from "../resources/vector-graphics";
 import Language from "./language";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
+import { NavBar, NavBarLogo } from "../css/navbar";
 import { Spacer } from "./styled";
 
 const HeaderContainer = styled.div`
   margin: 2vh 5vw 10vh 5vw;
-`;
-
-export const NavBar = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-
-  .logo {
-    /* Limit hover to size of Logo */
-    flex-basis: 182px;
-  }
-`;
-
-export const NavBarLanguage = styled(Language)`
-  button {
-    border: none;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0);
-    text-decoration: none;
-    cursor: pointer;
-    user-select: none;
-    font-size: var(--p-font-size);
-    color: var(--primary-color);
-    letter-spacing: var(--p-letter-spacing);
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    &:focus {
-      outline: 0;
-    }
-
-    &:hover {
-      color: var(--secondary-color);
-    }
-
-    &:lang(ja) {
-      font-family: "Noto Sans JP", sans-serif;
-      letter-spacing: normal;
-    }
-  }
-`;
-
-export const NavBarLink = styled(Link)`
-  font-size: var(--p-font-size);
-  color: var(--primary-color);
-  letter-spacing: var(--p-letter-spacing);
-  text-decoration: none;
-
-  &:active {
-    color: var(--secondary-color);
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:lang(ja) {
-    font-family: "Noto Sans JP", sans-serif;
-    letter-spacing: normal;
-  }
-
-  /* button {
-    *   border: none;
-    *   padding: 0;
-    *   background-color: rgba(0, 0, 0, 0);
-    *   text-decoration: none;
-    *   cursor: pointer;
-    *   user-select: none;
-    *   font-size: var(--p-font-size);
-    *   color: var(--primary-color);
-    *   letter-spacing: var(--p-letter-spacing);
-    *   -webkit-appearance: none;
-    *   -moz-appearance: none;
-
-    *   &:focus {
-    *     outline: 0;
-    *   }
-
-    *   &:hover {
-    *     color: var(--secondary-color);
-    *   }
-
-    *   &:lang(ja) {
-    *     font-family: "Noto Sans JP", sans-serif;
-    *     letter-spacing: normal;
-    *   }
-    * } */
 `;
 
 const Description = styled.div`
@@ -155,8 +68,7 @@ const HeaderSection = ({ location, className, intl }) => {
           >
             <HeaderContainer>
               <NavBar>
-                <div
-                  className="logo"
+                <NavBarLogo
                   onMouseEnter={() => setHover(true)}
                   onMouseLeave={() => setHover(false)}
                 >
@@ -165,10 +77,9 @@ const HeaderSection = ({ location, className, intl }) => {
                   ) : (
                     logo
                   )}
-                </div>
+                </NavBarLogo>
                 <Spacer />
-                <NavBarLink to="/team/">Team</NavBarLink>
-                <NavBarLanguage />
+                <Language />
               </NavBar>
               <Description>
                 <span lang={language}>

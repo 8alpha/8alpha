@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { changeLocale } from "gatsby-plugin-intl";
 
+import { NavBarButton } from "../css/navbar";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const nextLocale = {
@@ -19,9 +20,9 @@ const Language = () => {
   };
 
   return (
-    <button lang={newLocale} onClick={() => switchLocale()}>
+    <NavBarButton lang={newLocale} onClick={() => switchLocale()}>
       {nextLocale[currentLocale]}
-    </button>
+    </NavBarButton>
   );
 };
 
