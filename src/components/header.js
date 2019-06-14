@@ -8,10 +8,98 @@ import { injectIntl, Link } from "gatsby-plugin-intl";
 import { logo, logoActive } from "../resources/vector-graphics";
 import Language from "./language";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
-import { NavBarContainer, NavBarItemStyle } from "../components/styled.js";
+import { Spacer } from "./styled";
 
 const HeaderContainer = styled.div`
   margin: 2vh 5vw 10vh 5vw;
+`;
+
+export const NavBar = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    /* Limit hover to size of Logo */
+    flex-basis: 182px;
+  }
+`;
+
+export const NavBarLanguage = styled(Language)`
+  button {
+    border: none;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    font-size: var(--p-font-size);
+    color: var(--primary-color);
+    letter-spacing: var(--p-letter-spacing);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+
+    &:lang(ja) {
+      font-family: "Noto Sans JP", sans-serif;
+      letter-spacing: normal;
+    }
+  }
+`;
+
+export const NavBarLink = styled(Link)`
+  font-size: var(--p-font-size);
+  color: var(--primary-color);
+  letter-spacing: var(--p-letter-spacing);
+  text-decoration: none;
+
+  &:active {
+    color: var(--secondary-color);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:lang(ja) {
+    font-family: "Noto Sans JP", sans-serif;
+    letter-spacing: normal;
+  }
+
+  /* button {
+    *   border: none;
+    *   padding: 0;
+    *   background-color: rgba(0, 0, 0, 0);
+    *   text-decoration: none;
+    *   cursor: pointer;
+    *   user-select: none;
+    *   font-size: var(--p-font-size);
+    *   color: var(--primary-color);
+    *   letter-spacing: var(--p-letter-spacing);
+    *   -webkit-appearance: none;
+    *   -moz-appearance: none;
+
+    *   &:focus {
+    *     outline: 0;
+    *   }
+
+    *   &:hover {
+    *     color: var(--secondary-color);
+    *   }
+
+    *   &:lang(ja) {
+    *     font-family: "Noto Sans JP", sans-serif;
+    *     letter-spacing: normal;
+    *   }
+    * } */
 `;
 
 const Description = styled.div`
@@ -66,7 +154,7 @@ const HeaderSection = ({ location, className, intl }) => {
             backgroundColor={`#040e18`}
           >
             <HeaderContainer>
-              <NavBarContainer>
+              <NavBar>
                 <div
                   className="logo"
                   onMouseEnter={() => setHover(true)}
@@ -78,11 +166,10 @@ const HeaderSection = ({ location, className, intl }) => {
                     logo
                   )}
                 </div>
-                <NavBarItemStyle>
-                  <Link to="/team/">Team</Link>
-                </NavBarItemStyle>
-                <Language />
-              </NavBarContainer>
+                <Spacer />
+                <NavBarLink to="/team/">Team</NavBarLink>
+                <NavBarLanguage />
+              </NavBar>
               <Description>
                 <span lang={language}>
                   {intl.formatMessage({ id: "headerDescription" })}
@@ -103,7 +190,7 @@ const HeaderSection = ({ location, className, intl }) => {
 HeaderSection.propTypes = {
   className: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 const Header = styled(HeaderSection)`
