@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { changeLocale } from "gatsby-plugin-intl";
 
-import { MenuItemStyle } from "./styled";
+import { NavBarButton } from "../css/navbar";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const nextLocale = {
   ja: "English",
-  en: "日本語",
+  en: "日本語"
 };
 
 const Language = () => {
@@ -20,11 +20,9 @@ const Language = () => {
   };
 
   return (
-    <MenuItemStyle>
-      <button lang={newLocale} onClick={() => switchLocale()}>
-        {nextLocale[currentLocale]}
-      </button>
-    </MenuItemStyle>
+    <NavBarButton lang={newLocale} onClick={() => switchLocale()}>
+      {nextLocale[currentLocale]}
+    </NavBarButton>
   );
 };
 

@@ -8,21 +8,11 @@ import { injectIntl } from "gatsby-plugin-intl";
 import { logo, logoActive } from "../resources/vector-graphics";
 import Language from "./language";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
+import { NavBar, NavBarLogo } from "../css/navbar";
+import { Spacer } from "./styled";
 
 const HeaderContainer = styled.div`
   margin: 2vh 5vw 10vh 5vw;
-`;
-
-const MenuContainer = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-
-  .logo {
-    /* Limit hover to size of Logo */
-    flex-basis: 182px;
-  }
 `;
 
 const Description = styled.div`
@@ -77,9 +67,8 @@ const HeaderSection = ({ location, className, intl }) => {
             backgroundColor={`#040e18`}
           >
             <HeaderContainer>
-              <MenuContainer>
-                <div
-                  className="logo"
+              <NavBar>
+                <NavBarLogo
                   onMouseEnter={() => setHover(true)}
                   onMouseLeave={() => setHover(false)}
                 >
@@ -88,9 +77,10 @@ const HeaderSection = ({ location, className, intl }) => {
                   ) : (
                     logo
                   )}
-                </div>
+                </NavBarLogo>
+                <Spacer />
                 <Language />
-              </MenuContainer>
+              </NavBar>
               <Description>
                 <span lang={language}>
                   {intl.formatMessage({ id: "headerDescription" })}
@@ -111,7 +101,7 @@ const HeaderSection = ({ location, className, intl }) => {
 HeaderSection.propTypes = {
   className: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 const Header = styled(HeaderSection)`
