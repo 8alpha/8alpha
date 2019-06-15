@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import { injectIntl } from "gatsby-plugin-intl";
+import { Link } from "gatsby";
 
 import { SectionStyle } from "../components/styled";
 /* import { linkedIn } from "../resources/icons"; */
@@ -38,72 +39,40 @@ const Image = styled(Img)`
 
 const Team = ({ intl }) => {
   const data = useStaticQuery(graphql`
-    fragment fluidImage on File {
-      childImageSharp {
-        fluid(maxWidth: 480) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
     query {
-      alexKelley: file(absolutePath: { regex: "/partners/alex-kelley.png/" }) {
-        ...fluidImage
-      }
-      nickDivehall: file(
-        absolutePath: { regex: "/partners/nick-divehall.png/" }
-      ) {
-        ...fluidImage
-      }
-      markLindon: file(absolutePath: { regex: "/partners/mark-lindon.png/" }) {
-        ...fluidImage
-      }
-      lukePeterson: file(
-        absolutePath: { regex: "/partners/luke-peterson.png/" }
-      ) {
-        ...fluidImage
-      }
-      reubenTucker: file(
-        absolutePath: { regex: "/partners/reuben-tucker.png/" }
-      ) {
-        ...fluidImage
+      allTeamJson {
+        edges {
+          node {
+            slug
+            name
+            image {
+              childImageSharp {
+                fluid(maxWidth: 480) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
       }
     }
   `);
 
   const language = gatsbyIntlLanguage();
 
-  const cards = [
-    {
-      photo: data.nickDivehall.childImageSharp.fluid,
-      alt: "Nick Divehall",
-      slug: "nickdivehall"
-    },
-    {
-      photo: data.alexKelley.childImageSharp.fluid,
-      alt: "Alex Kelley",
-      slug: "alexdkelley"
-    },
-    {
-      photo: data.markLindon.childImageSharp.fluid,
-      alt: "Mark Lindon",
-      slug: "mark-lindon-0656a1104"
-    },
-    {
-      photo: data.lukePeterson.childImageSharp.fluid,
-      alt: "Luke Peterson",
-      slug: "lupeterson"
-    },
-    {
-      photo: data.reubenTucker.childImageSharp.fluid,
-      alt: "Reuben Tucker",
-      slug: "reuben-tucker-5212b269"
-    }
-  ];
-
   const Photos = () =>
-    cards.map(card => (
-      <Image key={card.alt} fluid={card.photo} alt={card.alt} />
-    ));
+    data.allTeamJson.edges.map(edge => {
+      const member = edge.node;
+      return (
+        <Link key={member.slug} to={`/team/${member.slug}/`}>
+          <Image
+            key={member.slug}
+            fluid={member.image.childImageSharp.fluid}
+            alt={member.name}
+          />
+        </Link>
+      );
+    });
 
   return (
     <Layout location="/team/">
@@ -118,7 +87,7 @@ const Team = ({ intl }) => {
 };
 
 Team.propTypes = {
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(Team);

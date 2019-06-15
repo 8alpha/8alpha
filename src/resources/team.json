@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "nick-divehall",
+    "name": "Nick Divehall",
+    "jobTitle": "Parter",
+    "image": "./team/nick-divehall.png"
+  },
+  {
+    "slug": "alex-kelley",
+    "name": "Alex Kelley",
+    "jobTitle": "Partner",
+    "image": "./team/alex-kelley.png"
+  },
+  {
+    "slug": "mark-lindon",
+    "name": "Mark Lindon",
+    "jobTitle": "Parter",
+    "image": "./team/mark-lindon.png"
+  },
+  {
+    "slug": "luke-peterson",
+    "name": "Luke Peterson",
+    "jobTitle": "Parter",
+    "image": "./team/luke-peterson.png"
+  },
+  {
+    "slug": "reuben-tucker",
+    "name": "Reuben Tucker",
+    "jobTitle": "Parter",
+    "image": "./team/reuben-tucker.png"
+  }
+]
