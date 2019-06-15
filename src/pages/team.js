@@ -28,6 +28,7 @@ const Image = styled(Img)`
   border-top-right-radius 1.5rem;
   transition: all 0.3s ease-out;
   filter: grayscale(100%);
+  cursor: pointer;
 
 
   &:hover {
