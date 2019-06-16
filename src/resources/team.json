@@ -4,6 +4,7 @@
     "name": "memberNickDivehall",
     "jobTitle": "memberPartner",
     "biography": "memberBioMarkLindon",
+    "linkedIn": "nickdivehall",
     "image": "./team/nick-divehall.png"
   },
   {
@@ -11,6 +12,7 @@
     "name": "memberAlexKelley",
     "jobTitle": "memberPartner",
     "biography": "memberBioMarkLindon",
+    "linkedIn": "alexdkelley",
     "image": "./team/alex-kelley.png"
   },
   {
@@ -18,6 +20,7 @@
     "name": "memberMarkLindon",
     "jobTitle": "memberPartner",
     "biography": "memberBioMarkLindon",
+    "linkedIn": "mark-lindon-0656a1104",
     "image": "./team/mark-lindon.png"
   },
   {
@@ -25,6 +28,7 @@
     "name": "memberLukePeterson",
     "jobTitle": "memberPartner",
     "biography": "memberBioMarkLindon",
+    "linkedIn": "lupeterson",
     "image": "./team/luke-peterson.png"
   },
   {
@@ -32,6 +36,7 @@
     "name": "memberReubenTucker",
     "jobTitle": "memberPartner",
     "biography": "memberBioMarkLindon",
+    "linkedIn": "reuben-tucker-5212b269",
     "image": "./team/reuben-tucker.png"
   }
 ]

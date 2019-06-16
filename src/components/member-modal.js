@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import ReactModal from "react-modal";
 import Img from "gatsby-image";
 import styled from "styled-components";
+import { Link } from "gatsby";
+
+import { linkedIn } from "../resources/vector-graphics";
 
 const Modal = styled(ReactModal)`
   margin: 20rem auto;
@@ -32,7 +35,7 @@ const MemberModal = ({ member, intl }) => {
   const [showModal, toggleShow] = useState(true);
 
   const handleCloseModal = event => {
-    event.preventDefault();
+    /* event.preventDefault(); */
     toggleShow(false);
   };
 
@@ -42,12 +45,15 @@ const MemberModal = ({ member, intl }) => {
       contentLabel={member.name}
       style={{
         content: {
-          backgroundColor: "#001824",
-        },
+          backgroundColor: "#001824"
+        }
       }}
     >
-      <button onClick={handleCloseModal}>Close Modal</button>
+      <Link to="/team/">
+        <button onClick={handleCloseModal}>Close Modal</button>
+      </Link>
       <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
+      <a href={`https://www.linkedin.com/in/${member.linkedIn}`}>{linkedIn}</a>
       <h2>{intl.formatMessage({ id: member.name })}</h2>
       <h2>{intl.formatMessage({ id: member.jobTitle })}</h2>
       <p>{intl.formatMessage({ id: member.biography.concat("P1") })}</p>
@@ -59,7 +65,7 @@ const MemberModal = ({ member, intl }) => {
 
 MemberModal.propTypes = {
   member: PropTypes.object.isRequired,
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 export default MemberModal;
