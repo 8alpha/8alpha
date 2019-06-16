@@ -3,7 +3,7 @@
     "slug": "nick-divehall",
     "name": "memberNickDivehall",
     "jobTitle": "memberPartner",
-    "biography": "memberBioMarkLindon",
+    "biography": "memberBioNickDivehall",
     "linkedIn": "nickdivehall",
     "image": "./team/nick-divehall.png"
   },
@@ -11,7 +11,7 @@
     "slug": "alex-kelley",
     "name": "memberAlexKelley",
     "jobTitle": "memberPartner",
-    "biography": "memberBioMarkLindon",
+    "biography": "memberBioAlexKelley",
     "linkedIn": "alexdkelley",
     "image": "./team/alex-kelley.png"
   },
@@ -27,7 +27,7 @@
     "slug": "luke-peterson",
     "name": "memberLukePeterson",
     "jobTitle": "memberPartner",
-    "biography": "memberBioMarkLindon",
+    "biography": "memberBioLukePeterson",
     "linkedIn": "lupeterson",
     "image": "./team/luke-peterson.png"
   },
@@ -35,7 +35,7 @@
     "slug": "reuben-tucker",
     "name": "memberReubenTucker",
     "jobTitle": "memberPartner",
-    "biography": "memberBioMarkLindon",
+    "biography": "memberBioReubenTucker",
     "linkedIn": "reuben-tucker-5212b269",
     "image": "./team/reuben-tucker.png"
   }

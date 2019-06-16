@@ -5,7 +5,15 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-import { linkedIn } from "../resources/vector-graphics";
+import { linkedIn, close } from "../resources/vector-graphics";
+
+const CloseButton = styled.button`
+  border: none;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+  cursor: pointer;
+`;
 
 const Modal = styled(ReactModal)`
   margin: 20rem auto;
@@ -34,10 +42,13 @@ ReactModal.setAppElement(`#___gatsby`);
 const MemberModal = ({ member, intl }) => {
   const [showModal, toggleShow] = useState(true);
 
-  const handleCloseModal = event => {
-    /* event.preventDefault(); */
+  const handleCloseModal = () => {
     toggleShow(false);
   };
+
+  const biographyHTML = () => ({
+    __html: intl.formatMessage({ id: member.biography }),
+  });
 
   return (
     <Modal
@@ -45,27 +56,25 @@ const MemberModal = ({ member, intl }) => {
       contentLabel={member.name}
       style={{
         content: {
-          backgroundColor: "#001824"
-        }
+          backgroundColor: "#001824",
+        },
       }}
     >
       <Link to="/team/">
-        <button onClick={handleCloseModal}>Close Modal</button>
+        <CloseButton onClick={handleCloseModal}>{close}</CloseButton>
       </Link>
       <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
       <a href={`https://www.linkedin.com/in/${member.linkedIn}`}>{linkedIn}</a>
       <h2>{intl.formatMessage({ id: member.name })}</h2>
       <h2>{intl.formatMessage({ id: member.jobTitle })}</h2>
-      <p>{intl.formatMessage({ id: member.biography.concat("P1") })}</p>
-      <p>{intl.formatMessage({ id: member.biography.concat("P2") })}</p>
-      <p>{intl.formatMessage({ id: member.biography.concat("P3") })}</p>
+      <div dangerouslySetInnerHTML={biographyHTML()} />
     </Modal>
   );
 };
 
 MemberModal.propTypes = {
   member: PropTypes.object.isRequired,
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default MemberModal;
