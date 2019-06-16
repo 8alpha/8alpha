@@ -1,15 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import Image from "gatsby-image";
 import { injectIntl } from "gatsby-plugin-intl";
 
 import Layout from "../components/layout";
-import { SectionStyle } from "../components/styled";
+import MemberModal from "../components/member-modal.js";
 
 export const query = graphql`
   query($slug: String!) {
     teamJson(slug: { eq: $slug }) {
       name
+      jobTitle
+      biography
       image {
         childImageSharp {
           fluid {
@@ -21,17 +23,19 @@ export const query = graphql`
   }
 `;
 
-const Member = ({ data }) => {
+const Member = ({ data, intl }) => {
   const member = data.teamJson;
 
   return (
-    <Layout location="/alex-kelley/">
-      <SectionStyle>
-        <h2>{member.name}</h2>
-        <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
-      </SectionStyle>
+    <Layout location={`/${member.slug}/`}>
+      <MemberModal member={member} intl={intl} />
     </Layout>
   );
+};
+
+Member.propTypes = {
+  data: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(Member);

@@ -23,6 +23,7 @@ const PhotosContainer = styled.div`
 `;
 
 const Image = styled(Img)`
+  position: relative;
   border: solid 2px;
   border-color: var(--primary-color);
   border-bottom-left-radius 1.5rem;
@@ -30,11 +31,26 @@ const Image = styled(Img)`
   transition: all 0.3s ease-out;
   filter: grayscale(100%);
   cursor: pointer;
+  z-index: 0;
+
 
 
   &:hover {
     filter: none;
   }
+`;
+
+const LinkStyle = styled(Link)`
+  text-decoration: none;
+`;
+
+const Name = styled.div`
+  position: relative;
+  font-size: var(--p-font-size);
+  color: var(--primary-color);
+  margin-top: -3rem;
+  margin-left: 2rem;
+  z-index: 1;
 `;
 
 const Team = ({ intl }) => {
@@ -63,14 +79,12 @@ const Team = ({ intl }) => {
   const Photos = () =>
     data.allTeamJson.edges.map(edge => {
       const member = edge.node;
+      console.log(`jobTitle: ${member.jobTitle}`);
       return (
-        <Link key={member.slug} to={`/team/${member.slug}/`}>
-          <Image
-            key={member.slug}
-            fluid={member.image.childImageSharp.fluid}
-            alt={member.name}
-          />
-        </Link>
+        <LinkStyle key={member.slug} to={`/team/${member.slug}/`}>
+          <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
+          <Name>{intl.formatMessage({ id: member.name })}</Name>
+        </LinkStyle>
       );
     });
 

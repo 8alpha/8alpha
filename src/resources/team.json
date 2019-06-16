@@ -1,32 +1,37 @@
 [
   {
     "slug": "nick-divehall",
-    "name": "Nick Divehall",
-    "jobTitle": "Parter",
+    "name": "memberNickDivehall",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioMarkLindon",
     "image": "./team/nick-divehall.png"
   },
   {
     "slug": "alex-kelley",
-    "name": "Alex Kelley",
-    "jobTitle": "Partner",
+    "name": "memberAlexKelley",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioMarkLindon",
     "image": "./team/alex-kelley.png"
   },
   {
     "slug": "mark-lindon",
-    "name": "Mark Lindon",
-    "jobTitle": "Parter",
+    "name": "memberMarkLindon",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioMarkLindon",
     "image": "./team/mark-lindon.png"
   },
   {
     "slug": "luke-peterson",
-    "name": "Luke Peterson",
-    "jobTitle": "Parter",
+    "name": "memberLukePeterson",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioMarkLindon",
     "image": "./team/luke-peterson.png"
   },
   {
     "slug": "reuben-tucker",
-    "name": "Reuben Tucker",
-    "jobTitle": "Parter",
+    "name": "memberReubenTucker",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioMarkLindon",
     "image": "./team/reuben-tucker.png"
   }
 ]
