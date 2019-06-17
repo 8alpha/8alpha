@@ -1,7 +1,29 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+exports.createPages = async ({ actions: { createPage }, graphql }) => {
+  const results = await graphql(`
+    {
+      allTeamJson {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `);
 
-// You can delete this file if you're not using it
+  if (results.error) {
+    console.error("Something went wrong during createPages");
+    return;
+  }
+  results.data.allTeamJson.edges.forEach(edge => {
+    const member = edge.node;
+
+    createPage({
+      path: `/team/${member.slug}/`,
+      component: require.resolve("./src/templates/member.js"),
+      context: {
+        slug: member.slug,
+      },
+    });
+  });
+};

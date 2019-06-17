@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { graphql, StaticQuery, Link } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { injectIntl } from "gatsby-plugin-intl";
+import { injectIntl, Link } from "gatsby-plugin-intl";
 
 import { logo, logoActive } from "../resources/vector-graphics";
 import Language from "./language";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
-import { NavBar, NavBarLogo } from "../css/navbar";
+import { NavBar, NavBarLogo, NavBarLink } from "../css/navbar";
 import { Spacer } from "./styled";
 
 const HeaderContainer = styled.div`
@@ -79,6 +79,9 @@ const HeaderSection = ({ location, className, intl }) => {
                   )}
                 </NavBarLogo>
                 <Spacer />
+                <NavBarLink to="/team/">
+                  {intl.formatMessage({ id: "navBarTeam" })}
+                </NavBarLink>
                 <Language />
               </NavBar>
               <Description>

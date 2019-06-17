@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import { injectIntl } from "gatsby-plugin-intl";
 
 import Layout from "../components/layout";
-import Team from "../components/team";
 import About from "../components/about";
 import { ButtonStyle, BoxSectionStyle } from "../components/styled";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
@@ -30,7 +29,6 @@ const Submitted = ({ intl }) => {
         </Link>
       </BoxSectionStyle>
       <About />
-      <Team />
     </Layout>
   );
 };

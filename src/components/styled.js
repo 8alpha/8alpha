@@ -130,6 +130,10 @@ export const LinkStyle = styled.div`
   }
 `;
 
+export const Spacer = styled.div`
+  margin: auto;
+`;
+
 export const FormContainer = styled.div`
   margin: 2vh 2vw 2vh 2vw;
 `;
@@ -221,8 +225,4 @@ export const FormFieldStyle = styled.div`
       width: 20rem;
     }
   }
-`;
-
-export const Spacer = styled.div`
-  margin: auto;
 `;

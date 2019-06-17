@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "nick-divehall",
+    "name": "memberNickDivehall",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioNickDivehall",
+    "linkedIn": "nickdivehall",
+    "twitter": "",
+    "image": "./team/nick-divehall.png"
+  },
+  {
+    "slug": "alex-kelley",
+    "name": "memberAlexKelley",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioAlexKelley",
+    "linkedIn": "alexdkelley",
+    "twitter": "adkelley",
+    "image": "./team/alex-kelley.png"
+  },
+  {
+    "slug": "mark-lindon",
+    "name": "memberMarkLindon",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioMarkLindon",
+    "linkedIn": "mark-lindon-0656a1104",
+    "twitter": "",
+    "image": "./team/mark-lindon.png"
+  },
+  {
+    "slug": "luke-peterson",
+    "name": "memberLukePeterson",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioLukePeterson",
+    "linkedIn": "lupeterson",
+    "twitter": "",
+    "image": "./team/luke-peterson.png"
+  },
+  {
+    "slug": "reuben-tucker",
+    "name": "memberReubenTucker",
+    "jobTitle": "memberPartner",
+    "biography": "memberBioReubenTucker",
+    "linkedIn": "reuben-tucker-5212b269",
+    "twitter": "",
+    "image": "./team/reuben-tucker.png"
+  }
+]

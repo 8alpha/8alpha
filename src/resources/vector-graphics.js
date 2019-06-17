@@ -56,6 +56,19 @@ export const logoActive = (
   </svg>
 );
 
+export const close = (
+  <svg width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+    <g strokeWidth="2" fill="none" fillRule="evenodd">
+      <circle stroke="#8B8B8D" cx="22" cy="22" r="21" />
+      <path
+        d="M11.636 32.267L32.169 11.83M11.831 11.831l20.436 20.436"
+        stroke="#D6D6D6"
+        strokeLinecap="square"
+      />
+    </g>
+  </svg>
+);
+
 export const twitter = (
   <svg width="44" height="44" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fillRule="evenodd">
