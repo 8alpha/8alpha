@@ -7,7 +7,6 @@ import { injectIntl } from "gatsby-plugin-intl";
 import { Link } from "gatsby";
 
 import { SectionStyle } from "../components/styled";
-/* import { linkedIn } from "../resources/icons"; */
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 import Layout from "../components/layout";
 
@@ -37,6 +36,7 @@ const Image = styled(Img)`
 
   &:hover {
     filter: none;
+    transform: scale(1.02);
   }
 `;
 
@@ -79,7 +79,6 @@ const Team = ({ intl }) => {
   const Photos = () =>
     data.allTeamJson.edges.map(edge => {
       const member = edge.node;
-      console.log(`jobTitle: ${member.jobTitle}`);
       return (
         <LinkStyle key={member.slug} to={`/team/${member.slug}/`}>
           <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
