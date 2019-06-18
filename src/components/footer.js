@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { contact, linkedIn } from "../resources/vector-graphics";
+import { contact, linkedIn, twitter } from "../resources/vector-graphics";
 
 const FooterContainer = styled.div`
   color: var(--secondary-color);
@@ -73,6 +73,9 @@ const Footer = () => (
     <Link className="social icon" to="/contact/">
       {contact}
     </Link>
+    <a className="social icon" href="https://twitter.com/8alphapartners/">
+      {twitter}
+    </a>
     <a
       className="social icon"
       href="https://www.linkedin.com/company/8alpha/about/"
