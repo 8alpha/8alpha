@@ -37,7 +37,7 @@ const Member = ({ data, intl }) => {
 
 Member.propTypes = {
   data: PropTypes.object.isRequired,
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(Member);

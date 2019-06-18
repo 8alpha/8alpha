@@ -6,7 +6,7 @@ import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const nextLocale = {
   ja: "English",
-  en: "日本語"
+  en: "日本語",
 };
 
 const Language = () => {
