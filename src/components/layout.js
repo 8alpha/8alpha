@@ -16,10 +16,6 @@ html, body {
     --secondary-color: hsl(36, 6%, 85%);
     --ternary-color: hsl(348, 63%, 47%);
 
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-
     font-family: Questrial, "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic Pro", "游ゴシック", "游ゴシック体", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
     font-size: calc(8px + (16 - 8) * ((100vw - 500px) / (3840 - 500)));
 
@@ -27,6 +23,17 @@ html, body {
     --h2-letter-spacing: 0.2rem;
     --p-font-size: 2.0rem;
     --p-letter-spacing: 0.1rem;
+
+   @media screen and (max-width: 1799px) {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+   }
+
+   @media screen and (min-width: 1800px) {
+     max-width: 80%;
+     margin: auto;
+   }
 
 
 }
