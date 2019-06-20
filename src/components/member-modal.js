@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ReactModal from "react-modal";
 import Img from "gatsby-image";
 import styled from "styled-components";
-import { push } from "gatsby";
+import { push, useStaticQuery, graphql } from "gatsby";
+import mousetrap from "mousetrap";
 
 import { close, linkedIn, twitter } from "../resources/vector-graphics";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
@@ -161,6 +162,63 @@ const Bio = styled.div`
 ReactModal.setAppElement(`#___gatsby`);
 
 const MemberModal = ({ member, intl }) => {
+  const members = useStaticQuery(graphql`
+    query {
+      allTeamJson {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  const edges = members.allTeamJson.edges;
+
+  const findCurrentMemberIndex = () =>
+    edges.findIndex(x => x.node.slug === member.slug);
+
+  const previous = event => {
+    if (event) {
+      event.stopPropagation();
+    }
+
+    const currentIndex = findCurrentMemberIndex();
+    if (currentIndex || currentIndex === 0) {
+      let previousMember;
+      if (currentIndex - 1 === -1) {
+        previousMember = edges[edges.length - 1].node.slug;
+      } else {
+        previousMember = edges[currentIndex - 1].node.slug;
+      }
+      push(`/team/${previousMember}/`);
+    }
+  };
+
+  const next = event => {
+    if (event) {
+      event.stopPropagation();
+    }
+
+    const currentIndex = findCurrentMemberIndex();
+    if (currentIndex || currentIndex === 0) {
+      let nextMember;
+      if (currentIndex + 1 === edges.length) {
+        nextMember = edges[0].node.slug;
+      } else {
+        nextMember = edges[currentIndex + 1].node.slug;
+      }
+      push(`/team/${nextMember}/`);
+    }
+  };
+
+  useEffect(() => {
+    mousetrap.bind(`left`, () => previous());
+    mousetrap.bind(`right`, () => next());
+    mousetrap.bind(`space`, () => next());
+  });
+
   const [showModal, toggleShow] = useState(true);
 
   const biographyHTML = () => ({
@@ -173,6 +231,8 @@ const MemberModal = ({ member, intl }) => {
   };
 
   const language = gatsbyIntlLanguage();
+
+  console.log(findCurrentMemberIndex());
 
   return (
     <Modal

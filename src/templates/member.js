@@ -9,6 +9,7 @@ import MemberModal from "../components/member-modal.js";
 export const query = graphql`
   query($slug: String!) {
     teamJson(slug: { eq: $slug }) {
+      slug
       name
       jobTitle
       biography
