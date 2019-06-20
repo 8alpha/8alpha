@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ReactModal from "react-modal";
+import { FaCaretLeft, FaCaretRight } from "react-icons/fa/";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import { push, useStaticQuery, graphql } from "gatsby";
@@ -49,7 +50,7 @@ const Modal = styled(ReactModal)`
   outline: 0;
 
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 1fr 3fr 1fr;
   grid-gap: 1.5rem;
 `;
 
@@ -232,8 +233,6 @@ const MemberModal = ({ member, intl }) => {
 
   const language = gatsbyIntlLanguage();
 
-  console.log(findCurrentMemberIndex());
-
   return (
     <Modal
       isOpen={showModal}
@@ -244,6 +243,16 @@ const MemberModal = ({ member, intl }) => {
         },
       }}
     >
+      <FaCaretLeft
+        data-testid="previous-member"
+        css={{
+          cursor: `pointer`,
+          fontSize: `50px`,
+          color: `rgba(255,255,255,0.7)`,
+          userSelect: `none`,
+        }}
+        onClick={e => previous(e)}
+      />
       <div>
         <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
         <LinkedIn href={`https://www.linkedin.com/in/${member.linkedIn}`}>
@@ -263,6 +272,16 @@ const MemberModal = ({ member, intl }) => {
         </Title>
         <Bio lang={language} dangerouslySetInnerHTML={biographyHTML()} />
       </div>
+      <FaCaretRight
+        data-testid="next-member"
+        css={{
+          cursor: `pointer`,
+          fontSize: `50px`,
+          color: `rgba(255,255,255,0.7)`,
+          userSelect: `none`,
+        }}
+        onClick={e => previous(e)}
+      />
     </Modal>
   );
 };
