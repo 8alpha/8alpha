@@ -11,8 +11,6 @@ import { close, linkedIn, twitter } from "../resources/vector-graphics";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const Modal = styled(ReactModal)`
-  margin: 20rem auto;
-  width: 70%;
   border: 2px solid var(--primary-color);
   padding: 1.5rem;
   outline: 0;
@@ -33,6 +31,16 @@ const Modal = styled(ReactModal)`
       "caretLeft photoSocial caretRight"
       "caretLeft bioText caretRight"
       "close close close";
+  }
+
+  @media screen and (max-width: 1799px) {
+    margin: 20rem auto;
+    width: 70%;
+  }
+
+  @media screen and (min-width: 1800px) {
+    width: 40%;
+    margin: 20rem auto;
   }
 `;
 
@@ -196,8 +204,6 @@ const Bio = styled.div`
 ReactModal.setAppElement(`#___gatsby`);
 
 const MemberModal = ({ member, intl }) => {
-  console.log(`render MemberModal`);
-
   const members = useStaticQuery(graphql`
     query {
       allTeamJson {
