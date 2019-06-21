@@ -1,18 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import ReactModal from "react-modal";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa/";
 import Img from "gatsby-image";
 import styled from "styled-components";
-import { push, useStaticQuery, graphql } from "gatsby";
+import { navigate, useStaticQuery, graphql } from "gatsby";
 import mousetrap from "mousetrap";
 
 import { close, linkedIn, twitter } from "../resources/vector-graphics";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
+const Modal = styled(ReactModal)`
+  margin: 20rem auto;
+  width: 70%;
+  border: 2px solid var(--primary-color);
+  padding: 1.5rem;
+  outline: 0;
+
+  display: grid;
+  grid-template-areas:
+    "close close close close"
+    "caretLeft profilepic profiletext caretRight";
+
+  grid-template-columns: 0.5fr 3fr 7fr 0.5fr;
+  grid-gap: 1.5rem;
+`;
+
 const CloseButton = styled.div`
+  grid-area: close;
   cursor: pointer;
-  float: right;
+  margin-left: auto;
 
   @media screen and (max-width: 599px) {
     transform: scale(0.7);
@@ -42,16 +59,18 @@ const CloseButton = styled.div`
   }
 `;
 
-const Modal = styled(ReactModal)`
-  margin: 20rem auto;
-  width: 70%;
-  border: 2px solid var(--primary-color);
-  padding: 1.5rem;
-  outline: 0;
+const Caret = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr 3fr 1fr;
-  grid-gap: 1.5rem;
+  .caretLeft {
+    grid-area: caretLeft;
+  }
+
+  .caretRight {
+    grid-area: caretRight;
+  }
 `;
 
 const Image = styled(Img)`
@@ -90,6 +109,7 @@ const LinkedIn = styled.a`
 `;
 
 const Twitter = styled.a`
+  grid-area: twitter;
   text-decoration: none;
   float: right;
   padding-right: 1rem;
@@ -163,6 +183,8 @@ const Bio = styled.div`
 ReactModal.setAppElement(`#___gatsby`);
 
 const MemberModal = ({ member, intl }) => {
+  console.log(`render MemberModal`);
+
   const members = useStaticQuery(graphql`
     query {
       allTeamJson {
@@ -193,7 +215,7 @@ const MemberModal = ({ member, intl }) => {
       } else {
         previousMember = edges[currentIndex - 1].node.slug;
       }
-      push(`/team/${previousMember}/`);
+      navigate(`/team/${previousMember}/`);
     }
   };
 
@@ -210,7 +232,7 @@ const MemberModal = ({ member, intl }) => {
       } else {
         nextMember = edges[currentIndex + 1].node.slug;
       }
-      push(`/team/${nextMember}/`);
+      navigate(`/team/${nextMember}/`);
     }
   };
 
@@ -218,24 +240,17 @@ const MemberModal = ({ member, intl }) => {
     mousetrap.bind(`left`, () => previous());
     mousetrap.bind(`right`, () => next());
     mousetrap.bind(`space`, () => next());
-  });
-
-  const [showModal, toggleShow] = useState(true);
+  }, []);
 
   const biographyHTML = () => ({
     __html: intl.formatMessage({ id: member.biography }),
   });
 
-  const handleClose = () => {
-    toggleShow(false);
-    push("/team/");
-  };
-
   const language = gatsbyIntlLanguage();
 
   return (
     <Modal
-      isOpen={showModal}
+      isOpen={true}
       contentLabel="MemberModal"
       style={{
         content: {
@@ -243,17 +258,19 @@ const MemberModal = ({ member, intl }) => {
         },
       }}
     >
-      <FaCaretLeft
-        data-testid="previous-member"
-        css={{
-          cursor: `pointer`,
-          fontSize: `50px`,
-          color: `rgba(255,255,255,0.7)`,
-          userSelect: `none`,
-        }}
-        onClick={e => previous(e)}
-      />
-      <div>
+      <CloseButton onClick={() => navigate("/team/")}>{close}</CloseButton>
+      <Caret className="caretLeft">
+        <FaCaretLeft
+          css={{
+            cursor: `pointer`,
+            fontSize: `50px`,
+            color: `rgba(255,255,255,0.7)`,
+            userSelect: `none`,
+          }}
+          onClick={e => previous(e)}
+        />
+      </Caret>
+      <div css={{ gridArea: `profilepic` }}>
         <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
         <LinkedIn href={`https://www.linkedin.com/in/${member.linkedIn}`}>
           {linkedIn}
@@ -264,24 +281,25 @@ const MemberModal = ({ member, intl }) => {
           </Twitter>
         )}
       </div>
-      <div>
-        <CloseButton onClick={() => handleClose()}>{close}</CloseButton>
+      <div css={{ gridArea: `profiletext` }}>
         <Name lang={language}>{intl.formatMessage({ id: member.name })}</Name>
         <Title lang={language}>
           {intl.formatMessage({ id: member.jobTitle })}
         </Title>
         <Bio lang={language} dangerouslySetInnerHTML={biographyHTML()} />
       </div>
-      <FaCaretRight
-        data-testid="next-member"
-        css={{
-          cursor: `pointer`,
-          fontSize: `50px`,
-          color: `rgba(255,255,255,0.7)`,
-          userSelect: `none`,
-        }}
-        onClick={e => previous(e)}
-      />
+      <Caret className="caretRight">
+        <FaCaretRight
+          data-testid="next-member"
+          css={{
+            cursor: `pointer`,
+            fontSize: `50px`,
+            color: `rgba(255,255,255,0.7)`,
+            userSelect: `none`,
+          }}
+          onClick={e => previous(e)}
+        />
+      </Caret>
     </Modal>
   );
 };
