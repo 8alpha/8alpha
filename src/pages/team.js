@@ -16,8 +16,9 @@ const PhotosContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
 
   @media screen and (max-width: 599px) {
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3vw;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -46,11 +47,17 @@ const LinkStyle = styled(Link)`
 
 const Name = styled.div`
   position: relative;
-  font-size: var(--p-font-size);
+  font-size: calc(var(--p-font-size) * 1.1);
   color: var(--primary-color);
-  margin-top: -3rem;
+  margin-top: -3.5rem;
   margin-left: 2rem;
   z-index: 1;
+
+  &:lang(ja) {
+    font-family: "Noto Sans JP", sans-serif;
+    letter-spacing: normal;
+    text-transform: none;
+  }
 `;
 
 const Team = ({ intl }) => {

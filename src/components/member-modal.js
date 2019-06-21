@@ -20,18 +20,30 @@ const Modal = styled(ReactModal)`
   display: grid;
   grid-template-areas:
     "close close close close"
-    "caretLeft profilepic profiletext caretRight";
+    "caretLeft photoSocial bioText caretRight";
 
   grid-template-columns: 0.5fr 3fr 7fr 0.5fr;
   grid-gap: 1.5rem;
+
+  @media screen and (max-width: 599px) {
+    margin: auto;
+    width: 90%;
+    grid-template-columns: 0.5fr 10fr 0.5fr;
+    grid-template-areas:
+      "caretLeft photoSocial caretRight"
+      "caretLeft bioText caretRight"
+      "close close close";
+  }
 `;
 
-const CloseButton = styled.div`
+const CloseIcon = styled.div`
   grid-area: close;
   cursor: pointer;
   margin-left: auto;
 
   @media screen and (max-width: 599px) {
+    margin-bottom: 2rem;
+
     transform: scale(0.7);
     transition: all ease 0.2s;
 
@@ -59,21 +71,23 @@ const CloseButton = styled.div`
   }
 `;
 
-const Caret = styled.div`
+const PhotoSocialBox = styled.div`
+  grid-area: photoSocial;
+`;
+
+const CaretBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* border: solid red; */
+`;
 
-  .caretLeft {
-    grid-area: caretLeft;
-  }
-
-  .caretRight {
-    grid-area: caretRight;
-  }
+const BioTextBox = styled.div`
+  grid-area: bioText;
 `;
 
 const Image = styled(Img)`
+  grid-area: photo;
   margin-bottom: 1rem;
 `;
 
@@ -109,7 +123,6 @@ const LinkedIn = styled.a`
 `;
 
 const Twitter = styled.a`
-  grid-area: twitter;
   text-decoration: none;
   float: right;
   padding-right: 1rem;
@@ -254,52 +267,55 @@ const MemberModal = ({ member, intl }) => {
       contentLabel="MemberModal"
       style={{
         content: {
+          maxHeight: `100%`,
+          overflowY: `auto`,
           backgroundColor: `#001824`,
         },
       }}
     >
-      <CloseButton onClick={() => navigate("/team/")}>{close}</CloseButton>
-      <Caret className="caretLeft">
+      <CloseIcon onClick={() => navigate("/team/")}>{close}</CloseIcon>
+      <CaretBox css={{ gridArea: `caretLeft` }}>
         <FaCaretLeft
           css={{
             cursor: `pointer`,
-            fontSize: `50px`,
-            color: `rgba(255,255,255,0.7)`,
+            fontSize: `5rem`,
+            color: `var(--primary-color)`,
             userSelect: `none`,
           }}
           onClick={e => previous(e)}
         />
-      </Caret>
-      <div css={{ gridArea: `profilepic` }}>
+      </CaretBox>
+      <PhotoSocialBox>
         <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
-        <LinkedIn href={`https://www.linkedin.com/in/${member.linkedIn}`}>
-          {linkedIn}
-        </LinkedIn>
-        {member.twitter !== "" && (
-          <Twitter href={`https://twitter.com/${member.twitter}`}>
-            {twitter}
-          </Twitter>
-        )}
-      </div>
-      <div css={{ gridArea: `profiletext` }}>
+        <div css={{ gridArea: `social` }}>
+          <LinkedIn href={`https://www.linkedin.com/in/${member.linkedIn}`}>
+            {linkedIn}
+          </LinkedIn>
+          {member.twitter !== "" && (
+            <Twitter href={`https://twitter.com/${member.twitter}`}>
+              {twitter}
+            </Twitter>
+          )}
+        </div>
+      </PhotoSocialBox>
+      <BioTextBox>
         <Name lang={language}>{intl.formatMessage({ id: member.name })}</Name>
         <Title lang={language}>
           {intl.formatMessage({ id: member.jobTitle })}
         </Title>
         <Bio lang={language} dangerouslySetInnerHTML={biographyHTML()} />
-      </div>
-      <Caret className="caretRight">
+      </BioTextBox>
+      <CaretBox css={{ gridArea: `caretRight` }}>
         <FaCaretRight
-          data-testid="next-member"
           css={{
             cursor: `pointer`,
-            fontSize: `50px`,
-            color: `rgba(255,255,255,0.7)`,
+            fontSize: `5rem`,
+            color: `var(--primary-color)`,
             userSelect: `none`,
           }}
           onClick={e => previous(e)}
         />
-      </Caret>
+      </CaretBox>
     </Modal>
   );
 };
