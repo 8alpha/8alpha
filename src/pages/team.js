@@ -106,7 +106,7 @@ const Team = ({ intl }) => {
 };
 
 Team.propTypes = {
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(Team);

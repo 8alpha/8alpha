@@ -7,7 +7,7 @@ import {
   SectionStyle,
   ButtonStyle,
   FormContainer,
-  FormFieldStyle
+  FormFieldStyle,
 } from "../components/styled";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
@@ -24,7 +24,7 @@ function Contact({ intl }) {
     email: "",
     companyName: "",
     stage: "",
-    sentence: ""
+    sentence: "",
   };
 
   const [values, setValues] = useState(defaultValues);
@@ -34,7 +34,7 @@ function Contact({ intl }) {
     email: "name@domain.com",
     companyName: "Company Name",
     stage: "Seed, Early, Growth or Mature",
-    sentence: "280 characters max"
+    sentence: "280 characters max",
   };
 
   const [botValue, setBotValue] = useState("");
@@ -45,7 +45,7 @@ function Contact({ intl }) {
     companyName: false,
     stage: false,
     sentence: false,
-    botField: false
+    botField: false,
   };
 
   const [validations, setValidation] = useState(defaultValidations);
@@ -207,14 +207,14 @@ function Contact({ intl }) {
                 <ButtonStyle>
                   <button lang={language} type="submit">
                     {`\u00A0\u00A0${intl.formatMessage({
-                      id: "buttonSubmit"
+                      id: "buttonSubmit",
                     })}\u00A0\u00A0`}
                   </button>
                 </ButtonStyle>
                 <ButtonStyle>
                   <button lang={language} type="reset">
                     {`\u00A0\u00A0${intl.formatMessage({
-                      id: "buttonReset"
+                      id: "buttonReset",
                     })}\u00A0\u00A0`}
                   </button>
                 </ButtonStyle>
@@ -228,7 +228,7 @@ function Contact({ intl }) {
 }
 
 Contact.propTypes = {
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(Contact);

@@ -99,7 +99,7 @@ const HeaderSection = ({ location, className, intl }) => {
 HeaderSection.propTypes = {
   className: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 const Header = styled(HeaderSection)`
