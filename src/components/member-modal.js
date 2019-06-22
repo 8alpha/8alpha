@@ -12,6 +12,8 @@ import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const Modal = styled(ReactModal)`
   border: 2px solid var(--primary-color);
+  width: 70%;
+  margin: 20rem auto;
   padding: 1.5rem;
   outline: 0;
 
@@ -33,15 +35,15 @@ const Modal = styled(ReactModal)`
       "close close close";
   }
 
-  @media screen and (max-width: 1799px) {
-    margin: 20rem auto;
-    width: 70%;
-  }
+  /* @media screen and (max-width: 1799px) {
+*   margin: 20rem auto;
+*   width: 70%;
+* }
 
-  @media screen and (min-width: 1800px) {
-    width: 40%;
-    margin: 20rem auto;
-  }
+* @media screen and (min-width: 1800px) {
+*   width: 40%;
+*   margin: 20rem auto;
+* } */
 `;
 
 const CloseIcon = styled.div`
@@ -262,7 +264,7 @@ const MemberModal = ({ member, intl }) => {
   }, []);
 
   const biographyHTML = () => ({
-    __html: intl.formatMessage({ id: member.biography }),
+    __html: intl.formatMessage({ id: member.biography })
   });
 
   const language = gatsbyIntlLanguage();
@@ -275,8 +277,8 @@ const MemberModal = ({ member, intl }) => {
         content: {
           maxHeight: `100%`,
           overflowY: `auto`,
-          backgroundColor: `#001824`,
-        },
+          backgroundColor: `#001824`
+        }
       }}
     >
       <CloseIcon onClick={() => navigate("/team/")}>{close}</CloseIcon>
@@ -286,7 +288,7 @@ const MemberModal = ({ member, intl }) => {
             cursor: `pointer`,
             fontSize: `5rem`,
             color: `var(--primary-color)`,
-            userSelect: `none`,
+            userSelect: `none`
           }}
           onClick={e => previous(e)}
         />
@@ -317,7 +319,7 @@ const MemberModal = ({ member, intl }) => {
             cursor: `pointer`,
             fontSize: `5rem`,
             color: `var(--primary-color)`,
-            userSelect: `none`,
+            userSelect: `none`
           }}
           onClick={e => previous(e)}
         />
@@ -328,7 +330,7 @@ const MemberModal = ({ member, intl }) => {
 
 MemberModal.propTypes = {
   member: PropTypes.object.isRequired,
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 export default MemberModal;
