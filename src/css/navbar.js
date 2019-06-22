@@ -42,6 +42,10 @@ export const NavBarButton = styled.button`
   }
 `;
 
+export const activeStyles = {
+  color: "#d6d6d6",
+};
+
 export const NavBarLink = styled(Link)`
   font-size: var(--p-font-size);
   color: var(--primary-color);

@@ -31,7 +31,7 @@ html, body {
    }
 
    @media screen and (min-width: 1800px) {
-     max-width: 78%;
+     max-width: 72%;
      margin: auto;
    }
 

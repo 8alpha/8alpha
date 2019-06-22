@@ -10,11 +10,11 @@ import Layout from "../components/layout";
 
 const PhotosContainer = styled.div`
   display: grid;
-  grid-gap: 2vw;
+  grid-gap: 2vh 2vw;
   grid-template-columns: repeat(3, 1fr);
 
   @media screen and (max-width: 599px) {
-    grid-gap: 3vw;
+    grid-gap: 3vh 3vw;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 1fr);
   }
@@ -79,8 +79,9 @@ const Team = ({ intl }) => {
     }
   `);
 
+  const edges = data.allTeamJson.edges;
   const Photos = () =>
-    data.allTeamJson.edges.map(edge => {
+    edges.map(edge => {
       const member = edge.node;
       return (
         <LinkStyle key={member.slug} to={`/team/${member.slug}/`}>

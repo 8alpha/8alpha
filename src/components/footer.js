@@ -19,7 +19,7 @@ const FooterContainer = styled.div`
   }
 
   .social {
-    flex: 1 1 6%;
+    flex: 1 1 5.5%;
   }
 
   @media screen and (max-width: 599px) {

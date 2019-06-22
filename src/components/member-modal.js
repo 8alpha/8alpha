@@ -84,7 +84,6 @@ const CaretBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* border: solid red; */
 `;
 
 const BioTextBox = styled.div`
@@ -160,9 +159,9 @@ const Twitter = styled.a`
 `;
 
 const Name = styled.div`
-  font-size: var(--h2-font-size);
+  font-size: calc(var(--h2-font-size) * 0.9);
   color: var(--primary-color);
-  letter-spacing: var(--h2-letter-spacing);
+  letter-spacing: calc(var(--h2-letter-spacing) * 0.9);
 
   &:lang(ja) {
     font-family: "Noto Sans JP", sans-serif;
@@ -174,7 +173,7 @@ const Name = styled.div`
 const Title = styled.div`
   font-size: calc(var(--h2-font-size) * 0.9);
   color: var(--primary-color);
-  letter-spacing: var(--h2-letter-spacing);
+  letter-spacing: calc(var(--h2-letter-spacing) * 0.9);
 
   &:lang(ja) {
     font-family: "Noto Sans JP", sans-serif;
@@ -184,12 +183,11 @@ const Title = styled.div`
 `;
 
 const Bio = styled.div`
-  font-size: var(--p-font-size);
+  font-size: calc(var(--p-font-size) * 0.9);
   color: var(--secondary-color);
 
   margin-top: 1vh;
-  letter-spacing: var(--p-letter-spacing);
-  font-weight: 100;
+  letter-spacing: calc(var(--p-letter-spacing) * 0.9);
 
   &:lang(ja) {
     font-family: "Noto Sans JP", sans-serif;

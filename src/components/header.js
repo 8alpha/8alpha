@@ -7,7 +7,7 @@ import { injectIntl, Link } from "gatsby-plugin-intl";
 
 import { logo, logoActive } from "../resources/icons";
 import Language from "./language";
-import { NavBar, NavBarLogo, NavBarLink } from "../css/navbar";
+import { NavBar, NavBarLogo, NavBarLink, activeStyles } from "../css/navbar";
 import { Spacer } from "./styled";
 
 const HeaderBox = styled.div`
@@ -75,7 +75,7 @@ const HeaderSection = ({ location, className, intl }) => {
             )}
           </NavBarLogo>
           <Spacer />
-          <NavBarLink to="/team/">
+          <NavBarLink to="/team/" activeStyle={activeStyles}>
             {intl.formatMessage({ id: "navBarTeam" })}
           </NavBarLink>
           <Language locale={intl.locale} />
@@ -97,7 +97,7 @@ const HeaderSection = ({ location, className, intl }) => {
 HeaderSection.propTypes = {
   className: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 const Header = styled(HeaderSection)`
