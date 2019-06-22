@@ -18,7 +18,7 @@ const Submitted = ({ intl }) => (
         <ButtonStyle>
           <button lang={intl.locale}>
             {`\u00A0\u00A0${intl.formatMessage({
-              id: "buttonHide"
+              id: "buttonHide",
             })}\u00A0\u00A0`}
           </button>
         </ButtonStyle>
@@ -29,7 +29,7 @@ const Submitted = ({ intl }) => (
 );
 
 Submitted.propTypes = {
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(Submitted);

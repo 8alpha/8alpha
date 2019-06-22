@@ -23,7 +23,6 @@ export const SectionStyle = styled.div`
     color: var(--secondary-color);
     margin-top: 1vh;
     letter-spacing: var(--p-letter-spacing);
-    font-weight: 100;
 
     &:lang(ja) {
       font-family: "Noto Sans JP", sans-serif;

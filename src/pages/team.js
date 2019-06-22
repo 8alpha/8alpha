@@ -14,7 +14,7 @@ const PhotosContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
 
   @media screen and (max-width: 599px) {
-    grid-gap: 3vh 3vw;
+    grid-gap: 2vh 2vw;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 1fr);
   }
@@ -55,6 +55,7 @@ const Name = styled.div`
     font-family: "Noto Sans JP", sans-serif;
     letter-spacing: normal;
     text-transform: none;
+    font-size: calc(var(--p-font-size) * 1);
   }
 `;
 
@@ -86,7 +87,9 @@ const Team = ({ intl }) => {
       return (
         <LinkStyle key={member.slug} to={`/team/${member.slug}/`}>
           <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
-          <Name>{intl.formatMessage({ id: member.name })}</Name>
+          <Name lang={intl.locale}>
+            {intl.formatMessage({ id: member.name })}
+          </Name>
         </LinkStyle>
       );
     });
