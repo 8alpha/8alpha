@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { contact, linkedIn, twitter } from "../resources/vector-graphics";
+import { contact, linkedIn, twitter } from "../resources/icons";
 
 const FooterContainer = styled.div`
   color: var(--secondary-color);

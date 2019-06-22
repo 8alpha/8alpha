@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { graphql, StaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { injectIntl, Link } from "gatsby-plugin-intl";
 
-import { logo, logoActive } from "../resources/vector-graphics";
+import { logo, logoActive } from "../resources/icons";
 import Language from "./language";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 import { NavBar, NavBarLogo, NavBarLink } from "../css/navbar";
@@ -40,64 +40,59 @@ const Tagline = styled.div`
 `;
 
 const HeaderSection = ({ location, className, intl }) => {
-  const language = gatsbyIntlLanguage();
   const [hover, setHover] = useState(false);
-  const notIndexRoute = location !== "/";
 
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          desktop: file(absolutePath: { regex: "/globe-background.png/" }) {
-            childImageSharp {
-              fluid(quality: 100, maxWidth: 4076) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+  const data = useStaticQuery(graphql`
+    query {
+      desktop: file(absolutePath: { regex: "/globe-background.png/" }) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 4076) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
-      `}
-      render={data => {
-        const imageData = data.desktop.childImageSharp.fluid;
-        return (
-          <BackgroundImage
-            Tag="section"
-            className={className}
-            fluid={imageData}
-            backgroundColor={`#040e18`}
+      }
+    }
+  `);
+
+  const language = gatsbyIntlLanguage();
+  const notIndexRoute = location !== "/";
+  const imageData = data.desktop.childImageSharp.fluid;
+  return (
+    <BackgroundImage
+      Tag="section"
+      className={className}
+      fluid={imageData}
+      backgroundColor={`#040e18`}
+    >
+      <HeaderBox>
+        <NavBar>
+          <NavBarLogo
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
           >
-            <HeaderBox>
-              <NavBar>
-                <NavBarLogo
-                  onMouseEnter={() => setHover(true)}
-                  onMouseLeave={() => setHover(false)}
-                >
-                  {notIndexRoute ? (
-                    <Link to="/">{hover ? logoActive : logo}</Link>
-                  ) : (
-                    logo
-                  )}
-                </NavBarLogo>
-                <Spacer />
-                <NavBarLink to="/team/">
-                  {intl.formatMessage({ id: "navBarTeam" })}
-                </NavBarLink>
-                <Language />
-              </NavBar>
-              <Description>
-                <span lang={language}>
-                  {intl.formatMessage({ id: "headerDescription" })}
-                </span>
-              </Description>
-              <Tagline>
-                <div>THE EDGE FOR</div>
-                <div>AMBITIOUS INNOVATORS</div>
-              </Tagline>
-            </HeaderBox>
-          </BackgroundImage>
-        );
-      }}
-    />
+            {notIndexRoute ? (
+              <Link to="/">{hover ? logoActive : logo}</Link>
+            ) : (
+              logo
+            )}
+          </NavBarLogo>
+          <Spacer />
+          <NavBarLink to="/team/">
+            {intl.formatMessage({ id: "navBarTeam" })}
+          </NavBarLink>
+          <Language />
+        </NavBar>
+        <Description>
+          <span lang={language}>
+            {intl.formatMessage({ id: "headerDescription" })}
+          </span>
+        </Description>
+        <Tagline>
+          <div>THE EDGE FOR</div>
+          <div>AMBITIOUS INNOVATORS</div>
+        </Tagline>
+      </HeaderBox>
+    </BackgroundImage>
   );
 };
 

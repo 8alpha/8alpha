@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { navigate, useStaticQuery, graphql } from "gatsby";
 import mousetrap from "mousetrap";
 
-import { close, linkedIn, twitter } from "../resources/vector-graphics";
+import { close, linkedIn, twitter } from "../resources/icons";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const Modal = styled(ReactModal)`
