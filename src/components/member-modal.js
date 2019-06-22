@@ -4,7 +4,8 @@ import ReactModal from "react-modal";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa/";
 import Img from "gatsby-image";
 import styled from "styled-components";
-import { navigate, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+import { navigate } from "gatsby-plugin-intl";
 import mousetrap from "mousetrap";
 
 import { close, linkedIn, twitter } from "../resources/icons";
@@ -35,15 +36,10 @@ const Modal = styled(ReactModal)`
       "close close close";
   }
 
-  /* @media screen and (max-width: 1799px) {
-*   margin: 20rem auto;
-*   width: 70%;
-* }
-
-* @media screen and (min-width: 1800px) {
-*   width: 40%;
-*   margin: 20rem auto;
-* } */
+  @media screen and (min-width: 1800px) {
+    width: 40%;
+    margin: 20rem auto;
+  }
 `;
 
 const CloseIcon = styled.div`
