@@ -9,7 +9,6 @@ import { navigate } from "gatsby-plugin-intl";
 import mousetrap from "mousetrap";
 
 import { close, linkedIn, twitter } from "../resources/icons";
-import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const Modal = styled(ReactModal)`
   border: 2px solid var(--primary-color);
@@ -263,8 +262,6 @@ const MemberModal = ({ member, intl }) => {
     __html: intl.formatMessage({ id: member.biography })
   });
 
-  const language = gatsbyIntlLanguage();
-
   return (
     <Modal
       isOpen={true}
@@ -303,11 +300,13 @@ const MemberModal = ({ member, intl }) => {
         </div>
       </PhotoSocialBox>
       <BioTextBox>
-        <Name lang={language}>{intl.formatMessage({ id: member.name })}</Name>
-        <Title lang={language}>
+        <Name lang={intl.locale}>
+          {intl.formatMessage({ id: member.name })}
+        </Name>
+        <Title lang={intl.locale}>
           {intl.formatMessage({ id: member.jobTitle })}
         </Title>
-        <Bio lang={language} dangerouslySetInnerHTML={biographyHTML()} />
+        <Bio lang={intl.locale} dangerouslySetInnerHTML={biographyHTML()} />
       </BioTextBox>
       <CaretBox css={{ gridArea: `caretRight` }}>
         <FaCaretRight

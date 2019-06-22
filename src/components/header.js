@@ -7,7 +7,6 @@ import { injectIntl, Link } from "gatsby-plugin-intl";
 
 import { logo, logoActive } from "../resources/icons";
 import Language from "./language";
-import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 import { NavBar, NavBarLogo, NavBarLink } from "../css/navbar";
 import { Spacer } from "./styled";
 
@@ -54,7 +53,6 @@ const HeaderSection = ({ location, className, intl }) => {
     }
   `);
 
-  const language = gatsbyIntlLanguage();
   const notIndexRoute = location !== "/";
   const imageData = data.desktop.childImageSharp.fluid;
   return (
@@ -80,10 +78,10 @@ const HeaderSection = ({ location, className, intl }) => {
           <NavBarLink to="/team/">
             {intl.formatMessage({ id: "navBarTeam" })}
           </NavBarLink>
-          <Language />
+          <Language locale={intl.locale} />
         </NavBar>
         <Description>
-          <span lang={language}>
+          <span lang={intl.locale}>
             {intl.formatMessage({ id: "headerDescription" })}
           </span>
         </Description>

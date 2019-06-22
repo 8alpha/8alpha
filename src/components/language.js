@@ -1,17 +1,16 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { changeLocale } from "gatsby-plugin-intl";
 
 import { NavBarButton } from "../css/navbar";
-import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 const nextLocale = {
   ja: "English",
-  en: "日本語",
+  en: "日本語"
 };
 
-const Language = () => {
-  const language = gatsbyIntlLanguage();
-  const [currentLocale, setLocale] = useState(language);
+const Language = ({ locale }) => {
+  const [currentLocale, setLocale] = useState(locale);
   const newLocale = currentLocale === "en" ? "ja" : "en";
 
   const switchLocale = () => {
@@ -24,6 +23,10 @@ const Language = () => {
       {nextLocale[currentLocale]}
     </NavBarButton>
   );
+};
+
+Language.propTypes = {
+  locale: PropTypes.string.isRequired
 };
 
 export default Language;

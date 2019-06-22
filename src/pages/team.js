@@ -6,7 +6,6 @@ import styled from "styled-components";
 import { injectIntl, Link } from "gatsby-plugin-intl";
 
 import { SectionStyle } from "../components/styled";
-import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 import Layout from "../components/layout";
 
 const PhotosContainer = styled.div`
@@ -80,8 +79,6 @@ const Team = ({ intl }) => {
     }
   `);
 
-  const language = gatsbyIntlLanguage();
-
   const Photos = () =>
     data.allTeamJson.edges.map(edge => {
       const member = edge.node;
@@ -96,7 +93,7 @@ const Team = ({ intl }) => {
   return (
     <Layout location="/team/">
       <SectionStyle>
-        <h2 lang={language}>{intl.formatMessage({ id: "teamHeading" })}</h2>
+        <h2 lang={intl.locale}>{intl.formatMessage({ id: "teamHeading" })}</h2>
         <PhotosContainer>
           <Photos />
         </PhotosContainer>

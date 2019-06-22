@@ -9,11 +9,8 @@ import {
   FormContainer,
   FormFieldStyle
 } from "../components/styled";
-import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 
 function Contact({ intl }) {
-  const language = gatsbyIntlLanguage();
-
   const handleInputChange = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
@@ -75,7 +72,7 @@ function Contact({ intl }) {
   };
 
   const showValidationField = (
-    <div lang={language} className="validationMsg">
+    <div lang={intl.locale} className="validationMsg">
       {intl.formatMessage({ id: "contactValidationMsg" })}
     </div>
   );
@@ -83,9 +80,11 @@ function Contact({ intl }) {
   return (
     <Layout location="/contact/">
       <SectionStyle>
-        <h2 lang={language}>{intl.formatMessage({ id: "contactHeading" })}</h2>
+        <h2 lang={intl.locale}>
+          {intl.formatMessage({ id: "contactHeading" })}
+        </h2>
         <FormContainer>
-          <p lang={language}>{intl.formatMessage({ id: "contactP1" })}</p>
+          <p lang={intl.locale}>{intl.formatMessage({ id: "contactP1" })}</p>
           <form
             name="contact"
             method="post"
@@ -121,7 +120,7 @@ function Contact({ intl }) {
                 maxLength="100"
                 className="textField"
                 autoComplete="name"
-                lang={language}
+                lang={intl.locale}
               />
               {validations["name"] && showValidationField}
             </FormFieldStyle>
@@ -198,21 +197,21 @@ function Contact({ intl }) {
                 maxLength="280"
                 rows="3"
                 autoComplete="nope"
-                lang={language}
+                lang={intl.locale}
               />
               {validations["sentence"] && showValidationField}
             </FormFieldStyle>
             <FormFieldStyle>
-              <div className="twoButtons" lang={language}>
+              <div className="twoButtons" lang={intl.locale}>
                 <ButtonStyle>
-                  <button lang={language} type="submit">
+                  <button lang={intl.locale} type="submit">
                     {`\u00A0\u00A0${intl.formatMessage({
                       id: "buttonSubmit"
                     })}\u00A0\u00A0`}
                   </button>
                 </ButtonStyle>
                 <ButtonStyle>
-                  <button lang={language} type="reset">
+                  <button lang={intl.locale} type="reset">
                     {`\u00A0\u00A0${intl.formatMessage({
                       id: "buttonReset"
                     })}\u00A0\u00A0`}
