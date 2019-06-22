@@ -53,6 +53,10 @@ export const NavBarLink = styled(Link)`
     color: var(--secondary-color);
   }
 
+  &:link {
+    color: var(--secondary-color);
+  }
+
   &:hover {
     text-decoration: underline;
   }

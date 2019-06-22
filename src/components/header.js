@@ -11,7 +11,7 @@ import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
 import { NavBar, NavBarLogo, NavBarLink } from "../css/navbar";
 import { Spacer } from "./styled";
 
-const HeaderContainer = styled.div`
+const HeaderBox = styled.div`
   margin: 2vh 5vw 10vh 5vw;
 `;
 
@@ -66,7 +66,7 @@ const HeaderSection = ({ location, className, intl }) => {
             fluid={imageData}
             backgroundColor={`#040e18`}
           >
-            <HeaderContainer>
+            <HeaderBox>
               <NavBar>
                 <NavBarLogo
                   onMouseEnter={() => setHover(true)}
@@ -93,7 +93,7 @@ const HeaderSection = ({ location, className, intl }) => {
                 <div>THE EDGE FOR</div>
                 <div>AMBITIOUS INNOVATORS</div>
               </Tagline>
-            </HeaderContainer>
+            </HeaderBox>
           </BackgroundImage>
         );
       }}
@@ -104,7 +104,7 @@ const HeaderSection = ({ location, className, intl }) => {
 HeaderSection.propTypes = {
   className: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 const Header = styled(HeaderSection)`

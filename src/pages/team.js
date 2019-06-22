@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
-import { injectIntl } from "gatsby-plugin-intl";
-import { Link } from "gatsby";
+import { injectIntl, Link } from "gatsby-plugin-intl";
 
 import { SectionStyle } from "../components/styled";
 import gatsbyIntlLanguage from "../utilities/gatsbyintllanguage";
@@ -107,7 +106,7 @@ const Team = ({ intl }) => {
 };
 
 Team.propTypes = {
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 export default injectIntl(Team);
