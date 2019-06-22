@@ -17,7 +17,7 @@ html, body {
     --ternary-color: hsl(348, 63%, 47%);
 
     font-family: Questrial, "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic Pro", "游ゴシック", "游ゴシック体", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
-    font-size: calc(8px + (16 - 8) * ((100vw - 500px) / (3840 - 500)));
+    font-size: calc(8px + (16 - 8) * ((100vw - 500px) / (7680 - 500)));
 
     --h2-font-size: 3.0rem;
     --h2-letter-spacing: 0.2rem;
@@ -31,7 +31,7 @@ html, body {
    }
 
    @media screen and (min-width: 1800px) {
-     max-width: 80%;
+     max-width: 78%;
      margin: auto;
    }
 
@@ -47,7 +47,7 @@ const Layout = ({ location, children, intl }) => (
       meta={[
         { name: "description", content: "8Alpha Partners" },
         { name: "keywords", content: "startup" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" }
       ]}
       link={[{ rel: "shortcut icon", type: "image/png", href: `${favicon}` }]}
     />
@@ -60,7 +60,7 @@ const Layout = ({ location, children, intl }) => (
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.string.isRequired,
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 export default injectIntl(Layout);

@@ -15,11 +15,11 @@ const FooterContainer = styled.div`
   align-items: center;
 
   .copyright {
-    flex-basis: 95%;
+    flex-basis: 90%;
   }
 
   .social {
-    flex: 1 1 5%;
+    flex: 1 1 6%;
   }
 
   @media screen and (max-width: 599px) {
@@ -51,17 +51,6 @@ const FooterContainer = styled.div`
 
       &:hover {
         transform: scale(1.1);
-      }
-    }
-  }
-
-  @media screen and (min-width: 1800px) {
-    .icon {
-      transform: scale(1.25);
-      transition: all ease 0.2s;
-
-      &:hover {
-        transform: scale(1.35);
       }
     }
   }
