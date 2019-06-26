@@ -257,7 +257,7 @@ const MemberModal = ({ member, intl }) => {
   }, []);
 
   const biographyHTML = () => ({
-    __html: intl.formatMessage({ id: member.biography })
+    __html: intl.formatMessage({ id: member.biography }),
   });
 
   return (
@@ -268,8 +268,8 @@ const MemberModal = ({ member, intl }) => {
         content: {
           maxHeight: `100%`,
           overflowY: `auto`,
-          backgroundColor: `#001824`
-        }
+          backgroundColor: `#001824`,
+        },
       }}
     >
       <CloseIcon onClick={() => navigate("/team/")}>{close}</CloseIcon>
@@ -279,7 +279,7 @@ const MemberModal = ({ member, intl }) => {
             cursor: `pointer`,
             fontSize: `5rem`,
             color: `var(--primary-color)`,
-            userSelect: `none`
+            userSelect: `none`,
           }}
           onClick={e => previous(e)}
         />
@@ -312,7 +312,7 @@ const MemberModal = ({ member, intl }) => {
             cursor: `pointer`,
             fontSize: `5rem`,
             color: `var(--primary-color)`,
-            userSelect: `none`
+            userSelect: `none`,
           }}
           onClick={e => previous(e)}
         />
@@ -323,7 +323,7 @@ const MemberModal = ({ member, intl }) => {
 
 MemberModal.propTypes = {
   member: PropTypes.object.isRequired,
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default MemberModal;

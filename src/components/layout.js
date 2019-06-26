@@ -47,7 +47,7 @@ const Layout = ({ location, children, intl }) => (
       meta={[
         { name: "description", content: "8Alpha Partners" },
         { name: "keywords", content: "startup" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" }
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
       ]}
       link={[{ rel: "shortcut icon", type: "image/png", href: `${favicon}` }]}
     />
@@ -60,7 +60,7 @@ const Layout = ({ location, children, intl }) => (
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.string.isRequired,
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(Layout);

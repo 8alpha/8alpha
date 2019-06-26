@@ -6,7 +6,7 @@ import { NavBarButton } from "../css/navbar";
 
 const nextLocale = {
   ja: "English",
-  en: "日本語"
+  en: "日本語",
 };
 
 const Language = ({ locale }) => {
@@ -26,7 +26,7 @@ const Language = ({ locale }) => {
 };
 
 Language.propTypes = {
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
 };
 
 export default Language;
