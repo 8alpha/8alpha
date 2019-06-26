@@ -12,7 +12,7 @@ import {
   FormPanel,
   FormTextArea,
   FormValidation,
-} from "../css/Form";
+} from "../css/form";
 
 function Contact({ intl }) {
   const handleInputChange = e => {
