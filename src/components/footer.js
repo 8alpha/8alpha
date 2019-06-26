@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { contact, linkedIn, twitter } from "../resources/icons";
 
-const FooterContainer = styled.div`
+const FooterBox = styled.div`
   color: var(--secondary-color);
   margin: 5vh 5vw 5vh 5vw;
   padding-bottom: 5vh;
@@ -57,7 +57,7 @@ const FooterContainer = styled.div`
 `;
 
 const Footer = () => (
-  <FooterContainer>
+  <FooterBox>
     <div className="copyright">&copy; 2019 All Rights Reserved</div>
     <Link className="social icon" to="/contact/">
       {contact}
@@ -71,7 +71,7 @@ const Footer = () => (
     >
       {linkedIn}
     </a>
-  </FooterContainer>
+  </FooterBox>
 );
 
 export default Footer;

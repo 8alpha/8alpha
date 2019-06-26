@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "gatsby-plugin-intl";
 
-import { SectionStyle } from "../components/styled";
+import { Section } from "../css/style";
 
 const About = ({ intl }) => (
-  <SectionStyle>
+  <Section>
     <h2 lang={intl.locale}>{intl.formatMessage({ id: "aboutHeading" })}</h2>
     <p lang={intl.locale}>{intl.formatMessage({ id: "aboutP1" })}</p>
     <p lang={intl.locale}>{intl.formatMessage({ id: "aboutP2" })}</p>
-  </SectionStyle>
+  </Section>
 );
 
 About.propTypes = {

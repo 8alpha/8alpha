@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 import { injectIntl, Link } from "gatsby-plugin-intl";
 
-import { SectionStyle } from "../components/styled";
+import { Section } from "../css/style";
 import Layout from "../components/layout";
 
 const PhotosContainer = styled.div`
@@ -39,7 +39,7 @@ const Image = styled(Img)`
   }
 `;
 
-const LinkStyle = styled(Link)`
+const PhotoLink = styled(Link)`
   text-decoration: none;
 `;
 
@@ -85,23 +85,23 @@ const Team = ({ intl }) => {
     edges.map(edge => {
       const member = edge.node;
       return (
-        <LinkStyle key={member.slug} to={`/team/${member.slug}/`}>
+        <PhotoLink key={member.slug} to={`/team/${member.slug}/`}>
           <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
           <Name lang={intl.locale}>
             {intl.formatMessage({ id: member.name })}
           </Name>
-        </LinkStyle>
+        </PhotoLink>
       );
     });
 
   return (
     <Layout location="/team/">
-      <SectionStyle>
+      <Section>
         <h2 lang={intl.locale}>{intl.formatMessage({ id: "teamHeading" })}</h2>
         <PhotosContainer>
           <Photos />
         </PhotosContainer>
-      </SectionStyle>
+      </Section>
     </Layout>
   );
 };
