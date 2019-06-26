@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 import { injectIntl, Link } from "gatsby-plugin-intl";
 
-import { SectionStyle } from "../components/styled";
+import { Section } from "../css/style";
 import Layout from "../components/layout";
 
 const PhotosContainer = styled.div`
@@ -14,7 +14,7 @@ const PhotosContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
 
   @media screen and (max-width: 599px) {
-    grid-gap: 3vh 3vw;
+    grid-gap: 2vh 2vw;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 1fr);
   }
@@ -39,7 +39,7 @@ const Image = styled(Img)`
   }
 `;
 
-const LinkStyle = styled(Link)`
+const PhotoLink = styled(Link)`
   text-decoration: none;
 `;
 
@@ -55,6 +55,7 @@ const Name = styled.div`
     font-family: "Noto Sans JP", sans-serif;
     letter-spacing: normal;
     text-transform: none;
+    font-size: calc(var(--p-font-size) * 1);
   }
 `;
 
@@ -84,21 +85,23 @@ const Team = ({ intl }) => {
     edges.map(edge => {
       const member = edge.node;
       return (
-        <LinkStyle key={member.slug} to={`/team/${member.slug}/`}>
+        <PhotoLink key={member.slug} to={`/team/${member.slug}/`}>
           <Image fluid={member.image.childImageSharp.fluid} alt={member.name} />
-          <Name>{intl.formatMessage({ id: member.name })}</Name>
-        </LinkStyle>
+          <Name lang={intl.locale}>
+            {intl.formatMessage({ id: member.name })}
+          </Name>
+        </PhotoLink>
       );
     });
 
   return (
     <Layout location="/team/">
-      <SectionStyle>
+      <Section>
         <h2 lang={intl.locale}>{intl.formatMessage({ id: "teamHeading" })}</h2>
         <PhotosContainer>
           <Photos />
         </PhotosContainer>
-      </SectionStyle>
+      </Section>
     </Layout>
   );
 };

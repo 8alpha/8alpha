@@ -1,21 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, injectIntl } from "gatsby-plugin-intl";
+import { injectIntl } from "gatsby-plugin-intl";
 
 import Layout from "../components/layout";
-import { SectionStyle, LinkStyle } from "../components/styled";
+import { IntlLink, Section } from "../css/style";
 
 const NotFoundPage = ({ intl }) => (
   <Layout location={"/404/"}>
-    <SectionStyle>
+    <Section>
       <h2 lang={intl.locale}>{intl.formatMessage({ id: "404Heading" })}</h2>
       <p lang={intl.locale}>{intl.formatMessage({ id: "404P1" })}</p>
-      <LinkStyle>
-        <Link lang={intl.locale} to="/">
-          {intl.formatMessage({ id: "404GoBack" })}
-        </Link>
-      </LinkStyle>
-    </SectionStyle>
+      <IntlLink lang={intl.locale} to="/">
+        {intl.formatMessage({ id: "404GoBack" })}
+      </IntlLink>
+    </Section>
   </Layout>
 );
 

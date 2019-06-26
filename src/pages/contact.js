@@ -3,12 +3,16 @@ import PropTypes from "prop-types";
 import { injectIntl } from "gatsby-plugin-intl";
 
 import Layout from "../components/layout";
+import { Section } from "../css/style";
 import {
-  SectionStyle,
-  ButtonStyle,
-  FormContainer,
-  FormFieldStyle,
-} from "../components/styled";
+  FormBox,
+  FormInput,
+  FormFieldBox,
+  FormLabel,
+  FormPanel,
+  FormTextArea,
+  FormValidation,
+} from "../css/Form";
 
 function Contact({ intl }) {
   const handleInputChange = e => {
@@ -72,18 +76,18 @@ function Contact({ intl }) {
   };
 
   const showValidationField = (
-    <div lang={intl.locale} className="validationMsg">
+    <FormValidation lang={intl.locale}>
       {intl.formatMessage({ id: "contactValidationMsg" })}
-    </div>
+    </FormValidation>
   );
 
   return (
     <Layout location="/contact/">
-      <SectionStyle>
+      <Section>
         <h2 lang={intl.locale}>
           {intl.formatMessage({ id: "contactHeading" })}
         </h2>
-        <FormContainer>
+        <FormBox>
           <p lang={intl.locale}>{intl.formatMessage({ id: "contactP1" })}</p>
           <form
             name="contact"
@@ -104,124 +108,113 @@ function Contact({ intl }) {
                 value={botValue}
               />
             </p>
-            <FormFieldStyle>
-              <label htmlFor="name" className="label">
+            <FormFieldBox>
+              <FormLabel htmlFor="name">
                 What is your name?
-                <span title="Required field" className="abbr">
+                <span title="Required field" className="requiredField">
                   <span aria-hidden="true"> {"\u0020*"}</span>
                 </span>
-              </label>
-              <input
+              </FormLabel>
+              <FormInput
                 value={values.name}
                 onChange={handleInputChange}
                 placeholder={placeholder.name}
                 type="text"
                 name="name"
                 maxLength="100"
-                className="textField"
                 autoComplete="name"
                 lang={intl.locale}
               />
               {validations["name"] && showValidationField}
-            </FormFieldStyle>
-            <FormFieldStyle>
-              <label htmlFor="email" className="label">
+            </FormFieldBox>
+            <FormFieldBox>
+              <FormLabel htmlFor="email">
                 What is your email address?
-                <span title="Required field" className="abbr">
+                <span title="Required field" className="requiredField">
                   <span aria-hidden="true"> {"\u0020*"}</span>
                 </span>
-              </label>
-              <input
+              </FormLabel>
+              <FormInput
                 value={values.email}
                 onChange={handleInputChange}
                 placeholder={placeholder.email}
                 type="text"
                 name="email"
-                className="textField"
                 maxLength="100"
                 autoComplete="email"
               />
               {validations["email"] && showValidationField}
-            </FormFieldStyle>
-            <FormFieldStyle>
-              <label htmlFor="companyName" className="label">
+            </FormFieldBox>
+            <FormFieldBox>
+              <FormLabel htmlFor="companyName">
                 What is the name of your company?
-                <span title="Required field" className="abbr">
+                <span title="Required field" className="requiredField">
                   <span aria-hidden="true"> {"\u0020*"}</span>
                 </span>
-              </label>
-              <input
+              </FormLabel>
+              <FormInput
                 value={values.companyName}
                 onChange={handleInputChange}
                 placeholder={placeholder.companyName}
                 type="text"
                 name="companyName"
-                className="textField"
                 maxLength="100"
                 autoComplete="organization"
               />
               {validations["companyName"] && showValidationField}
-            </FormFieldStyle>
-            <FormFieldStyle>
-              <label htmlFor="stage" className="label">
+            </FormFieldBox>
+            <FormFieldBox>
+              <FormLabel htmlFor="stage">
                 What stage is your company?
-                <span title="Required field" className="abbr">
+                <span title="Required field" className="requiredField">
                   <span aria-hidden="true"> {"\u0020*"}</span>
                 </span>
-              </label>
-              <input
+              </FormLabel>
+              <FormInput
                 value={values.stage}
                 onChange={handleInputChange}
                 placeholder={placeholder.stage}
                 type="text"
                 name="stage"
-                className="textField"
                 maxLength="7"
                 autoComplete="nope"
               />
               {validations["stage"] && showValidationField}
-            </FormFieldStyle>
-            <FormFieldStyle>
-              <label htmlFor="sentence" className="label">
+            </FormFieldBox>
+            <FormFieldBox>
+              <FormLabel htmlFor="sentence">
                 Describe your company in one sentence
-                <span title="Required field" className="abbr">
+                <span title="Required field" className="requiredField">
                   <span aria-hidden="true"> {"\u0020*"}</span>
                 </span>
-              </label>
-              <textarea
+              </FormLabel>
+              <FormTextArea
                 value={values.sentence}
                 onChange={handleInputChange}
                 placeholder={placeholder.sentence}
                 name="sentence"
-                className="textField"
                 maxLength="280"
                 rows="3"
                 autoComplete="nope"
                 lang={intl.locale}
               />
               {validations["sentence"] && showValidationField}
-            </FormFieldStyle>
-            <FormFieldStyle>
-              <div className="twoButtons" lang={intl.locale}>
-                <ButtonStyle>
-                  <button lang={intl.locale} type="submit">
-                    {`\u00A0\u00A0${intl.formatMessage({
-                      id: "buttonSubmit",
-                    })}\u00A0\u00A0`}
-                  </button>
-                </ButtonStyle>
-                <ButtonStyle>
-                  <button lang={intl.locale} type="reset">
-                    {`\u00A0\u00A0${intl.formatMessage({
-                      id: "buttonReset",
-                    })}\u00A0\u00A0`}
-                  </button>
-                </ButtonStyle>
-              </div>
-            </FormFieldStyle>
+            </FormFieldBox>
+            <FormPanel lang={intl.locale}>
+              <button lang={intl.locale} type="submit">
+                {`\u00A0\u00A0${intl.formatMessage({
+                  id: "buttonSubmit",
+                })}\u00A0\u00A0`}
+              </button>
+              <button lang={intl.locale} type="reset">
+                {`\u00A0\u00A0${intl.formatMessage({
+                  id: "buttonReset",
+                })}\u00A0\u00A0`}
+              </button>
+            </FormPanel>
           </form>
-        </FormContainer>
-      </SectionStyle>
+        </FormBox>
+      </Section>
     </Layout>
   );
 }

@@ -8,7 +8,7 @@ import { injectIntl, Link } from "gatsby-plugin-intl";
 import { logo, logoActive } from "../resources/icons";
 import Language from "./language";
 import { NavBar, NavBarLogo, NavBarLink, activeStyles } from "../css/navbar";
-import { Spacer } from "./styled";
+import { Spacer } from "../css/style";
 
 const HeaderBox = styled.div`
   margin: 2vh 5vw 10vh 5vw;
