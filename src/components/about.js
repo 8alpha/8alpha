@@ -7,13 +7,12 @@ import { Section } from "../css/style";
 const About = ({ intl }) => (
   <Section>
     <h2 lang={intl.locale}>{intl.formatMessage({ id: "aboutHeading" })}</h2>
-    <p lang={intl.locale}>{intl.formatMessage({ id: "aboutP1" })}</p>
-    <p lang={intl.locale}>{intl.formatMessage({ id: "aboutP2" })}</p>
+    <p lang={intl.locale}>{intl.formatMessage({ id: "aboutBody" })}</p>
   </Section>
 );
 
 About.propTypes = {
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 export default injectIntl(About);

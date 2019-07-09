@@ -11,7 +11,7 @@ import {
   FormLabel,
   FormPanel,
   FormTextArea,
-  FormValidation,
+  FormValidation
 } from "../css/form";
 
 function Contact({ intl }) {
@@ -25,7 +25,7 @@ function Contact({ intl }) {
     email: "",
     companyName: "",
     stage: "",
-    sentence: "",
+    sentence: ""
   };
 
   const [values, setValues] = useState(defaultValues);
@@ -35,7 +35,7 @@ function Contact({ intl }) {
     email: "name@domain.com",
     companyName: "Company Name",
     stage: "Seed, Early, Growth or Mature",
-    sentence: "280 characters max",
+    sentence: "280 characters max"
   };
 
   const [botValue, setBotValue] = useState("");
@@ -46,7 +46,7 @@ function Contact({ intl }) {
     companyName: false,
     stage: false,
     sentence: false,
-    botField: false,
+    botField: false
   };
 
   const [validations, setValidation] = useState(defaultValidations);
@@ -88,7 +88,7 @@ function Contact({ intl }) {
           {intl.formatMessage({ id: "contactHeading" })}
         </h2>
         <FormBox>
-          <p lang={intl.locale}>{intl.formatMessage({ id: "contactP1" })}</p>
+          <p lang={intl.locale}>{intl.formatMessage({ id: "contactBody" })}</p>
           <form
             name="contact"
             method="post"
@@ -203,12 +203,12 @@ function Contact({ intl }) {
             <FormPanel lang={intl.locale}>
               <button lang={intl.locale} type="submit">
                 {`\u00A0\u00A0${intl.formatMessage({
-                  id: "buttonSubmit",
+                  id: "buttonSubmit"
                 })}\u00A0\u00A0`}
               </button>
               <button lang={intl.locale} type="reset">
                 {`\u00A0\u00A0${intl.formatMessage({
-                  id: "buttonReset",
+                  id: "buttonReset"
                 })}\u00A0\u00A0`}
               </button>
             </FormPanel>
@@ -220,7 +220,7 @@ function Contact({ intl }) {
 }
 
 Contact.propTypes = {
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object.isRequired
 };
 
 export default injectIntl(Contact);
