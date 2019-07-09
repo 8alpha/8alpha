@@ -9,7 +9,7 @@ const NotFoundPage = ({ intl }) => (
   <Layout location={"/404/"}>
     <Section>
       <h2 lang={intl.locale}>{intl.formatMessage({ id: "404Heading" })}</h2>
-      <p lang={intl.locale}>{intl.formatMessage({ id: "404P1" })}</p>
+      <p lang={intl.locale}>{intl.formatMessage({ id: "404Body" })}</p>
       <IntlLink lang={intl.locale} to="/">
         {intl.formatMessage({ id: "404GoBack" })}
       </IntlLink>

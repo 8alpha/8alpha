@@ -78,6 +78,21 @@ export const Section = styled.div`
     }
   }
 
+  h3 {
+    padding-top: 2vh;
+    font-size: var(--h3-font-size);
+    color: var(--primary-color);
+    text-align: left;
+    letter-spacing: var(--h3-letter-spacing);
+    text-transform: uppercase;
+
+    &:lang(ja) {
+      font-family: "Noto Sans JP", sans-serif;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+  }
+
   p {
     font-size: var(--p-font-size);
     color: var(--secondary-color);

@@ -21,6 +21,8 @@ html, body {
 
     --h2-font-size: 3.0rem;
     --h2-letter-spacing: 0.2rem;
+    --h3-font-size: 2.0rem;
+    --h3-letter-spacing: 0.15rem;
     --p-font-size: 2.0rem;
     --p-letter-spacing: 0.1rem;
 
