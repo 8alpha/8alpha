@@ -24,7 +24,7 @@ html, body {
     --h3-font-size: 2.0rem;
     --h3-letter-spacing: 0.15rem;
     --p-font-size: 2.0rem;
-    --p-letter-spacing: 0.1rem;
+    --p-letter-spacing: 0.15rem;
 
    @media screen and (max-width: 1799px) {
     margin: 0;
