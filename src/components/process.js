@@ -23,49 +23,67 @@ const ProcessBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
+
+  @media screen and (max-width: 599px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2vh 2vw;
+  }
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2vh 2vw;
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2vh 2vw;
+  }
 `;
 
 const ProcessCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  }
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    }
 
-  p {
+    p {
     margin-top: 0.25rem;
     font-size: 1.5rem;
     width: 80%;
-  }
+    }
 
-  h3 {
+    h3 {
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
-  }
+    }
 `;
 
 const Tile = styled.div`
-  animation: fadeout 0.5s normal 1;
-  @keyframes fadeout {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  /* animation: fadeout 0.5s normal 1;
+    * @keyframes fadeout {
+    *   from {
+    *     opacity: 0;
+    *   }
+    *   to {
+    *     opacity: 1;
+    *   }
+    * }
 
-  &:hover {
-    animation: fadein 0.5s normal 1;
-    @keyframes fadein {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  }
+    * &:hover {
+    *   animation: fadein 0.5s normal 1;
+    *   @keyframes fadein {
+    *     from {
+    *       opacity: 0;
+    *     }
+    *     to {
+    *       opacity: 1;
+    *     }
+    *   }
+    * } */
 `;
 
 const Process = ({ intl }) => {
