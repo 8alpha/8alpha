@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export const processAnalysisTile = (
   <svg width="281" height="188" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +22,7 @@ export const processAnalysisTile = (
   </svg>
 );
 
-export const processAnalysisTileHover = (
+export const ProcessAnalysisTileHover = ({ intl }) => (
   <svg width="281" height="188" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fillRule="evenodd">
       <path
@@ -34,12 +35,16 @@ export const processAnalysisTileHover = (
         fill="#D9D9D9"
       >
         <tspan x="33.475" y="102">
-          We Respect Detail
+          {intl.formatMessage({ id: `processAnalysisTileHover` })}
         </tspan>
       </text>
     </g>
   </svg>
 );
+
+ProcessAnalysisTileHover.propTypes = {
+  intl: PropTypes.object.isRequired,
+};
 
 export const processDiscoveryTile = (
   <svg width="281" height="188" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +67,7 @@ export const processDiscoveryTile = (
   </svg>
 );
 
-export const processDiscoveryTileHover = (
+export const ProcessDiscoveryTileHover = ({ intl }) => (
   <svg width="281" height="188" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fillRule="evenodd">
       <path
@@ -70,17 +75,21 @@ export const processDiscoveryTileHover = (
         fill="#C32C4B"
       />
       <text
-        fontFamily="Questrial-Regular, Questrial"
+        fontFamily="Questrial-Regular, Questrial, 'Noto Sans JP'"
         fontSize="25"
         fill="#D9D9D9"
       >
         <tspan x="33.475" y="102">
-          We Solve Problems
+          {intl.formatMessage({ id: `processDiscoveryTileHover` })}
         </tspan>
       </text>
     </g>
   </svg>
 );
+
+ProcessDiscoveryTileHover.propTypes = {
+  intl: PropTypes.object.isRequired,
+};
 
 export const processEngagementTile = (
   <svg width="281" height="188" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +106,7 @@ export const processEngagementTile = (
   </svg>
 );
 
-export const processEngagagementTileHover = (
+export const ProcessEngagagementTileHover = ({ intl }) => (
   <svg width="281" height="188" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fillRule="evenodd">
       <path
@@ -110,9 +119,13 @@ export const processEngagagementTileHover = (
         fill="#D9D9D9"
       >
         <tspan x="33.475" y="102">
-          We Focus on Facts
+          {intl.formatMessage({ id: `processEngagementTileHover` })}
         </tspan>
       </text>
     </g>
   </svg>
 );
+
+ProcessEngagagementTileHover.propTypes = {
+  intl: PropTypes.object.isRequired,
+};
