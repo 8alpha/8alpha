@@ -30,7 +30,7 @@ export const ProcessAnalysisTileHover = ({ intl }) => (
         fill="#C32C4B"
       />
       <text
-        fontFamily="Questrial-Regular, Questrial"
+        fontFamily="Questrial-Regular, Questrial, 'Noto Sans JP'"
         fontSize="25"
         fill="#D9D9D9"
       >
@@ -114,7 +114,7 @@ export const ProcessEngagagementTileHover = ({ intl }) => (
         fill="#C32C4B"
       />
       <text
-        fontFamily="Questrial-Regular, Questrial"
+        fontFamily="Questrial-Regular, Questrial, 'Noto Sans JP'"
         fontSize="25"
         fill="#D9D9D9"
       >
