@@ -6,11 +6,11 @@ import { injectIntl } from "gatsby-plugin-intl";
 import { Section } from "../css/style";
 import {
   processAnalysisTile,
-  processAnalysisTileHover,
+  ProcessAnalysisTileHover,
   processDiscoveryTile,
-  processDiscoveryTileHover,
+  ProcessDiscoveryTileHover,
   processEngagementTile,
-  processEngagagementTileHover,
+  ProcessEngagagementTileHover,
 } from "../resources/processTiles";
 
 const ProcessBox = styled.div`
@@ -128,13 +128,17 @@ const Process = ({ intl }) => {
       <ProcessBox>
         {renderCard(
           "discovery",
-          processDiscoveryTileHover,
+          <ProcessDiscoveryTileHover intl={intl} />,
           processDiscoveryTile
         )}
-        {renderCard("analysis", processAnalysisTileHover, processAnalysisTile)}
+        {renderCard(
+          "analysis",
+          <ProcessAnalysisTileHover intl={intl} />,
+          processAnalysisTile
+        )}
         {renderCard(
           "engagement",
-          processEngagagementTileHover,
+          <ProcessEngagagementTileHover intl={intl} />,
           processEngagementTile
         )}
       </ProcessBox>
