@@ -11,7 +11,7 @@ const Technologies = ({ intl }) => (
 );
 
 Technologies.propTypes = {
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(Technologies);

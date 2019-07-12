@@ -12,7 +12,7 @@ const About = ({ intl }) => (
 );
 
 About.propTypes = {
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(About);
