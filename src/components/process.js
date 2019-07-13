@@ -16,14 +16,10 @@ import {
 const ProcessBox = styled.div`
   margin-left: 7rem;
   margin-right: 7rem;
-  display: flex;
-  /* flex-direction: row;
-    * flex-wrap: wrap;
-    * justify-content: center; */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-
+  /* grid-template-columns: 1fr 1fr 1fr;
+    * grid-template-rows: auto;
+    */
   @media screen and (max-width: 599px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
