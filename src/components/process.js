@@ -5,12 +5,9 @@ import { injectIntl } from "gatsby-plugin-intl";
 
 import { Section } from "../css/style";
 import {
-  processAnalysisTile,
-  ProcessAnalysisTileHover,
-  processDiscoveryTile,
-  ProcessDiscoveryTileHover,
-  processEngagementTile,
-  ProcessEngagagementTileHover,
+  ProcessAnalysisTile,
+  ProcessDiscoveryTile,
+  ProcessEngagementTile,
 } from "../resources/processTiles";
 
 const ProcessBox = styled.div`
@@ -101,7 +98,7 @@ const Process = ({ intl }) => {
     setHoverState({ ...defaultTileHoverStates, ...tileHoverStates });
   };
 
-  const renderCard = (tile, enterFn, leaveFn) => {
+  const renderCard = (tile, tileFn) => {
     const toUpperCase = () => tile.charAt(0).toUpperCase() + tile.slice(1);
 
     return (
@@ -110,7 +107,7 @@ const Process = ({ intl }) => {
           onMouseEnter={() => handleHover(true, tile)}
           onMouseLeave={() => handleHover(false, tile)}
         >
-          {tileHoverStates[tile] ? enterFn : leaveFn}
+          {tileFn}
         </Tile>
         <h3>{intl.formatMessage({ id: `process${toUpperCase()}Heading` })}</h3>
         <p>{intl.formatMessage({ id: `process${toUpperCase()}Body` })}</p>
@@ -124,18 +121,24 @@ const Process = ({ intl }) => {
       <ProcessBox>
         {renderCard(
           "discovery",
-          <ProcessDiscoveryTileHover intl={intl} />,
-          processDiscoveryTile
+          <ProcessDiscoveryTile
+            intl={intl}
+            hoverState={tileHoverStates.discovery}
+          />
         )}
         {renderCard(
           "analysis",
-          <ProcessAnalysisTileHover intl={intl} />,
-          processAnalysisTile
+          <ProcessAnalysisTile
+            intl={intl}
+            hoverState={tileHoverStates.analysis}
+          />
         )}
         {renderCard(
           "engagement",
-          <ProcessEngagagementTileHover intl={intl} />,
-          processEngagementTile
+          <ProcessEngagementTile
+            intl={intl}
+            hoverState={tileHoverStates.engagement}
+          />
         )}
       </ProcessBox>
     </Section>
