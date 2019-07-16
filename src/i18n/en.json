@@ -39,6 +39,13 @@
   "submittedP1": "We will be in touch with you shortly. If you do not receive an email confirmation within 2-3 business days then please email us directly at info @ 8alpha.com.",
   "teamHeading": "partners",
   "techHeading": "technologies & industries",
-  "techFinanceTile": "Financial Technology",
+  "techTileFinanceL1": "Financial",
+  "techTileFinanceL2": "Technology",
+  "techTileArtificialL1": "Artificial Intelligence",
+  "techTileArtificialL2": "Machine Learning",
+  "techTileImagingL1": "2D & 3D Imaging",
+  "techTileImagingL2": "Technologies",
+  "techTileEnterpriseL1": "Enterprise",
+  "techTileEnterpriseL2": "Technology",
   "title": "8Alpha Partners"
 }

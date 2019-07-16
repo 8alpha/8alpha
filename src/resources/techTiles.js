@@ -1,17 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 
 import { themeColors } from "../resources/theme.js";
-
-/* const hoverColor = themeColors.ternary;
- * const noHoverColor = "061E2A";
- * const selectedColor =
- *  */
 
 const tileBackground = "061E2A";
 
 export const TechFinanceTile = ({ intl, hoverState, selectState }) => (
   <svg width="281" height="281" xmlns="http://www.w3.org/2000/svg">
+    <style>{`.header { text-transform: uppercase;`}</style>
     <g fill="none" fillRule="evenodd">
       <path
         d="M.5.5V261c0 10.77 8.73 19.5 19.5 19.5h260.5V20C280.5 9.23 271.77.5 261 .5H.5z"
@@ -34,12 +31,13 @@ export const TechFinanceTile = ({ intl, hoverState, selectState }) => (
             ? themeColors.background
             : themeColors.primary
         }
+        className="header"
       >
         <tspan x="20" y="230">
-          FINANCIAL
-        </tspan>{" "}
+          {intl.formatMessage({ id: "techTileFinanceL1" })}
+        </tspan>
         <tspan x="20" y="256">
-          TECHNOLOGY
+          {intl.formatMessage({ id: "techTileFinanceL2" })}
         </tspan>
       </text>
       <text
@@ -94,10 +92,10 @@ export const TechAiTile = ({ intl, hoverState, selectState }) => (
         }
       >
         <tspan x="20" y="230">
-          AI & MACHINE
-        </tspan>{" "}
+          {intl.formatMessage({ id: "techTileArtificialL1" })}
+        </tspan>
         <tspan x="20" y="256">
-          LEARNING
+          {intl.formatMessage({ id: "techTileArtificialL2" })}
         </tspan>
       </text>
       <text
@@ -152,10 +150,10 @@ export const TechImagingTile = ({ intl, hoverState, selectState }) => (
         }
       >
         <tspan x="20" y="230">
-          2D/3D IMAGING
-        </tspan>{" "}
+          {intl.formatMessage({ id: "techTileImagingL1" })}
+        </tspan>
         <tspan x="20" y="256">
-          TECHNOLOGIES
+          {intl.formatMessage({ id: "techTileImagingL2" })}
         </tspan>
       </text>
       <text
@@ -210,10 +208,10 @@ export const TechEnterpriseTile = ({ intl, hoverState, selectState }) => (
         }
       >
         <tspan x="20" y="230">
-          ENTERPRISE
-        </tspan>{" "}
+          {intl.formatMessage({ id: "techTileEnterpriseL1" })}
+        </tspan>
         <tspan x="20" y="256">
-          SOFTWARE
+          {intl.formatMessage({ id: "techTileEnterpriseL2" })}
         </tspan>
       </text>
       <text

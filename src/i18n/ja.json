@@ -38,6 +38,13 @@
   "submittedP1": "まもなくご連絡いたします。 ２ー３営業日内に返信が届かない場合、お手数ですが直接当社に電子メールをお送りください。info @ 8alpha.com",
   "teamHeading": "パートナー",
   "techHeading": "Technologies & Industries",
-  "techFinanceTile": "金融技術",
+  "techTileFinanceL1": "金融技術",
+  "techTileFinanceL2": "  ",
+  "techTileArtificialL1": "Artificial Intelligence",
+  "techTileArtificialL2": "Machine Learning",
+  "techTileImagingL1": "2D & 3D Imaging",
+  "techTileImagingL2": "Technologies",
+  "techTileEnterpriseL1": "Enterprise",
+  "techTileEnterpriseL2": "Technology",
   "title": "8Alpha パートナー"
 }
