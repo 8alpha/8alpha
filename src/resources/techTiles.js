@@ -22,7 +22,7 @@ export const TechFinanceTile = ({ intl, hoverState, selectState }) => (
         }
       />
       <text
-        fontFamily="Questrial-Regular, Questrial"
+        fontFamily="Questrial-Regular, Questrial, 'Noto Sans JP'"
         fontSize="26"
         fill={
           selectState
@@ -41,7 +41,7 @@ export const TechFinanceTile = ({ intl, hoverState, selectState }) => (
         </tspan>
       </text>
       <text
-        fontFamily="HelveticaNeue-Medium, Helvetica Neue"
+        fontFamily="Questrial-Regular, Questrial"
         fontSize="22"
         fontWeight="400"
         fill={
@@ -68,6 +68,7 @@ TechFinanceTile.propTypes = {
 
 export const TechAiTile = ({ intl, hoverState, selectState }) => (
   <svg width="281" height="281" xmlns="http://www.w3.org/2000/svg">
+    <style>{`.header { text-transform: uppercase;`}</style>
     <g fill="none" fillRule="evenodd">
       <path
         d="M.5.5V261c0 10.77 8.73 19.5 19.5 19.5h260.5V20C280.5 9.23 271.77.5 261 .5H.5z"
@@ -81,7 +82,7 @@ export const TechAiTile = ({ intl, hoverState, selectState }) => (
         }
       />
       <text
-        fontFamily="Questrial-Regular, Questrial"
+        fontFamily="Questrial-Regular, Questrial, 'Noto Sans JP'"
         fontSize="26"
         fill={
           selectState
@@ -90,6 +91,7 @@ export const TechAiTile = ({ intl, hoverState, selectState }) => (
             ? themeColors.background
             : themeColors.primary
         }
+        className="header"
       >
         <tspan x="20" y="230">
           {intl.formatMessage({ id: "techTileArtificialL1" })}
@@ -99,7 +101,7 @@ export const TechAiTile = ({ intl, hoverState, selectState }) => (
         </tspan>
       </text>
       <text
-        fontFamily="HelveticaNeue-Medium, Helvetica Neue"
+        fontFamily="Questrial-Regular, Questrial"
         fontSize="22"
         fontWeight="400"
         fill={
@@ -126,6 +128,7 @@ TechAiTile.propTypes = {
 
 export const TechImagingTile = ({ intl, hoverState, selectState }) => (
   <svg width="281" height="281" xmlns="http://www.w3.org/2000/svg">
+    <style>{`.header { text-transform: uppercase;`}</style>
     <g fill="none" fillRule="evenodd">
       <path
         d="M.5.5V261c0 10.77 8.73 19.5 19.5 19.5h260.5V20C280.5 9.23 271.77.5 261 .5H.5z"
@@ -139,7 +142,7 @@ export const TechImagingTile = ({ intl, hoverState, selectState }) => (
         }
       />
       <text
-        fontFamily="Questrial-Regular, Questrial"
+        fontFamily="Questrial-Regular, Questrial, 'Noto Sans JP'"
         fontSize="26"
         fill={
           selectState
@@ -148,6 +151,7 @@ export const TechImagingTile = ({ intl, hoverState, selectState }) => (
             ? themeColors.background
             : themeColors.primary
         }
+        className="header"
       >
         <tspan x="20" y="230">
           {intl.formatMessage({ id: "techTileImagingL1" })}
@@ -157,7 +161,7 @@ export const TechImagingTile = ({ intl, hoverState, selectState }) => (
         </tspan>
       </text>
       <text
-        fontFamily="HelveticaNeue-Medium, Helvetica Neue"
+        fontFamily="Questrial-Regular, Questrial"
         fontSize="22"
         fontWeight="400"
         fill={
@@ -184,6 +188,7 @@ TechImagingTile.propTypes = {
 
 export const TechEnterpriseTile = ({ intl, hoverState, selectState }) => (
   <svg width="281" height="281" xmlns="http://www.w3.org/2000/svg">
+    <style>{`.header { text-transform: uppercase;`}</style>
     <g fill="none" fillRule="evenodd">
       <path
         d="M.5.5V261c0 10.77 8.73 19.5 19.5 19.5h260.5V20C280.5 9.23 271.77.5 261 .5H.5z"
@@ -197,7 +202,7 @@ export const TechEnterpriseTile = ({ intl, hoverState, selectState }) => (
         }
       />
       <text
-        fontFamily="Questrial-Regular, Questrial"
+        fontFamily="Questrial-Regular, Questrial, 'Noto Sans JP'"
         fontSize="26"
         fill={
           selectState
@@ -206,6 +211,7 @@ export const TechEnterpriseTile = ({ intl, hoverState, selectState }) => (
             ? themeColors.background
             : themeColors.primary
         }
+        className="header"
       >
         <tspan x="20" y="230">
           {intl.formatMessage({ id: "techTileEnterpriseL1" })}
@@ -215,7 +221,7 @@ export const TechEnterpriseTile = ({ intl, hoverState, selectState }) => (
         </tspan>
       </text>
       <text
-        fontFamily="HelveticaNeue-Medium, Helvetica Neue"
+        fontFamily="Questrial-Regular, Questrial"
         fontSize="22"
         fontWeight="400"
         fill={
