@@ -14,22 +14,26 @@ import {
 } from "../resources/techTiles";
 
 const DescBox = styled.div`
-  margin-bottom: 1vh;
-  /* display: grid;
-    * grid-template-columns: 1fr 6fr 1fr;
-    * grid-template-rows: auto; */
+  margin: auto;
+  width: 75%;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: auto;
+`;
+
+const ControlBox = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
 `;
 
 const CardBox = styled.div`
-  margin-left: 30rem;
-  margin-right: 30rem;
+  margin: auto;
+  width: 50%;
   display: grid;
 
   @media screen and (max-width: 599px) {
+    margin-left: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 2vh 2vw;
@@ -104,45 +108,27 @@ const Technologies = ({ intl }) => {
 
   const previous = event => {
     event.preventDefault();
-    console.log(`index: ${findSelectedTileIndex()}`);
+    const currentIndex = findSelectedTileIndex();
+    let previousTile;
+    if (currentIndex === 0) {
+      previousTile = Object.keys(tileSelectStates).length - 1;
+    } else {
+      previousTile = currentIndex - 1;
+    }
+    handleTileSelect(event, Object.keys(tileSelectStates)[previousTile]);
   };
 
-  /* const previous = event => {
-    *     if (event) {                                   <!---->
-    *         event.stopPropagation();                   <!---->
-    *     }                                              <!---->
-       <!---->
-    *     const currentIndex = findCurrentMemberIndex(); <!---->
-    *     if (currentIndex || currentIndex === 0) {      <!---->
-    *         let previousMember;                        <!---->
-    *         if (currentIndex - 1 === -1) {             <!---->
-    *             previousMember = edges[edges.length - 1].node.slug; <!---->
-    *         } else {          <!---->
-    *             previousMember = edges[currentIndex - 1].node.slug; <!---->
-    *         }                                     <!---->
-    *         navigate(`/team/${previousMember}/`); <!---->
-    *     }                                         <!---->
-    * };                                            <!---->
-    *
-    */
-
-  /* const next = event => {
-     *   if (event) {
-     *     event.stopPropagation();
-     *   }
-
-     *   const currentIndex = findCurrentMemberIndex();
-     *   if (currentIndex || currentIndex === 0) {
-     *     let nextMember;
-     *     if (currentIndex + 1 === edges.length) {
-     *       nextMember = edges[0].node.slug;
-     *     } else {
-     *       nextMember = edges[currentIndex + 1].node.slug;
-     *     }
-     *     navigate(`/team/${nextMember}/`);
-     *   }
-     * };
-     */
+  const next = event => {
+    event.preventDefault();
+    const currentIndex = findSelectedTileIndex();
+    let nextTile;
+    if (currentIndex === Object.keys(tileSelectStates).length - 1) {
+      nextTile = 0;
+    } else {
+      nextTile = currentIndex + 1;
+    }
+    handleTileSelect(event, Object.keys(tileSelectStates)[nextTile]);
+  };
 
   const isTileSelected = () => {
     const reducer = (accumulator, currentValue) => accumulator || currentValue;
@@ -164,20 +150,16 @@ const Technologies = ({ intl }) => {
     <Section>
       <h2 lang={intl.locale}>{intl.formatMessage({ id: "techHeading" })}</h2>
       <DescBox>
-        {isTileSelected() && (
-          <FaCaretLeft
-            css={{
-              cursor: `pointer`,
-              fontSize: `10rem`,
-              color: `var(--primary-color)`,
-              userSelect: `none`,
-              margin: `2vh 2vw 2vh 2vw`,
-            }}
-            onClick={e => previous(e)}
-          />
-        )}
         {tileSelectStates.finance && (
-          <p>{intl.formatMessage({ id: "techFinanceDesc" })}</p>
+          <>
+            <h2>01/</h2>
+            <div>
+              <h3>{`${intl.formatMessage({
+                id: "techTileFinanceL1",
+              })} ${intl.formatMessage({ id: "techTileFinanceL2" })}`}</h3>
+              <p>{intl.formatMessage({ id: "techFinanceDesc" })}</p>
+            </div>
+          </>
         )}
         {tileSelectStates.ai && (
           <p>{intl.formatMessage({ id: "techAiDesc" })}</p>
@@ -188,17 +170,30 @@ const Technologies = ({ intl }) => {
         {tileSelectStates.enterprise && (
           <p>{intl.formatMessage({ id: "techEnterpriseDesc" })}</p>
         )}
-        {isTileSelected() && (
-          <FaCaretRight
-            css={{
-              cursor: `pointer`,
-              fontSize: `10rem`,
-              color: `var(--primary-color)`,
-              userSelect: `none`,
-              margin: `2vh 2vw 2vh 2vw`,
-            }}
-          />
-        )}
+        <ControlBox>
+          {isTileSelected() && (
+            <FaCaretLeft
+              css={{
+                cursor: `pointer`,
+                fontSize: `10rem`,
+                color: `var(--primary-color)`,
+                userSelect: `none`,
+              }}
+              onClick={e => previous(e)}
+            />
+          )}
+          {isTileSelected() && (
+            <FaCaretRight
+              css={{
+                cursor: `pointer`,
+                fontSize: `10rem`,
+                color: `var(--primary-color)`,
+                userSelect: `none`,
+              }}
+              onClick={e => next(e)}
+            />
+          )}
+        </ControlBox>
       </DescBox>
       <CardBox>
         {renderTile(
