@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { injectIntl } from "gatsby-plugin-intl";
-import { FaCaretLeft, FaCaretRight } from "react-icons/fa/";
+/* import { FaCaretLeft, FaCaretRight } from "react-icons/fa/"; */
 
 import { Section } from "../css/style";
 
@@ -11,11 +11,14 @@ import {
   TechAiTile,
   TechImagingTile,
   TechEnterpriseTile,
+  TechLeftArrow,
+  TechRightArrow,
+  TechClose,
 } from "../resources/techTiles";
 
 const DescBox = styled.div`
   margin: auto;
-  width: 75%;
+  width: 80%;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: auto;
@@ -24,7 +27,7 @@ const DescBox = styled.div`
 const ControlBox = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
 `;
 
 const CardBox = styled.div`
@@ -100,6 +103,11 @@ const Technologies = ({ intl }) => {
     setHoverState({ ...defaultTileHoverStates, ...tileHoverStates });
   };
 
+  const closeSelected = event => {
+    event.preventDefault();
+    setSelectState({ ...defaultTileSelectStates, ...defaultTileSelectStates });
+  };
+
   const findSelectedTileIndex = () => {
     return Object.entries(tileSelectStates).findIndex(
       ([, value]) => value === true
@@ -146,54 +154,43 @@ const Technologies = ({ intl }) => {
     </Tile>
   );
 
+  const renderDescBox = (boxNumber, heading, desc) => (
+    <>
+      <h2>{boxNumber}</h2>
+      <div>
+        <h3>{`${intl.formatMessage({
+          id: `${heading}L1`,
+        })} ${intl.formatMessage({ id: `${heading}L2` })}`}</h3>
+        <p>{intl.formatMessage({ id: desc })}</p>
+      </div>
+    </>
+  );
+
   return (
     <Section>
       <h2 lang={intl.locale}>{intl.formatMessage({ id: "techHeading" })}</h2>
       <DescBox>
-        {tileSelectStates.finance && (
-          <>
-            <h2>01/</h2>
-            <div>
-              <h3>{`${intl.formatMessage({
-                id: "techTileFinanceL1",
-              })} ${intl.formatMessage({ id: "techTileFinanceL2" })}`}</h3>
-              <p>{intl.formatMessage({ id: "techFinanceDesc" })}</p>
-            </div>
-          </>
+        {tileSelectStates.finance &&
+          renderDescBox("01/", "techTileFinance", "techFinanceDesc")}
+        {tileSelectStates.ai &&
+          renderDescBox("02/", "techTileArtificial", "techAiDesc")}
+        {tileSelectStates.imaging &&
+          renderDescBox("03/", "techTileImaging", "techImagingDesc")}
+        {tileSelectStates.enterprise &&
+          renderDescBox("04/", "techTileEnterprise", "techEnterpriseDesc")}
+        {isTileSelected() && (
+          <ControlBox>
+            <a href="#" onClick={e => next(e)}>
+              <TechRightArrow hoverState={false} />
+            </a>
+            <a href="#" onClick={e => previous(e)}>
+              <TechLeftArrow hoverState={false} onClick={e => previous(e)} />
+            </a>
+            <a href="#" onClick={e => closeSelected(e)}>
+              <TechClose hoverState={false} onClick={e => previous(e)} />
+            </a>
+          </ControlBox>
         )}
-        {tileSelectStates.ai && (
-          <p>{intl.formatMessage({ id: "techAiDesc" })}</p>
-        )}
-        {tileSelectStates.imaging && (
-          <p>{intl.formatMessage({ id: "techImagingDesc" })}</p>
-        )}
-        {tileSelectStates.enterprise && (
-          <p>{intl.formatMessage({ id: "techEnterpriseDesc" })}</p>
-        )}
-        <ControlBox>
-          {isTileSelected() && (
-            <FaCaretLeft
-              css={{
-                cursor: `pointer`,
-                fontSize: `10rem`,
-                color: `var(--primary-color)`,
-                userSelect: `none`,
-              }}
-              onClick={e => previous(e)}
-            />
-          )}
-          {isTileSelected() && (
-            <FaCaretRight
-              css={{
-                cursor: `pointer`,
-                fontSize: `10rem`,
-                color: `var(--primary-color)`,
-                userSelect: `none`,
-              }}
-              onClick={e => next(e)}
-            />
-          )}
-        </ControlBox>
       </DescBox>
       <CardBox>
         {renderTile(
