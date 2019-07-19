@@ -8,7 +8,7 @@ import { Section } from "../css/style";
 
 import {
   TechFinanceTile,
-  TechAiTile,
+  TechAIMLTile,
   TechImagingTile,
   TechEnterpriseTile,
   TechLeftArrow,
@@ -203,7 +203,7 @@ const Technologies = ({ intl }) => {
         )}
         {renderTile(
           "ai",
-          <TechAiTile
+          <TechAIMLTile
             intl={intl}
             hoverState={tileHoverStates.ai}
             selectState={tileSelectStates.ai}
