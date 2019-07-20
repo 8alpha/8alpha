@@ -54,6 +54,10 @@ const ControlBox = styled.div`
     justify-content: space-between;
     margin-left: 0;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 const CardBox = styled.div`
@@ -150,6 +154,7 @@ const Technologies = ({ intl }) => {
   const closeSelected = event => {
     event.preventDefault();
     setSelectState({ ...defaultTileSelectStates, ...defaultTileSelectStates });
+    setCtlHoverState({ ...defaultCtlHoverStates, ...defaultCtlHoverStates });
   };
 
   const findSelectedTileIndex = () => {
@@ -213,6 +218,7 @@ const Technologies = ({ intl }) => {
   const renderControl = (key, fn1, fn2) => (
     <a
       href="#"
+      style={{ textDecoration: "none" }}
       onMouseEnter={() => handleCtlHover(true, key)}
       onMouseLeave={() => handleCtlHover(false, key)}
       onClick={e => fn1(e)}
