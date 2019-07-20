@@ -5,19 +5,15 @@ import { themeColors } from "../resources/theme.js";
 
 const tileBackground = "061E2A";
 
-export const TechLeftArrow = hoverState => (
-  <svg width="180" height="120" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" fillRule="evenodd">
+export const TechLeftArrow = ({ hoverState }) => (
+  <svg width="90" height="60" xmlns="http://www.w3.org/2000/svg">
+    <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
-        d="M.5.5V100c0 10.77 8.73 19.5 19.5 19.5h159.5V20C179.5 9.23 170.77.5 160 .5H.5z"
+        d="M.5.5V40C.5 50.77 9.23 59.5 20 59.5h69.5V20C89.5 9.23 80.77.5 70 .5H.5z"
         stroke="#8B8B8D"
-        transform="scale(0.5, 0.5)"
       />
       <g stroke="#979797" strokeLinecap="square" strokeWidth="4">
-        <path
-          transform="scale(0.5, 0.5)"
-          d="M129.658 85.256L50.513 56.88M50.513 56.88l79.145-21.538"
-        />
+        <path d="M64.83 42.628L25.255 28.44M25.256 28.44L64.83 17.67" />
       </g>
     </g>
   </svg>
@@ -27,19 +23,15 @@ TechLeftArrow.propTypes = {
   hoverState: PropTypes.bool.isRequired,
 };
 
-export const TechRightArrow = hoverState => (
-  <svg width="180" height="120" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" fillRule="evenodd">
+export const TechRightArrow = ({ hoverState }) => (
+  <svg width="90" height="60" xmlns="http://www.w3.org/2000/svg">
+    <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
-        d="M.5.5V100c0 10.77 8.73 19.5 19.5 19.5h159.5V20C179.5 9.23 170.77.5 160 .5H.5z"
+        d="M.5.5V40C.5 50.77 9.23 59.5 20 59.5h69.5V20C89.5 9.23 80.77.5 70 .5H.5z"
         stroke="#8B8B8D"
-        transform="scale(0.5, 0.5)"
       />
       <g stroke="#979797" strokeLinecap="square" strokeWidth="4">
-        <path
-          transform="scale(0.5, 0.5)"
-          d="M50.342 35.342l79.145 28.376M129.487 63.718L50.342 85.256"
-        />
+        <path d="M25.17 17.67L64.745 31.86M64.744 31.859L25.17 42.629" />
       </g>
     </g>
   </svg>
@@ -49,19 +41,15 @@ TechRightArrow.propTypes = {
   hoverState: PropTypes.bool.isRequired,
 };
 
-export const TechClose = hoverState => (
-  <svg width="180" height="120" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" fillRule="evenodd">
+export const TechClose = ({ hoverState }) => (
+  <svg width="90" height="60" xmlns="http://www.w3.org/2000/svg">
+    <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
-        d="M.5.5V100c0 10.77 8.73 19.5 19.5 19.5h159.5V20C179.5 9.23 170.77.5 160 .5H.5z"
+        d="M.5.5V40C.5 50.77 9.23 59.5 20 59.5h69.5V20C89.5 9.23 80.77.5 70 .5H.5z"
         stroke="#8B8B8D"
-        transform="scale(0.5, 0.5)"
       />
       <g stroke="#979797" strokeLinecap="square" strokeWidth="4">
-        <path
-          transform="scale(0.5, 0.5)"
-          d="M129.487 35.342L50.183 82.369M50.342 35.342l79.145 49.914"
-        />
+        <path d="M64.744 17.67L25.092 41.185M25.17 17.67l39.574 24.958" />
       </g>
     </g>
   </svg>

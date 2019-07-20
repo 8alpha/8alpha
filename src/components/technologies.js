@@ -17,23 +17,50 @@ import {
 } from "../resources/techTiles";
 
 const DescBox = styled.div`
-  margin: auto;
   width: 80%;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 10fr 1fr;
   grid-template-rows: auto;
+  grid-column-gap: 3vh;
+
+  h3 {
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .number {
+    color: var(--ternary-color);
+  }
+
+  @media screen and (max-width: 599px) {
+    margin-left: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 2vh;
+  }
 `;
 
 const ControlBox = styled.div`
+  min-height: 16vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+
+  @media screen and (max-width: 599px) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-left: 0;
+  }
 `;
 
 const CardBox = styled.div`
+  width: 80%;
   margin: auto;
-  width: 50%;
   display: grid;
+  margin-top: 2rem;
 
   @media screen and (max-width: 599px) {
     margin-left: 0;
@@ -49,9 +76,9 @@ const CardBox = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-gap: 2vh 2vw;
+    grid-gap: 2vh 3vw;
   }
 `;
 
@@ -76,8 +103,15 @@ const Technologies = ({ intl }) => {
     enterprise: false,
   };
 
+  const defaultCtlHoverStates = {
+    leftArrow: false,
+    rightArrow: false,
+    close: false,
+  };
+
   const [tileSelectStates, setSelectState] = useState(defaultTileSelectStates);
-  const [tileHoverStates, setHoverState] = useState(defaultTileHoverStates);
+  const [tileHoverStates, setTileHoverState] = useState(defaultTileHoverStates);
+  const [ctlHoverStates, setCtlHoverState] = useState(defaultCtlHoverStates);
 
   const handleTileSelect = (e, tileName) => {
     e.preventDefault();
@@ -93,14 +127,24 @@ const Technologies = ({ intl }) => {
     setSelectState({ ...defaultTileSelectStates, ...tileSelectStates });
   };
 
-  const handleHover = (hoverState, tile) => {
+  const handleTileHover = (hoverState, tile) => {
     Object.entries(tileHoverStates).map(([key]) => {
       if (key === tile) {
         tileHoverStates[key] = hoverState;
       }
     });
 
-    setHoverState({ ...defaultTileHoverStates, ...tileHoverStates });
+    setTileHoverState({ ...defaultTileHoverStates, ...tileHoverStates });
+  };
+
+  const handleCtlHover = (hoverState, control) => {
+    Object.entries(ctlHoverStates).map(([key]) => {
+      if (key === control) {
+        ctlHoverStates[key] = hoverState;
+      }
+    });
+
+    setCtlHoverState({ ...defaultCtlHoverStates, ...ctlHoverStates });
   };
 
   const closeSelected = event => {
@@ -145,8 +189,8 @@ const Technologies = ({ intl }) => {
 
   const renderTile = (tile, tileFn) => (
     <Tile
-      onMouseEnter={() => handleHover(true, tile)}
-      onMouseLeave={() => handleHover(false, tile)}
+      onMouseEnter={() => handleTileHover(true, tile)}
+      onMouseLeave={() => handleTileHover(false, tile)}
     >
       <a href="#" onClick={e => handleTileSelect(e, tile)}>
         {tileFn}
@@ -156,7 +200,7 @@ const Technologies = ({ intl }) => {
 
   const renderDescBox = (boxNumber, heading, desc) => (
     <>
-      <h2>{boxNumber}</h2>
+      <h3 className="number">{boxNumber}</h3>
       <div>
         <h3>{`${intl.formatMessage({
           id: `${heading}L1`,
@@ -166,6 +210,17 @@ const Technologies = ({ intl }) => {
     </>
   );
 
+  const renderControl = (key, fn1, fn2) => (
+    <a
+      href="#"
+      onMouseEnter={() => handleCtlHover(true, key)}
+      onMouseLeave={() => handleCtlHover(false, key)}
+      onClick={e => fn1(e)}
+    >
+      {fn2}
+    </a>
+  );
+
   return (
     <Section>
       <h2 lang={intl.locale}>{intl.formatMessage({ id: "techHeading" })}</h2>
@@ -173,22 +228,28 @@ const Technologies = ({ intl }) => {
         {tileSelectStates.finance &&
           renderDescBox("01/", "techTileFinance", "techFinanceDesc")}
         {tileSelectStates.ai &&
-          renderDescBox("02/", "techTileArtificial", "techAiDesc")}
+          renderDescBox("02/", "techTileAIML", "techAiDesc")}
         {tileSelectStates.imaging &&
           renderDescBox("03/", "techTileImaging", "techImagingDesc")}
         {tileSelectStates.enterprise &&
           renderDescBox("04/", "techTileEnterprise", "techEnterpriseDesc")}
         {isTileSelected() && (
           <ControlBox>
-            <a href="#" onClick={e => next(e)}>
-              <TechRightArrow hoverState={false} />
-            </a>
-            <a href="#" onClick={e => previous(e)}>
-              <TechLeftArrow hoverState={false} onClick={e => previous(e)} />
-            </a>
-            <a href="#" onClick={e => closeSelected(e)}>
-              <TechClose hoverState={false} onClick={e => previous(e)} />
-            </a>
+            {renderControl(
+              "rightArrow",
+              next,
+              <TechRightArrow hoverState={ctlHoverStates.rightArrow} />
+            )}
+            {renderControl(
+              "leftArrow",
+              previous,
+              <TechLeftArrow hoverState={ctlHoverStates.leftArrow} />
+            )}
+            {renderControl(
+              "close",
+              closeSelected,
+              <TechClose hoverState={ctlHoverStates.close} />
+            )}
           </ControlBox>
         )}
       </DescBox>
