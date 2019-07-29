@@ -11,12 +11,8 @@ import {
 } from "../resources/processTiles";
 
 const ProcessBox = styled.div`
-  margin-left: 7rem;
-  margin-right: 7rem;
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr;
-    * grid-template-rows: auto;
-    */
+
   @media screen and (max-width: 599px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -46,7 +42,7 @@ const ProcessCard = styled.div`
     p {
     margin-top: 0.25rem;
     font-size: 1.5rem;
-    width: 80%;
+    width: 65%;
     }
 
     h3 {
@@ -55,29 +51,7 @@ const ProcessCard = styled.div`
     }
 `;
 
-const Tile = styled.div`
-  /* animation: fadeout 0.5s normal 1;
-    * @keyframes fadeout {
-    *   from {
-    *     opacity: 0;
-    *   }
-    *   to {
-    *     opacity: 1;
-    *   }
-    * }
-
-    * &:hover {
-    *   animation: fadein 0.5s normal 1;
-    *   @keyframes fadein {
-    *     from {
-    *       opacity: 0;
-    *     }
-    *     to {
-    *       opacity: 1;
-    *     }
-    *   }
-    * } */
-`;
+const Tile = styled.div``;
 
 const Process = ({ intl }) => {
   const defaultTileHoverStates = {
