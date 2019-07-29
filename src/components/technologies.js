@@ -43,7 +43,8 @@ const DescBox = styled.div`
 `;
 
 const ControlBox = styled.div`
-  min-height: 12vh;
+  min-height: 14vh;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

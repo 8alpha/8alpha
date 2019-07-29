@@ -62,7 +62,7 @@ export const TechFinanceTile = ({ intl, hoverState, selectState }) => (
     <g
       fill={
         selectState
-          ? themeColors.background
+          ? themeColors.ternary
           : hoverState
           ? themeColors.ternary
           : themeColors.background
@@ -76,7 +76,7 @@ export const TechFinanceTile = ({ intl, hoverState, selectState }) => (
       <g
         fill={
           selectState
-            ? themeColors.ternary
+            ? themeColors.background
             : hoverState
             ? themeColors.background
             : themeColors.ternary
@@ -136,7 +136,7 @@ export const TechAIMLTile = ({ intl, hoverState, selectState }) => (
     <g
       fill={
         selectState
-          ? themeColors.background
+          ? themeColors.ternary
           : hoverState
           ? themeColors.ternary
           : themeColors.background
@@ -150,7 +150,7 @@ export const TechAIMLTile = ({ intl, hoverState, selectState }) => (
       <g
         fill={
           selectState
-            ? themeColors.ternary
+            ? themeColors.background
             : hoverState
             ? themeColors.background
             : themeColors.ternary
@@ -209,7 +209,7 @@ export const TechImagingTile = ({ intl, hoverState, selectState }) => (
     <g
       fill={
         selectState
-          ? themeColors.background
+          ? themeColors.ternary
           : hoverState
           ? themeColors.ternary
           : themeColors.background
@@ -223,7 +223,7 @@ export const TechImagingTile = ({ intl, hoverState, selectState }) => (
       <g
         fill={
           selectState
-            ? themeColors.ternary
+            ? themeColors.background
             : hoverState
             ? themeColors.background
             : themeColors.ternary
@@ -283,7 +283,7 @@ export const TechEnterpriseTile = ({ intl, hoverState, selectState }) => (
     <g
       fill={
         selectState
-          ? themeColors.background
+          ? themeColors.ternary
           : hoverState
           ? themeColors.ternary
           : themeColors.background
@@ -297,7 +297,7 @@ export const TechEnterpriseTile = ({ intl, hoverState, selectState }) => (
       <g
         fill={
           selectState
-            ? themeColors.ternary
+            ? themeColors.background
             : hoverState
             ? themeColors.background
             : themeColors.ternary
