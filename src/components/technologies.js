@@ -19,6 +19,7 @@ import {
 const DescBox = styled.div`
   width: 80%;
   margin: auto;
+
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
   grid-template-rows: auto;
@@ -43,7 +44,7 @@ const DescBox = styled.div`
 `;
 
 const ControlBox = styled.div`
-  min-height: 16vh;
+  min-height: 12vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -57,10 +58,7 @@ const ControlBox = styled.div`
 `;
 
 const CardBox = styled.div`
-  width: 80%;
-  margin: auto;
   display: grid;
-  margin-top: 2rem;
 
   @media screen and (max-width: 599px) {
     margin-left: 0;
@@ -70,13 +68,17 @@ const CardBox = styled.div`
   }
 
   @media screen and (min-width: 600px) {
+    width: 80%;
+    margin: 2rem auto auto auto;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 2vh 2vw;
   }
 
   @media screen and (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    margin-top: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 2vh 3vw;
   }
@@ -224,6 +226,8 @@ const Technologies = ({ intl }) => {
   return (
     <Section>
       <h2 lang={intl.locale}>{intl.formatMessage({ id: "techHeading" })}</h2>
+      <p lang={intl.locale}>{intl.formatMessage({ id: "techBodyP1" })}</p>
+      <p lang={intl.locale}>{intl.formatMessage({ id: "techBodyP2" })}</p>
       <DescBox>
         {tileSelectStates.finance &&
           renderDescBox("01/", "techTileFinance", "techFinanceDesc")}

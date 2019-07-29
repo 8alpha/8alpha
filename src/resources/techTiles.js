@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 
 import { themeColors } from "../resources/theme.js";
 
-const tileBackground = "061E2A";
-
 export const TechLeftArrow = ({ hoverState }) => (
   <svg width="75" height="50" xmlns="http://www.w3.org/2000/svg">
     <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
@@ -43,7 +41,7 @@ TechRightArrow.propTypes = {
 
 export const TechClose = ({ hoverState }) => (
   <svg width="75" height="50" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" fillRule="evenodd">
+    <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
         d="M.5.5V30C.5 40.77 9.23 49.5 20 49.5h54.5V20C74.5 9.23 65.77.5 55 .5H.5z"
         stroke="#8B8B8D"
