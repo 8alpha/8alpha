@@ -54,7 +54,7 @@ export const ProcessDiscoveryTile = ({ intl, hoverState }) => (
       <g fill="none" fillRrule="evenodd">
         <path
           d="M1 1v119.498c0 10.494 8.507 19 19 19h189V20c0-10.493-8.507-19-19-19H1z"
-          stroke={themeColors.primary}
+          stroke="none"
           strokeWidth="2"
           fill={themeColors.ternary}
         />
