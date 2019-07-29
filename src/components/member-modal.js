@@ -272,7 +272,7 @@ const MemberModal = ({ member, intl }) => {
         },
       }}
     >
-      <CloseIcon onClick={() => navigate("/team/")}>{close}</CloseIcon>
+      <CloseIcon onClick={() => navigate("/")}>{close}</CloseIcon>
       <CaretBox css={{ gridArea: `caretLeft` }}>
         <FaCaretLeft
           css={{

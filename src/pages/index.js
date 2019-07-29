@@ -2,16 +2,14 @@ import React from "react";
 
 import Layout from "../components/layout";
 import About from "../components/about";
-import Technologies from "../components/technologies.js";
-import Process from "../components/process.js";
-import Services from "../components/services.js";
+import Technologies from "../components/technologies";
+import Team from "../pages/team";
 
 const Home = () => (
   <Layout location="/">
     <About />
     <Technologies />
-    <Process />
-    <Services />
+    <Team />
   </Layout>
 );
 
