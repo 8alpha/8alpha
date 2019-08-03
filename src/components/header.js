@@ -75,9 +75,7 @@ const HeaderSection = ({ location, className, intl }) => {
             )}
           </NavBarLogo>
           <Spacer />
-          <NavBarLink to="/team/" activeStyle={activeStyles}>
-            {intl.formatMessage({ id: "navBarTeam" })}
-          </NavBarLink>
+          {intl.formatMessage({ id: "navBarTeam" })}
           <Language locale={intl.locale} />
         </NavBar>
         <Description>

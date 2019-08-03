@@ -6,17 +6,26 @@ import styled from "styled-components";
 import { injectIntl, Link } from "gatsby-plugin-intl";
 
 import { Section } from "../css/style";
-import Layout from "../components/layout";
 
 const PhotosContainer = styled.div`
   display: grid;
   grid-gap: 2vh 2vw;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
 
   @media screen and (max-width: 599px) {
-    grid-gap: 2vh 2vw;
-    grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 80%;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+    margin: auto;
+    grid-template-columns: repeat(5, 1fr);
   }
 `;
 
@@ -95,14 +104,12 @@ const Team = ({ intl }) => {
     });
 
   return (
-    <Layout location="/team/">
-      <Section>
-        <h2 lang={intl.locale}>{intl.formatMessage({ id: "teamHeading" })}</h2>
-        <PhotosContainer>
-          <Photos />
-        </PhotosContainer>
-      </Section>
-    </Layout>
+    <Section>
+      <h2 lang={intl.locale}>{intl.formatMessage({ id: "teamHeading" })}</h2>
+      <PhotosContainer>
+        <Photos />
+      </PhotosContainer>
+    </Section>
   );
 };
 

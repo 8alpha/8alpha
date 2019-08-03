@@ -40,6 +40,13 @@ export const Button = styled.div`
   }
 `;
 
+export const TwoColumns = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowraup;
+  justify-content: flex-start;
+`;
+
 export const IntlLink = styled(Link)`
   font-size: var(--p-font-size);
   color: var(--primary-color);
@@ -57,6 +64,19 @@ export const IntlLink = styled(Link)`
   &:lang(ja) {
     font-family: "Noto Sans JP", sans-serif;
     letter-spacing: normal;
+  }
+`;
+
+export const UList = styled.ul`
+  list-style-type: circle;
+  color: var(--primary-color);
+  letter-spacing: var(--p-letter-spacing);
+  font-size: var(--p-font-size);
+
+  &:lang(ja) {
+    font-family: "Noto Sans JP", sans-serif;
+    letter-spacing: normal;
+    text-transform: none;
   }
 `;
 

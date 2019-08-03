@@ -36,7 +36,6 @@ const DescBox = styled.div`
   }
 
   @media screen and (max-width: 599px) {
-    margin-left: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-row-gap: 2vh;
@@ -44,7 +43,8 @@ const DescBox = styled.div`
 `;
 
 const ControlBox = styled.div`
-  min-height: 12vh;
+  min-height: 14vh;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,28 +63,23 @@ const ControlBox = styled.div`
 
 const CardBox = styled.div`
   display: grid;
+  grid-gap: 2vh 2vw;
+  grid-template-rows: auto;
 
   @media screen and (max-width: 599px) {
-    margin-left: 0;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-gap: 2vh 2vw;
   }
 
   @media screen and (min-width: 600px) {
     width: 80%;
-    margin: 2rem auto auto auto;
+    margin: auto;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    grid-gap: 2vh 2vw;
   }
 
   @media screen and (min-width: 1200px) {
     width: 100%;
-    margin-top: 2rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-gap: 2vh 3vw;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
 
