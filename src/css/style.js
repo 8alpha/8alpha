@@ -41,10 +41,10 @@ export const Button = styled.div`
 `;
 
 export const TwoColumns = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowraup;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 2vh 2vw;
 `;
 
 export const IntlLink = styled(Link)`
@@ -70,8 +70,9 @@ export const IntlLink = styled(Link)`
 export const UList = styled.ul`
   list-style-type: circle;
   color: var(--primary-color);
-  letter-spacing: var(--p-letter-spacing);
-  font-size: var(--p-font-size);
+  letter-spacing: calc(var(--p-letter-spacing) * 1.1);
+  font-size: calc(var(--p-font-size) * 1.1);
+  line-height: 3rem;
 
   &:lang(ja) {
     font-family: "Noto Sans JP", sans-serif;
