@@ -42,9 +42,22 @@ export const Button = styled.div`
 
 export const TwoColumns = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-gap: 2vh 2vw;
+
+  @media screen and (max-width: 599px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 2vw;
+  }
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 2vw;
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1vh;
+  }
 `;
 
 export const IntlLink = styled(Link)`

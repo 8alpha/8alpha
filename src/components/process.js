@@ -11,26 +11,6 @@ import {
 } from "../resources/processTiles";
 
 const ProcessBox = styled.div`
-  /* display: grid;
-
-    * @media screen and (max-width: 599px) {
-    *   grid-template-columns: 1fr;
-    *   grid-template-rows: auto;
-    *   grid-gap: 2vh 2vw;
-    * }
-
-    * @media screen and (min-width: 600px) {
-    *   grid-template-columns: 1fr;
-    *   grid-template-rows: auto;
-    *   grid-gap: 2vh 2vw;
-    * }
-
-    * @media screen and (min-width: 1200px) {
-    *   grid-template-columns: 1fr;
-    *   grid-template-rows: auto;
-    *   grid-gap: 2vh 2vw;
-    * } */
-
   display: flex;
   flex-direction: column;
   flex-wrap: no-wrap;
