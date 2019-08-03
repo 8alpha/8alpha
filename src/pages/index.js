@@ -6,7 +6,6 @@ import Process from "../components/process.js";
 import Industries from "../components/industries";
 import Layout from "../components/layout";
 import Team from "../pages/team";
-import Technologies from "../components/technologies";
 import { TwoColumns } from "../css/style";
 
 const Home = () => (
