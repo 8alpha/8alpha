@@ -230,14 +230,14 @@ const Technologies = ({ intl }) => {
       <p lang={intl.locale}>{intl.formatMessage({ id: "techBodyP1" })}</p>
       <p lang={intl.locale}>{intl.formatMessage({ id: "techBodyP2" })}</p>
       <DescBox>
-        {tileSelectStates.finance &&
-          renderDescBox("01/", "techTileFinance", "techFinanceDesc")}
-        {tileSelectStates.ai &&
-          renderDescBox("02/", "techTileAIML", "techAiDesc")}
         {tileSelectStates.imaging &&
           renderDescBox("03/", "techTileImaging", "techImagingDesc")}
+        {tileSelectStates.ai &&
+          renderDescBox("02/", "techTileAIML", "techAiDesc")}
         {tileSelectStates.enterprise &&
           renderDescBox("04/", "techTileEnterprise", "techEnterpriseDesc")}
+        {tileSelectStates.finance &&
+          renderDescBox("01/", "techTileFinance", "techFinanceDesc")}
         {isTileSelected() && (
           <ControlBox>
             {renderControl(
@@ -260,13 +260,14 @@ const Technologies = ({ intl }) => {
       </DescBox>
       <CardBox>
         {renderTile(
-          "finance",
-          <TechFinanceTile
+          "imaging",
+          <TechImagingTile
             intl={intl}
-            hoverState={tileHoverStates.finance}
-            selectState={tileSelectStates.finance}
+            hoverState={tileHoverStates.imaging}
+            selectState={tileSelectStates.imaging}
           />
         )}
+
         {renderTile(
           "ai",
           <TechAIMLTile
@@ -277,20 +278,20 @@ const Technologies = ({ intl }) => {
         )}
 
         {renderTile(
-          "imaging",
-          <TechImagingTile
-            intl={intl}
-            hoverState={tileHoverStates.imaging}
-            selectState={tileSelectStates.imaging}
-          />
-        )}
-
-        {renderTile(
           "enterprise",
           <TechEnterpriseTile
             intl={intl}
             hoverState={tileHoverStates.enterprise}
             selectState={tileSelectStates.enterprise}
+          />
+        )}
+
+        {renderTile(
+          "finance",
+          <TechFinanceTile
+            intl={intl}
+            hoverState={tileHoverStates.finance}
+            selectState={tileSelectStates.finance}
           />
         )}
       </CardBox>

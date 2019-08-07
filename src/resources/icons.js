@@ -13,6 +13,19 @@ export const contact = (
   </svg>
 );
 
+export const industryListBullet = (
+  <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+    <circle
+      stroke="#8B8B8D"
+      fill="#C32C4B"
+      cx="4"
+      cy="4"
+      r="3.5"
+      fillRule="evenodd"
+    />
+  </svg>
+);
+
 export const linkedIn = (
   <svg width="44" height="44" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fillRule="evenodd">

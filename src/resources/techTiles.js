@@ -117,7 +117,7 @@ export const TechFinanceTile = ({ intl, hoverState, selectState }) => (
           transform="translate(17 10.48)"
         >
           <tspan x="7.318" y="17">
-            01 /
+            04 /
           </tspan>
         </text>
       </g>
@@ -264,7 +264,7 @@ export const TechImagingTile = ({ intl, hoverState, selectState }) => (
           transform="translate(21 14)"
         >
           <tspan x="2.818" y="17">
-            03 /
+            01 /
           </tspan>
         </text>
       </g>
@@ -335,7 +335,7 @@ export const TechEnterpriseTile = ({ intl, hoverState, selectState }) => (
           transform="translate(21 14)"
         >
           <tspan x="2.818" y="17">
-            04 /
+            03 /
           </tspan>
         </text>
       </g>

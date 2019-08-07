@@ -81,11 +81,13 @@ export const IntlLink = styled(Link)`
 `;
 
 export const UList = styled.ul`
-  list-style-type: circle;
+  list-style: none;
   color: var(--primary-color);
   letter-spacing: calc(var(--p-letter-spacing) * 1.1);
-  font-size: calc(var(--p-font-size) * 1.1);
+  font-size: calc(var(--p-font-size) * 1);
   line-height: 3rem;
+  margin: 0;
+  padding: 0;
 
   &:lang(ja) {
     font-family: "Noto Sans JP", sans-serif;

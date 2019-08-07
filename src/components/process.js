@@ -30,10 +30,10 @@ const ProcessText = styled.div`
   p {
     margin-top: 0.75rem;
     margin-right: 2rem;
+    font-size: calc(var(--p-font-size) * 0.8);
   }
 
   h3 {
-    font-size: calc(var(--h3-font-size) * 1.2);
     margin-top: 0;
     padding-top: 0;
     margin-bottom: 0;
