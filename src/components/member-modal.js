@@ -13,7 +13,7 @@ import { close, linkedIn, twitter } from "../resources/icons";
 const Modal = styled(ReactModal)`
   border: 2px solid var(--primary-color);
   width: 70%;
-  margin: 20rem auto;
+  margin: 5rem auto;
   padding: 1.5rem;
   outline: 0;
 

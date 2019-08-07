@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 import { themeColors } from "../resources/theme.js";
 
 export const TechLeftArrow = ({ hoverState }) => (
-  <svg width="75" height="50" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="75"
+    height="50"
+    xmlns="http://www.w3.org/2000/svg"
+    transform="scale(0.9)"
+  >
     <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
         d="M.5.5V30C.5 40.77 9.23 49.5 20 49.5h54.5V20C74.5 9.23 65.77.5 55 .5H.5z"
@@ -22,7 +27,12 @@ TechLeftArrow.propTypes = {
 };
 
 export const TechRightArrow = ({ hoverState }) => (
-  <svg width="75" height="50" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="75"
+    height="50"
+    xmlns="http://www.w3.org/2000/svg"
+    transform="scale(0.9)"
+  >
     <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
         d="M.5.5V30C.5 40.77 9.23 49.5 20 49.5h54.5V20C74.5 9.23 65.77.5 55 .5H.5z"
@@ -40,7 +50,12 @@ TechRightArrow.propTypes = {
 };
 
 export const TechClose = ({ hoverState }) => (
-  <svg width="75" height="50" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="75"
+    height="50"
+    xmlns="http://www.w3.org/2000/svg"
+    transform="scale(0.9)"
+  >
     <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
         d="M.5.5V30C.5 40.77 9.23 49.5 20 49.5h54.5V20C74.5 9.23 65.77.5 55 .5H.5z"

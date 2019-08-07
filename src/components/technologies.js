@@ -91,17 +91,17 @@ const Tile = styled.div`
 
 const Technologies = ({ intl }) => {
   const defaultTileSelectStates = {
-    finance: false,
-    ai: false,
     imaging: false,
+    ai: false,
     enterprise: false,
+    finance: false,
   };
 
   const defaultTileHoverStates = {
-    finance: false,
-    ai: false,
     imaging: false,
+    ai: false,
     enterprise: false,
+    finance: false,
   };
 
   const defaultCtlHoverStates = {
@@ -231,13 +231,13 @@ const Technologies = ({ intl }) => {
       <p lang={intl.locale}>{intl.formatMessage({ id: "techBodyP2" })}</p>
       <DescBox>
         {tileSelectStates.imaging &&
-          renderDescBox("03/", "techTileImaging", "techImagingDesc")}
+          renderDescBox("01/", "techTileImaging", "techImagingDesc")}
         {tileSelectStates.ai &&
           renderDescBox("02/", "techTileAIML", "techAiDesc")}
         {tileSelectStates.enterprise &&
-          renderDescBox("04/", "techTileEnterprise", "techEnterpriseDesc")}
+          renderDescBox("03/", "techTileEnterprise", "techEnterpriseDesc")}
         {tileSelectStates.finance &&
-          renderDescBox("01/", "techTileFinance", "techFinanceDesc")}
+          renderDescBox("04/", "techTileFinance", "techFinanceDesc")}
         {isTileSelected() && (
           <ControlBox>
             {renderControl(

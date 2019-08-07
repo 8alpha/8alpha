@@ -15,93 +15,49 @@ const ListBox = styled.div`
   align-items: baseline;
 `;
 
-const Industries = ({ intl }) => (
-  <Section lang={intl.locale}>
-    <h2>{intl.formatMessage({ id: "industriesHeading" })}</h2>
-    <p>{intl.formatMessage({ id: "industriesBody" })}</p>
-    <ListBox>
-      <UList>
-        <li>
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListAgricultureFood" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListArchitecture" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListConstruction" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListDesign" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListEngineering" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListFilm" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListGames" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListInsurance" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet} {intl.formatMessage({ id: "industriesListLaw" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListLogistics" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListManufacturing" })}
-        </li>
-      </UList>
-      <UList>
-        <li>
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListMediaEntertainment" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListProperty" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListTransportation" })}
-        </li>
-        <li>
-          {" "}
-          {industryListBullet}{" "}
-          {intl.formatMessage({ id: "industriesListVCPrivateEquity" })}
-        </li>
-      </UList>
-    </ListBox>
-  </Section>
-);
+const Industries = ({ intl }) => {
+  const industryList1 = [
+    "industriesListAgricultureFood",
+    "industriesListArchitecture",
+    "industriesListConstruction",
+    "industriesListDesign",
+    "industriesListEngineering",
+    "industriesListFilm",
+    "industriesListGames",
+    "industriesListInsurance",
+    "industriesListLaw",
+    "industriesListLogistics",
+    "industriesListManufacturing",
+  ];
+
+  const industryList2 = [
+    "industriesListMediaEntertainment",
+    "industriesListProperty",
+    "industriesListTransportation",
+    "industriesListVCPrivateEquity",
+  ];
+
+  const renderList = industryList =>
+    industryList.map(x => (
+      <li key={x}>
+        {industryListBullet} {intl.formatMessage({ id: x })}
+      </li>
+    ));
+
+  return (
+    <Section lang={intl.locale}>
+      <h2>{intl.formatMessage({ id: "industriesHeading" })}</h2>
+      <p>{intl.formatMessage({ id: "industriesBody" })}</p>
+      <ListBox>
+        <UList>{renderList(industryList1)}</UList>
+        <UList>{renderList(industryList2)}</UList>
+      </ListBox>
+    </Section>
+  );
+};
 
 Industries.propTypes = {
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
 };
 
 export default injectIntl(Industries);
