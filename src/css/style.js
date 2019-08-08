@@ -56,7 +56,7 @@ export const TwoColumns = styled.div`
 
   @media screen and (min-width: 1200px) {
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 1vh;
+    grid-column-gap: 1vw;
   }
 `;
 
@@ -93,6 +93,7 @@ export const UList = styled.ul`
     font-family: "Noto Sans JP", sans-serif;
     letter-spacing: normal;
     text-transform: none;
+    font-size: calc(var(--p-font-size) * 0.9);
   }
 `;
 

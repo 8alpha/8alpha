@@ -31,6 +31,11 @@ const ProcessText = styled.div`
     margin-top: 0.75rem;
     margin-right: 2rem;
     font-size: calc(var(--p-font-size) * 0.8);
+
+    &:lang(ja) {
+      font-family: "Noto Sans JP", sans-serif;
+      letter-spacing: normal;
+    }
   }
 
   h3 {
@@ -38,6 +43,11 @@ const ProcessText = styled.div`
     padding-top: 0;
     margin-bottom: 0;
     margin-right: 2rem;
+
+    &:lang(ja) {
+      font-family: "Noto Sans JP", sans-serif;
+      letter-spacing: normal;
+    }
   }
 `;
 
@@ -76,10 +86,12 @@ const Process = ({ intl }) => {
           {tileFn}
         </Tile>
         <ProcessText>
-          <h3>
+          <h3 lang={intl.locale}>
             {intl.formatMessage({ id: `process${toUpperCase()}Heading` })}
           </h3>
-          <p>{intl.formatMessage({ id: `process${toUpperCase()}Body` })}</p>
+          <p lang={intl.locale}>
+            {intl.formatMessage({ id: `process${toUpperCase()}Body` })}
+          </p>
         </ProcessText>
       </ProcessCard>
     );

@@ -45,12 +45,14 @@ const Industries = ({ intl }) => {
     ));
 
   return (
-    <Section lang={intl.locale}>
-      <h2>{intl.formatMessage({ id: "industriesHeading" })}</h2>
-      <p>{intl.formatMessage({ id: "industriesBody" })}</p>
+    <Section>
+      <h2 lang={intl.locale}>
+        {intl.formatMessage({ id: "industriesHeading" })}
+      </h2>
+      <p lang={intl.locale}>{intl.formatMessage({ id: "industriesBody" })}</p>
       <ListBox>
-        <UList>{renderList(industryList1)}</UList>
-        <UList>{renderList(industryList2)}</UList>
+        <UList lang={intl.locale}>{renderList(industryList1)}</UList>
+        <UList lang={intl.locale}>{renderList(industryList2)}</UList>
       </ListBox>
     </Section>
   );

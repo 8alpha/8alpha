@@ -202,12 +202,14 @@ const Technologies = ({ intl }) => {
 
   const renderDescBox = (boxNumber, heading, desc) => (
     <>
-      <h3 className="number">{boxNumber}</h3>
+      <h3 lang={intl.locale} className="number">
+        {boxNumber}
+      </h3>
       <div>
-        <h3>{`${intl.formatMessage({
+        <h3 lang={intl.locale}>{`${intl.formatMessage({
           id: `${heading}L1`,
         })} ${intl.formatMessage({ id: `${heading}L2` })}`}</h3>
-        <p>{intl.formatMessage({ id: desc })}</p>
+        <p lang={intl.locale}>{intl.formatMessage({ id: desc })}</p>
       </div>
     </>
   );
