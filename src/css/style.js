@@ -46,12 +46,12 @@ export const TwoColumns = styled.div`
 
   @media screen and (max-width: 599px) {
     grid-template-columns: 1fr;
-    grid-row-gap: 2vw;
+    grid-row-gap: 2vh;
   }
 
   @media screen and (min-width: 600px) {
     grid-template-columns: 1fr;
-    grid-row-gap: 2vw;
+    grid-row-gap: 2vh;
   }
 
   @media screen and (min-width: 1200px) {
@@ -83,8 +83,8 @@ export const IntlLink = styled(Link)`
 export const UList = styled.ul`
   list-style: none;
   color: var(--primary-color);
-  letter-spacing: calc(var(--p-letter-spacing) * 1.1);
-  font-size: calc(var(--p-font-size) * 1);
+  letter-spacing: var(--p-letter-spacing);
+  font-size: var(--p-font-size);
   line-height: 3rem;
   margin: 0;
   padding: 0;
@@ -94,6 +94,10 @@ export const UList = styled.ul`
     letter-spacing: normal;
     text-transform: none;
     font-size: calc(var(--p-font-size) * 0.9);
+  }
+
+  @media screen and (max-width: 599px) {
+    letter-spacing: normal;
   }
 `;
 

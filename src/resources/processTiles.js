@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 import { themeColors } from "../resources/theme.js";
 
 export const ProcessAnalysisTile = ({ intl, hoverState }) => (
-  <svg width="210" height="141" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="210"
+    height="141"
+    xmlns="http://www.w3.org/2000/svg"
+    transform="scale(0.9)"
+  >
     {hoverState ? (
       <g fill="none" fillRule="evenodd">
         <path
@@ -49,7 +54,12 @@ ProcessAnalysisTile.propTypes = {
 };
 
 export const ProcessDiscoveryTile = ({ intl, hoverState }) => (
-  <svg width="210" height="141" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="210"
+    height="141"
+    xmlns="http://www.w3.org/2000/svg"
+    transform="scale(0.9)"
+  >
     {hoverState ? (
       <g fill="none" fillRrule="evenodd">
         <path
@@ -95,7 +105,12 @@ ProcessDiscoveryTile.propTypes = {
 };
 
 export const ProcessEngagementTile = ({ intl, hoverState }) => (
-  <svg width="210" height="141" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="210"
+    height="141"
+    xmlns="http://www.w3.org/2000/svg"
+    transform="scale(0.9)"
+  >
     {hoverState ? (
       <g fill={themeColors.secondary} fillRule="evenodd">
         <path

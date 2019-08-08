@@ -4,18 +4,13 @@ import PropTypes from "prop-types";
 import { themeColors } from "../resources/theme.js";
 
 export const TechLeftArrow = ({ hoverState }) => (
-  <svg
-    width="75"
-    height="50"
-    xmlns="http://www.w3.org/2000/svg"
-    transform="scale(0.9)"
-  >
+  <svg width="75" height="50" xmlns="http://www.w3.org/2000/svg">
     <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
         d="M.5.5V30C.5 40.77 9.23 49.5 20 49.5h54.5V20C74.5 9.23 65.77.5 55 .5H.5z"
-        stroke="#8B8B8D"
+        stroke={themeColors.primary}
       />
-      <g stroke="#979797" strokeLinecap="square" strokeWidth="4">
+      <g stroke={themeColors.primary} strokeLinecap="square" strokeWidth="4">
         <path d="M54.024 35.524L21.047 23.7M21.047 23.7l32.977-8.974" />
       </g>
     </g>
@@ -27,18 +22,13 @@ TechLeftArrow.propTypes = {
 };
 
 export const TechRightArrow = ({ hoverState }) => (
-  <svg
-    width="75"
-    height="50"
-    xmlns="http://www.w3.org/2000/svg"
-    transform="scale(0.9)"
-  >
+  <svg width="75" height="50" xmlns="http://www.w3.org/2000/svg">
     <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
         d="M.5.5V30C.5 40.77 9.23 49.5 20 49.5h54.5V20C74.5 9.23 65.77.5 55 .5H.5z"
-        stroke="#8B8B8D"
+        stroke={themeColors.primary}
       />
-      <g stroke="#979797" strokeLinecap="square" strokeWidth="4">
+      <g stroke={themeColors.primary} strokeLinecap="square" strokeWidth="4">
         <path d="M20.976 14.726l32.977 11.823M53.953 26.55l-32.977 8.974" />
       </g>
     </g>
@@ -50,18 +40,13 @@ TechRightArrow.propTypes = {
 };
 
 export const TechClose = ({ hoverState }) => (
-  <svg
-    width="75"
-    height="50"
-    xmlns="http://www.w3.org/2000/svg"
-    transform="scale(0.9)"
-  >
+  <svg width="75" height="50" xmlns="http://www.w3.org/2000/svg">
     <g fill={hoverState ? themeColors.ternary : "none"} fillRule="evenodd">
       <path
         d="M.5.5V30C.5 40.77 9.23 49.5 20 49.5h54.5V20C74.5 9.23 65.77.5 55 .5H.5z"
-        stroke="#8B8B8D"
+        stroke={themeColors.primary}
       />
-      <g stroke="#979797" strokeLinecap="square" strokeWidth="4">
+      <g stroke={themeColors.primary} strokeLinecap="square" strokeWidth="4">
         <path d="M53.953 14.726L20.91 34.32M20.976 14.726l32.977 20.798" />
       </g>
     </g>
@@ -86,7 +71,7 @@ export const TechFinanceTile = ({ intl, hoverState, selectState }) => (
     >
       <path
         d="M.5.5V218c0 10.77 8.73 19.5 19.5 19.5h217.5V20C237.5 9.23 228.77.5 218 .5H.5z"
-        stroke="#8B8B8D"
+        stroke={themeColors.primary}
       />
       <g
         fill={
@@ -160,7 +145,7 @@ export const TechAIMLTile = ({ intl, hoverState, selectState }) => (
     >
       <path
         d="M.5.5V218c0 10.77 8.73 19.5 19.5 19.5h217.5V20C237.5 9.23 228.77.5 218 .5H.5z"
-        stroke="#8B8B8D"
+        stroke={themeColors.primary}
       />
       <g
         fill={
@@ -233,7 +218,7 @@ export const TechImagingTile = ({ intl, hoverState, selectState }) => (
     >
       <path
         d="M.5.5V218c0 10.77 8.73 19.5 19.5 19.5h217.5V20C237.5 9.23 228.77.5 218 .5H.5z"
-        stroke="#8B8B8D"
+        stroke={themeColors.primary}
       />
       <g
         fill={
@@ -307,7 +292,7 @@ export const TechEnterpriseTile = ({ intl, hoverState, selectState }) => (
     >
       <path
         d="M.5.5V218c0 10.77 8.73 19.5 19.5 19.5h217.5V20C237.5 9.23 228.77.5 218 .5H.5z"
-        stroke="#8B8B8D"
+        stroke={themeColors.primary}
       />
       <g
         fill={

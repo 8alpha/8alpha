@@ -11,8 +11,16 @@ const ListBox = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: baseline;
+
+  @media screen and (min-width: 600px) {
+    width: 80%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 const Industries = ({ intl }) => {
@@ -25,12 +33,12 @@ const Industries = ({ intl }) => {
     "industriesListFilm",
     "industriesListGames",
     "industriesListInsurance",
-    "industriesListLaw",
-    "industriesListLogistics",
-    "industriesListManufacturing",
   ];
 
   const industryList2 = [
+    "industriesListLaw",
+    "industriesListLogistics",
+    "industriesListManufacturing",
     "industriesListMediaEntertainment",
     "industriesListProperty",
     "industriesListTransportation",

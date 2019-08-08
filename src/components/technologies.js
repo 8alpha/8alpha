@@ -154,11 +154,11 @@ const Technologies = ({ intl }) => {
     setCtlHoverState({ ...defaultCtlHoverStates, ...defaultCtlHoverStates });
   };
 
-  const findSelectedTileIndex = () => {
+  function findSelectedTileIndex() {
     return Object.entries(tileSelectStates).findIndex(
       ([, value]) => value === true
     );
-  };
+  }
 
   const previous = event => {
     event.preventDefault();

@@ -24,6 +24,11 @@ const ProcessCard = styled.div`
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-start;
+
+  @media screen and (max-width: 599px) {
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `;
 
 const ProcessText = styled.div`
